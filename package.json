@@ -1,0 +1,39 @@
+{
+  "name": "paperGen",
+  "version": "0.0.1",
+  "description": "Building website with pugjs and paper.css",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toolbuddy/paperGen.git"
+  },
+  "keywords": [
+    "docogen",
+    "website generator"
+  ],
+  "author": "Kevin Cyu (https://kevinbird61.github.io/Intro/)",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/toolbuddy/paperGen/issues"
+  },
+  "dependencies": {
+    "filehound": "^1.16.2",
+    "fs-extra": "^5.0.0",
+    "pug": "^2.0.0-rc.4",
+    "chalk": "^2.3.0",
+    "commander": "^2.12.2",
+    "mkdirp": "^0.5.1"
+  },
+  "homepage": "https://github.com/toolbuddy/paperGen#readme",
+  "devDependencies": {
+    "filehound": "^1.16.2",
+    "fs-extra": "^5.0.0",
+    "pug": "^2.0.0-rc.4",
+    "chalk": "^2.3.0",
+    "commander": "^2.12.2",
+    "mkdirp": "^0.5.1"
+  }
+}

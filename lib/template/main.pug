@@ -1,0 +1,21 @@
+doctype html
+html
+    head
+        meta(charset="utf-8")/
+        meta(name="viewport" content="width=device-width, initial-scale=1")/
+        title #{title}
+        link(rel="stylesheet" href="./asset/paper.min.css")/
+        link(rel="stylesheet" href="./asset/main.css")/
+    body
+        div.container
+            div.paper
+                div(id="top" class="demo-title")
+                    div.row.flex-center
+                        div.text-center 
+                            h1 #{title}
+                div(class="row flex-spaces tabs")
+                    each i in namelist
+                        input(id=i.split('.')[0],type='radio',name='tabs')/
+                        |
+                        |
+                        label(for=i.split('.')[0]) #{i.split('.')[0]}
