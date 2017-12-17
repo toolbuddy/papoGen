@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 var program = require('commander');
 var pug = require('pug');
 var path = require('path');
@@ -11,16 +13,16 @@ program
 .option('-h, --help', 'Helper manual')
 .option('-s, --src [dir]', 'Input Directory [dir]', __dirname)
 .option('-o, --out [dir]', 'Output Directory [dir]', __dirname)
-.option('-t, --title [name]', 'Specify the title name [name]', 'Power by paperGen')
+.option('-t, --title [name]', 'Specify the title name [name]', 'Power by papoGen')
 .parse(process.argv);
 
 console.log('Welcome using toolbuddy@paperGen!');
 if(!program.help){
     console.log(
-        chalk.red('Usage: paperui -s[--src] <src_path> -o[--out] <out_path> -h[--help]\n'),
+        chalk.red('Usage: papogen -s[--src] <src_path> -o[--out] <out_path> -h[--help]\n'),
         chalk.red('    -s[--src] : specify the source files directory(using multiple configure files)\n'),
         chalk.red('    -o[--out] : specify the output destination directory(will generate website for u!)\n'),
-        chalk.red('    -h : list out usage of paperUI\n'),
+        chalk.red('    -h : list out usage of papoGen\n'),
     );
 }
 console.log(chalk.blue('   - src is %s', program.src));

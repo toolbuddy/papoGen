@@ -1,4 +1,4 @@
-# paperGen
+# papoGen
 Using paper.css and pug.js to generate.
 
 # workflow
@@ -7,10 +7,18 @@ Using paper.css and pug.js to generate.
 
 # usage
 
+* Install 
+```
+» [sudo] npm install papogen -g
+```
+
 ## json
 * Example command:
-```
-» node main.js -s test/ -o docs/ -t paperGen
+```bash
+# Use directly (from source code)
+» node main.js -s test/ -o docs/ -t papoGen
+# By install 
+» papogen -s test/ -o docs/ -t papoGen
 ```
 * Using `json` as configuration.
 * After specify the `src` directory, paperUI will fetch all .json under `src`, and using each *filename* to be as "tag" in output.

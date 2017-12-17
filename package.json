@@ -1,33 +1,35 @@
 {
-  "name": "paperGen",
+  "name": "papoGen",
   "version": "0.0.1",
   "description": "Building website with pugjs and paper.css",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "sudo npm link"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/toolbuddy/paperGen.git"
+    "url": "git+https://github.com/toolbuddy/papoGen.git"
   },
   "keywords": [
-    "docogen",
+    "papercss",
+    "papogen",
     "website generator"
   ],
   "author": "Kevin Cyu (https://kevinbird61.github.io/Intro/)",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/toolbuddy/paperGen/issues"
+    "url": "https://github.com/toolbuddy/papoGen/issues"
   },
   "dependencies": {
-    "filehound": "^1.16.2",
-    "fs-extra": "^5.0.0",
-    "pug": "^2.0.0-rc.4",
     "chalk": "^2.3.0",
     "commander": "^2.12.2",
+    "filehound": "^1.16.2",
+    "fs-extra": "^5.0.0",
+    "jsonfile": "^4.0.0",
     "mkdirp": "^0.5.1",
     "moment": "^2.20.0",
-    "jsonfile": "^4.0.0"
+    "pug": "^2.0.0-rc.4"
   },
   "homepage": "https://github.com/toolbuddy/paperGen#readme",
   "devDependencies": {
@@ -39,5 +41,8 @@
     "mkdirp": "^0.5.1",
     "moment": "^2.20.0",
     "jsonfile": "^4.0.0"
+  },
+  "bin": {
+    "papogen": "main.js"
   }
 }
