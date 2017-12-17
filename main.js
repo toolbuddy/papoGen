@@ -16,7 +16,7 @@ program
 .option('-t, --title [name]', 'Specify the title name [name]', 'Power by papoGen')
 .parse(process.argv);
 
-console.log('Welcome using toolbuddy@paperGen!');
+console.log('Welcome using toolbuddy@papoGen!');
 if(!program.help){
     console.log(
         chalk.red('Usage: papogen -s[--src] <src_path> -o[--out] <out_path> -h[--help]\n'),
