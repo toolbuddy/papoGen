@@ -13,9 +13,27 @@ html
                     div.row.flex-center
                         div.text-center 
                             h1 #{title}
-                div(class="row flex-spaces tabs")
-                    each i in namelist
-                        input(id=i.split('.')[0],type='radio',name='tabs')/
+                div.section
+                    div(class="flex-spaces tabs")
+                        - for(var index =1; index<=namelist.length;index++)
+                            |
+                            |
+                            input(id="tab"+index,type='radio',name='tabs',checked)/
+                            |
+                            |
+                            label(for="tab"+index) #{namelist[index-1].filename.split('.')[0]}
+                            |
+                            |
                         |
                         |
-                        label(for=i.split('.')[0]) #{i.split('.')[0]}
+                        - for(var index =1; index<=namelist.length;index++)
+                            div(class="content",id="content"+index)
+                                article.article 
+                                    h1(class="article-title") #{namelist[index-1].article}
+                                    p(class="article-meta") Latest update in #{moment().format('LLLL')}
+                                    - for(var i =0;i< (namelist[index-1].article_content!=undefined?namelist[index-1].article_content.length:0) ;i++)
+                                        p(class="text-lead")  #{namelist[index-1].article_content[i].title}
+                                        - for(var c =0;c<namelist[index-1].article_content[i].content.length;c++)
+                                            p #{namelist[index-1].article_content[i].content[c]}
+                            |
+                            |

@@ -25,7 +25,9 @@
     "pug": "^2.0.0-rc.4",
     "chalk": "^2.3.0",
     "commander": "^2.12.2",
-    "mkdirp": "^0.5.1"
+    "mkdirp": "^0.5.1",
+    "moment": "^2.20.0",
+    "jsonfile": "^4.0.0"
   },
   "homepage": "https://github.com/toolbuddy/paperGen#readme",
   "devDependencies": {
@@ -34,6 +36,8 @@
     "pug": "^2.0.0-rc.4",
     "chalk": "^2.3.0",
     "commander": "^2.12.2",
-    "mkdirp": "^0.5.1"
+    "mkdirp": "^0.5.1",
+    "moment": "^2.20.0",
+    "jsonfile": "^4.0.0"
   }
 }
