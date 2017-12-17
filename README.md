@@ -10,9 +10,9 @@ Using paper.css and pug.js to generate.
 ## json
 * Example command:
 ```
-» node main.js -s test/ -o dest/ -t KevinBird   
+» node main.js -s test/ -o docs/ -t paperGen
 ```
 * Using `json` as configuration.
 * After specify the `src` directory, paperUI will fetch all .json under `src`, and using each *filename* to be as "tag" in output.
 * And then will base on specified format to generate content (see more detail below)
-    * Currently support: `text` (see the source dir: `test/` as input, and destination dir: `dest/` as output)
+    * Currently support: `text` (see the source dir: `test/` as input, and destination dir: `docs/` as output)
