@@ -34,7 +34,9 @@ html
                                     - for(var i =0;i< (namelist[index-1].article_content!=undefined?namelist[index-1].article_content.length:0) ;i++)
                                         p(class="text-lead")  #{namelist[index-1].article_content[i].title}
                                         - for(var c =0;c<namelist[index-1].article_content[i].content.length;c++)
-                                            p #{namelist[index-1].article_content[i].content[c]}
+                                            - if(namelist[index-1].article_content[i].content[c].type == "text")
+                                                - for(var d =0;d<namelist[index-1].article_content[i].content[c].data.length;d++)
+                                                    p #{namelist[index-1].article_content[i].content[c].data[d]}
                             |
                             |
                 div(class="row flex-right")
