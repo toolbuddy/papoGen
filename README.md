@@ -8,9 +8,15 @@ Using paper.css and pug.js to generate.
 # usage
 
 * Install 
-```
+```bash
 » [sudo] npm install papogen -g
 ```
+
+* Help Manual (List out current support)
+```bash
+~/workspace » papogen -h
+```
+
 
 ## json
 * Example command:
