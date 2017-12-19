@@ -1,3 +1,11 @@
+// mixin
+mixin list(obj)
+    - for(var i=0;i<obj.length;i++)
+        li #{obj[i].name}
+        - if(obj[i].items != undefined)
+            ul 
+                +list(obj[i].items)
+// main
 doctype html
 html
     head
@@ -57,7 +65,9 @@ html
                                             - if(namelist[index-1].article_content[i].content[c].type == "formula")
                                                 - for(var d =0;d<namelist[index-1].article_content[i].content[c].data.length;d++)                                            
                                                     p #{namelist[index-1].article_content[i].content[c].data[d]}
-                            |
+                                            - if(namelist[index-1].article_content[i].content[c].type == "list")
+                                                +list(namelist[index-1].article_content[i].content[c].data)
+                            |               
                             |
                 div(class="row flex-right")
                     p Created by 

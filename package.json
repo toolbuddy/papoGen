@@ -30,7 +30,7 @@
     "moment": "^2.20.0",
     "pug": "^2.0.0-rc.4"
   },
-  "homepage": "https://github.com/toolbuddy/paperGen#readme",
+  "homepage": "https://github.com/toolbuddy/papoGen#readme",
   "devDependencies": {
     "filehound": "^1.16.2",
     "fs-extra": "^5.0.0",
