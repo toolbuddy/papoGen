@@ -96,3 +96,20 @@
     ...
 ]
 ```
+
+### Formula support
+* 數學式的支援，支援 `MathJax` 的格式
+
+```js
+[
+    ... (assume inside `content` array)
+    {
+        "type": "formula",
+        "data": [
+            "`x = (-b +- sqrt(b^2-4ac))/(2a) .`"
+        ]
+    },
+    ...
+]
+
+```
