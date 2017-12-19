@@ -9,11 +9,75 @@
 <label for="tab3">contact</label>
 
 <input id="tab4" type="radio" name="tabs" checked/>
-<label for="tab4">intro</label>
+<label for="tab4">example</label>
 
-<div class="content" id="content1"><article class="article"> <h1 class="article-title">About me</h1><p class="article-meta">Latest update in Tuesday, December 19, 2017 1:55 AM</p><p class="text-lead"> Kevin Cyu</p><p>NCKU Student,</p><p>Major in Networking/SDN/P4
+<input id="tab5" type="radio" name="tabs" checked/>
+<label for="tab5">intro</label>
+
+<div class="content" id="content1"><article class="article"> <h1 class="article-title">About me</h1><p class="article-meta">Latest update in Tuesday, December 19, 2017 11:01 AM</p><p class="text-lead"> Kevin Cyu</p><p>NCKU Student,</p><p>Major in Networking/SDN/P4
 </p></article></div>
-<div class="content" id="content2"><article class="article"> <h1 class="article-title">Abstract</h1><p class="article-meta">Latest update in Tuesday, December 19, 2017 1:55 AM</p><p class="text-lead"> Benefit of using papoGen</p><p>Beautiful, eligant way to build website for your document.</p><p>Less effort, you can just using json as configuration to generate.</p></article></div>
-<div class="content" id="content3"><article class="article"> <h1 class="article-title">Contact me</h1><p class="article-meta">Latest update in Tuesday, December 19, 2017 1:55 AM</p><p class="text-lead"> Email</p><p>kevinbird61@gmail.com</p><p class="text-lead"> Phone</p><p>+886-912345678</p></article></div>
-<div class="content" id="content4"><article class="article"> <h1 class="article-title">Introduction</h1><p class="article-meta">Latest update in Tuesday, December 19, 2017 1:55 AM</p><p class="text-lead"> Benefit of using papoGen</p><p>Beautiful, eligant way to build website for your document.</p><p>Less effort, you can just using json as configuration to generate.</p></article></div>
+<div class="content" id="content2"><article class="article"> <h1 class="article-title">Abstract</h1><p class="article-meta">Latest update in Tuesday, December 19, 2017 11:01 AM</p><p class="text-lead"> Benefit of using toolbuddy</p><p>The motto is: 'Make the world a better place.'</p><p>If you have the same enthusiasm, welcome to join us!</p><img src="./res/tb.png"/></article></div>
+<div class="content" id="content3"><article class="article"> <h1 class="article-title">Contact me</h1><p class="article-meta">Latest update in Tuesday, December 19, 2017 11:01 AM</p><p class="text-lead"> Email</p><p>kevinbird61@gmail.com</p><p class="text-lead"> Phone</p><p>+886-912345678</p></article></div>
+<div class="content" id="content4"><article class="article"> <h1 class="article-title">How to use?</h1><p class="article-meta">Latest update in Tuesday, December 19, 2017 11:01 AM</p><p class="text-lead"> Run in command line</p><pre>papogen -s test/ -o docs/ -t papoGen</pre><p class="text-lead"> Have a peek in source code!</p><pre>#! /usr/bin/env node
+
+var program = require('commander');
+var pug = require('pug');
+var path = require('path');
+var chalk = require('chalk');
+
+// module
+const compile_engine = require('./lib/compile_engine');
+
+program
+.version('0.0.1')
+.option('-h, --help', 'Helper manual')
+.option('-s, --src [dir]', 'Input Directory [dir]', __dirname)
+.option('-o, --out [dir]', 'Output Directory [dir]', __dirname)
+.option('-t, --title [name]', 'Specify the title name [name]', 'Power by papoGen')
+.option('-m, --model [name]', 'Specify the model/template of result [name] (Default will be `doc`)', 'doc')
+.parse(process.argv);
+
+console.log('\nWelcome using toolbuddy@papoGen!\n');
+if(!program.help){
+    console.log(
+        chalk.red('Usage: papogen -s[--src] &lt;src_path&gt; -o[--out] &lt;out_path&gt; -t[--title] &lt;title&gt; -h[--help]\n'),
+        chalk.red('    -s[--src] : specify the source files directory(using multiple configure files)\n'),
+        chalk.red('    -o[--out] : specify the output destination directory(will generate website for u!)\n'),
+        chalk.red('    -t[--title] : specify the title name of your website\n'),
+        chalk.red('    -m[--model] : specify the model/template of result\n'),
+        chalk.red('    -h : list out usage of papoGen\n'),
+        chalk.red('=====================================\n'),
+    );
+    console.log(
+        chalk.red('Usage/Detail of papoGen:\n'),
+        chalk.blue('    default value of each parameter:\n'),
+        chalk.red('        src: current working directory\n'),
+        chalk.red('        out: current working directory\n'),
+        chalk.red('        title: &quot;Powered by papoGen&quot;\n'),
+        chalk.red('        model: &quot;doc&quot;\n'),
+        chalk.red('=====================================\n'),
+        chalk.red('If specified &quot;-h&quot; in command, then program will only list out usage, without any generation.\n'),
+    );
+    return;
+}
+else{
+    console.log(chalk.blue('   - src is %s', program.src));
+    console.log(chalk.blue('   - out is %s', program.out));
+    console.log(chalk.green('   - title is %s', program.title));
+    console.log(chalk.green('   - model is %s', program.model));
+    console.log('\n');
+    // Get all the .json with specify src
+    switch(program.model){
+        case 'doc':
+            compile_engine.gen_doc(
+                path.resolve(__dirname,program.src),
+                program.title,
+                path.resolve(__dirname,program.out)
+            );   
+        break;
+        default:
+            console.log(chalk.red(`[Error] Model specification &quot;${program.model}&quot; not found`));
+    }
+}</pre></article></div>
+<div class="content" id="content5"><article class="article"> <h1 class="article-title">Introduction</h1><p class="article-meta">Latest update in Tuesday, December 19, 2017 11:01 AM</p><p class="text-lead"> Benefit of using papoGen</p><p>Beautiful, eligant way to build website for your document.</p><p>Less effort, you can just using json as configuration to generate.</p></article></div>
 </div></div><div class="row flex-right"><p>Created by <span class="badge secondary">@ToolBuddy/@papercss</span></p></div></div></div></body></html>

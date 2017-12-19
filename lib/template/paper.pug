@@ -37,6 +37,12 @@ html
                                             - if(namelist[index-1].article_content[i].content[c].type == "text")
                                                 - for(var d =0;d<namelist[index-1].article_content[i].content[c].data.length;d++)
                                                     p #{namelist[index-1].article_content[i].content[c].data[d]}
+                                            - if(namelist[index-1].article_content[i].content[c].type == "image")
+                                                - for(var d =0;d<namelist[index-1].article_content[i].content[c].data.length;d++)
+                                                    img(src=namelist[index-1].article_content[i].content[c].data[d].url)/
+                                            - if(namelist[index-1].article_content[i].content[c].type == "code")
+                                                - for(var d =0;d<namelist[index-1].article_content[i].content[c].data.length;d++)
+                                                    pre #{namelist[index-1].article_content[i].content[c].data[d].raw}
                             |
                             |
                 div(class="row flex-right")

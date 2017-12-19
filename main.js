@@ -50,7 +50,7 @@ else{
     switch(program.model){
         case 'doc':
             compile_engine.gen_doc(
-                program.src,
+                path.resolve(__dirname,program.src),
                 program.title,
                 path.resolve(__dirname,program.out)
             );   

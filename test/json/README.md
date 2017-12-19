@@ -39,7 +39,7 @@
 ### Normal Article
 * 為一般文字支援
 * 每個 `data` 裡頭的 element 都會自成獨立的一行
-```
+```js
 [
     ... (assume inside `content` array)
     {
@@ -53,3 +53,46 @@
 ]
 ```
 
+### Image support 
+* 為圖片支援
+* 來源位置是為跟該 json 檔案的相對位置
+
+```js
+[
+    ... (assume inside `content` array)
+    {
+        "type": "image",
+        "data": [ 
+            {
+                "url": "../path/to/your/img or http://....",
+                "size": 300 // px
+            }
+        ]
+    },
+    ...
+]
+```
+
+### Code support
+* 為原始碼支援，支援兩種來源
+    * `url`: 透過檔案的方式做引入
+    * `raw`: 可以直接輸入程式碼
+* 來源位置是為跟該 json 檔案的相對位置
+
+```js
+[
+    ... (assume inside `content` array)
+    {
+        "type": "code",
+        "data": [ 
+            {
+                "url": "../path/to/your/code"
+            },
+            {
+                "raw": "const var = require('meme')"
+            }
+        ]
+    },
+    ...
+]
+```

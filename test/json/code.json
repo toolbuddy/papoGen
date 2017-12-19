@@ -1,0 +1,31 @@
+{
+    "article":"How to use?",
+    "article_content":[
+        {
+            "title": "Run in command line",
+            "content": [
+                {
+                    "type": "code",
+                    "data":[
+                        {
+                            "raw": "papogen -s test/ -o docs/ -t papoGen"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Have a peek in source code!",
+            "content": [
+                {
+                    "type": "code",
+                    "data": [
+                        {
+                            "url": "../../main.js"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
