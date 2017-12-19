@@ -17,10 +17,10 @@
 <input id="tab6" type="radio" name="tabs"/>
 <label for="tab6">input support</label>
 
-<div class="content" id="content1"><article class="article"> <h1 class="article-title">About me</h1><p class="article-meta">Latest update in Tuesday, December 19, 2017 1:11 PM</p><p class="text-lead"> Kevin Cyu</p><p>NCKU Student,</p><p>Major in Networking/SDN/P4
-</p></article></div>              
-<div class="content" id="content2"><article class="article"> <h1 class="article-title">Abstract</h1><p class="article-meta">Latest update in Tuesday, December 19, 2017 1:11 PM</p><p class="text-lead"> Benefit of using toolbuddy</p><p>The motto is: 'Make the world a better place.'</p><p>If you have the same enthusiasm, welcome to join us!</p><img src="./res/tb.png"/><p class="text-lead"> Benefit of using papoGen</p><p>Beautiful, eligant way to build website for your document.</p><p>Less effort, you can just using json as configuration to generate.</p></article></div>              
-<div class="content" id="content3"><article class="article"> <h1 class="article-title">How to use?</h1><p class="article-meta">Latest update in Tuesday, December 19, 2017 1:11 PM</p><p class="text-lead"> Run in command line</p><pre><code class="bash">papogen -s test/ -o docs/ -t papoGen</code></pre><p class="text-lead"> Have a peek in source code!</p><pre><code class="javascript">#! /usr/bin/env node
+<div class="content" id="content1"><article class="article"> <h1 class="article-title">About me</h1><p class="article-meta">Latest update in Tuesday, December 19, 2017 4:16 PM</p><p class="text-lead"> Kevin Cyu</p><p>NCKU Student,</p><p>Major in Networking/SDN/P4
+</p><br/><br/><hr/></article></div>              
+<div class="content" id="content2"><article class="article"> <h1 class="article-title">Abstract</h1><p class="article-meta">Latest update in Tuesday, December 19, 2017 4:16 PM</p><p class="text-lead"> Benefit of using toolbuddy</p><p>The motto is: 'Make the world a better place.'</p><p>If you have the same enthusiasm, welcome to join us!</p><div class="row flex-center"><img src="./res/tb.png"/></div><br/><br/><hr/><p class="text-lead"> Benefit of using papoGen</p><p>Beautiful, eligant way to build website for your document.</p><p>Less effort, you can just using json as configuration to generate.</p><br/><br/><hr/></article></div>              
+<div class="content" id="content3"><article class="article"> <h1 class="article-title">How to use?</h1><p class="article-meta">Latest update in Tuesday, December 19, 2017 4:16 PM</p><p class="text-lead"> Installation</p><p>You can download it from 'npm', or just clone from source code and use it directly.</p><pre><code class="bash">npm install papogen -g</code></pre><br/><br/><hr/><p class="text-lead"> Run in command line</p><p>papoGen is a cli tool, you can just run the command below to generate!</p><pre><code class="bash">papogen -s test/ -o docs/ -t papoGen</code></pre><br/><br/><hr/><p class="text-lead"> Have a peek in source code!</p><pre><code class="javascript">#! /usr/bin/env node
 
 var program = require('commander');
 var pug = require('pug');
@@ -29,6 +29,7 @@ var chalk = require('chalk');
 
 // module
 const compile_engine = require('./lib/compile_engine');
+const template_api = require('./lib/template');
 
 program
 .version('0.0.1')
@@ -36,16 +37,18 @@ program
 .option('-s, --src [dir]', 'Input Directory [dir]', __dirname)
 .option('-o, --out [dir]', 'Output Directory [dir]', __dirname)
 .option('-t, --title [name]', 'Specify the title name [name]', 'Power by papoGen')
+.option('-g, --gen [type]', 'Specify the generating mechanism [type]', 'json')
 .option('-m, --model [name]', 'Specify the model/template of result [name] (Default will be `doc`)', 'doc')
 .parse(process.argv);
 
 console.log('\nWelcome using toolbuddy@papoGen!\n');
 if(!program.help){
     console.log(
-        chalk.red('Usage: papogen -s[--src] &lt;src_path&gt; -o[--out] &lt;out_path&gt; -t[--title] &lt;title&gt; -h[--help]\n'),
+        chalk.red('Usage: papogen -s[--src] &lt;src_path&gt; -o[--out] &lt;out_path&gt; -t[--title] &lt;title&gt; -g[--gen] &lt;type&gt; -m[--model] &lt;name&gt; -h[--help]\n'),
         chalk.red('    -s[--src] : specify the source files directory(using multiple configure files)\n'),
         chalk.red('    -o[--out] : specify the output destination directory(will generate website for u!)\n'),
         chalk.red('    -t[--title] : specify the title name of your website\n'),
+        chalk.red('    -g[--gen] : specify the generating mechanism of result, user can pick from several types. default value is &quot;json&quot;\n'),
         chalk.red('    -m[--model] : specify the model/template of result\n'),
         chalk.red('    -h : list out usage of papoGen\n'),
         chalk.red('=====================================\n'),
@@ -56,16 +59,23 @@ if(!program.help){
         chalk.red('        src: current working directory\n'),
         chalk.red('        out: current working directory\n'),
         chalk.red('        title: &quot;Powered by papoGen&quot;\n'),
+        chalk.red('        gen: &quot;json&quot;\n'),
         chalk.red('        model: &quot;doc&quot;\n'),
         chalk.red('=====================================\n'),
         chalk.red('If specified &quot;-h&quot; in command, then program will only list out usage, without any generation.\n'),
     );
+    console.log(
+        chalk.red('List all template support by papoGen:')
+    );
+    template_api.list();
+
     return;
 }
 else{
     console.log(chalk.blue('   - src is %s', program.src));
     console.log(chalk.blue('   - out is %s', program.out));
     console.log(chalk.green('   - title is %s', program.title));
+    console.log(chalk.green('   - gen is %s', program.gen));
     console.log(chalk.green('   - model is %s', program.model));
     console.log('\n');
     // Get all the .json with specify src
@@ -74,14 +84,15 @@ else{
             compile_engine.gen_doc(
                 path.resolve(__dirname,program.src),
                 program.title,
-                path.resolve(__dirname,program.out)
+                path.resolve(__dirname,program.out),
+                program.gen
             );   
         break;
         default:
             console.log(chalk.red(`[Error] Model specification &quot;${program.model}&quot; not found`));
     }
-}</code></pre></article></div>              
-<div class="content" id="content4"><article class="article"> <h1 class="article-title">Contact me</h1><p class="article-meta">Latest update in Tuesday, December 19, 2017 1:11 PM</p><p class="text-lead"> Email</p><p>kevinbird61@gmail.com</p><p class="text-lead"> Phone</p><p>+886-912345678</p></article></div>              
-<div class="content" id="content5"><article class="article"> <h1 class="article-title">MathJax Usage</h1><p class="article-meta">Latest update in Tuesday, December 19, 2017 1:11 PM</p><p class="text-lead"> Inline mathematic</p><p>`x = (-b +- sqrt(b^2-4ac))/(2a) .`</p></article></div>              
-<div class="content" id="content6"><article class="article"> <h1 class="article-title">List all the input type we support</h1><p class="article-meta">Latest update in Tuesday, December 19, 2017 1:11 PM</p><p class="text-lead"> Json</p><li>normal text</li><li>image</li><ul> <li>Just specified the image file under your computer.</li><ul> <li>Or just specified through 'http://...', resources on internet.</li></ul><li>And papoGen will fetch that file and resolve into output for you!</li></ul><li>formula</li><ul> <li>MathJax format</li><li>As a good tool to build math tutorial!</li></ul><li>code</li><li>list</li></article></div>              
+}</code></pre><br/><br/><hr/></article></div>              
+<div class="content" id="content4"><article class="article"> <h1 class="article-title">Contact me</h1><p class="article-meta">Latest update in Tuesday, December 19, 2017 4:16 PM</p><p class="text-lead"> Email</p><p>kevinbird61@gmail.com</p><br/><br/><hr/><p class="text-lead"> Phone</p><p>+886-912345678</p><br/><br/><hr/></article></div>              
+<div class="content" id="content5"><article class="article"> <h1 class="article-title">MathJax Usage</h1><p class="article-meta">Latest update in Tuesday, December 19, 2017 4:16 PM</p><p class="text-lead"> Inline mathematic</p><p>`x = (-b +- sqrt(b^2-4ac))/(2a) .`</p><br/><br/><hr/></article></div>              
+<div class="content" id="content6"><article class="article"> <h1 class="article-title">List all the input type we support</h1><p class="article-meta">Latest update in Tuesday, December 19, 2017 4:16 PM</p><p class="text-lead"> Json</p><li>normal text</li><li>image</li><ul> <li>Just specified the image file under your computer.</li><ul> <li>Or just specified through 'http://...', resources on internet.</li></ul><li>And papoGen will fetch that file and resolve into output for you!</li></ul><li>formula</li><ul> <li>MathJax format</li><li>As a good tool to build math tutorial!</li></ul><li>code</li><li>list</li><br/><br/><hr/></article></div>              
 </div></div><div class="row flex-right"><p>Created by <span class="badge secondary">@ToolBuddy/@papercss</span></p></div></div></div></body></html>
