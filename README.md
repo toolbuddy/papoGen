@@ -1,4 +1,7 @@
+![](./design/badge.png)
+
 # papoGen
+
 Using paper.css and pug.js to generate.
 
 # workflow
