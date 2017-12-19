@@ -8,6 +8,9 @@ html
         link(rel="stylesheet" href="./asset/paper.min.css")/
         link(rel="stylesheet" href="./asset/monokai.css")/
         link(rel="stylesheet" href="./asset/main.css")/
+        - for(var i=6;i<=(namelist.length);i++)
+            style .tabs input[id=tab#{i}]:checked~div[id=content#{i}]{display:block}
+        script(type="text/javascript",src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML",async)
         script(src="./asset/highlight.min.js")
         script hljs.initHighlightingOnLoad();
     body
@@ -22,7 +25,10 @@ html
                         - for(var index =1; index<=namelist.length;index++)
                             |
                             |
-                            input(id="tab"+index,type='radio',name='tabs',checked)/
+                            - if(index == 1)
+                                input(id="tab"+index,type='radio',name='tabs' checked)/
+                            - else 
+                                input(id="tab"+index,type='radio',name='tabs')/
                             |
                             |
                             label(for="tab"+index) #{namelist[index-1].filename.split('.')[0]}
@@ -47,7 +53,10 @@ html
                                             - if(namelist[index-1].article_content[i].content[c].type == "code")
                                                 - for(var d =0;d<namelist[index-1].article_content[i].content[c].data.length;d++)
                                                     pre
-                                                        code(style="agate",class=namelist[index-1].article_content[i].content[c].data[d].lang) #{namelist[index-1].article_content[i].content[c].data[d].raw}
+                                                        code(class=namelist[index-1].article_content[i].content[c].data[d].lang) #{namelist[index-1].article_content[i].content[c].data[d].raw}
+                                            - if(namelist[index-1].article_content[i].content[c].type == "formula")
+                                                - for(var d =0;d<namelist[index-1].article_content[i].content[c].data.length;d++)                                            
+                                                    p #{namelist[index-1].article_content[i].content[c].data[d]}
                             |
                             |
                 div(class="row flex-right")

@@ -21,6 +21,18 @@
                     ]
                 }
             ]
+        },
+        {
+            "title":"Benefit of using papoGen",
+            "content": [
+                {
+                    "type": "text",
+                    "data": [
+                        "Beautiful, eligant way to build website for your document.",
+                        "Less effort, you can just using json as configuration to generate."
+                    ]
+                }
+            ]
         }
     ]
 }
