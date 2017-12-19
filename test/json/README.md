@@ -53,6 +53,33 @@
 ]
 ```
 
+### HyperLinks
+* 為超連結支援
+* 可與一般文字混用
+    * 注意在這個型態使用底下時，換行字元`要自行加在要換行`的字串後面！
+    * 容許超連結與文章混合
+```js
+[
+    ... (assume inside `content` array)
+    {
+        "type": "hyper",
+        "data": [ 
+            {
+                "text": [
+                    "sentence1","sentence2",...
+                ]
+            },
+            {
+                "hyper":[
+                    { "text": "display text", "link":"<url>" } ...
+                ]
+            }
+        ]
+    },
+    ...
+]
+```
+
 ### Image support 
 * 為圖片支援
 * 來源位置是為跟該 json 檔案的相對位置
@@ -112,4 +139,34 @@
     ...
 ]
 
+```
+
+### Table support 
+* 表格的支援
+    * 每個 `data` 內的元素，都是一條獨立的 column
+    * 而各自都 `items` 的 json array 來裝屬於該 column 的 elements
+* 注意！ 每個 `items` 內的欄位數目要相同！否則會有 undefined behavior 發生！
+
+```js
+{
+    ... (assume inside `content` array)
+    {
+        "type": "table",
+        "data": [
+            {
+                "name": "column title 1",
+                "items": [
+                    "var1", "var2" ,...
+                ]
+            },
+            {
+                "name": "column title 2",
+                "items": [
+                    "var1-attr", "var2-attr" ,...
+                ]
+            }
+        ]
+    },
+    ...
+}
 ```

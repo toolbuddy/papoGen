@@ -1,0 +1,51 @@
+{
+    "article": "Hyperlink usage",
+    "article_content":[
+        {
+            "title": "papoGen",
+            "content": [
+                {
+                    "type": "hyper",
+                    "data": [
+                        {
+                            "text": [
+                                "papoGen source code: "
+                            ]
+                        },
+                        {
+                            "hyper": [
+                                {
+                                    "text": "Github",
+                                    "link": "https://github.com/toolbuddy/papoGen"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "papoGen Author",
+            "content": [
+                {
+                    "type": "hyper",
+                    "data": [
+                        {
+                            "text": [
+                                "Personal Website: "
+                            ]
+                        },
+                        {
+                            "hyper": [
+                                {
+                                    "text": "link",
+                                    "link": "https://kevinbird61.github.io/Intro/"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
