@@ -4,8 +4,12 @@ html
         meta(charset="utf-8")/
         meta(name="viewport" content="width=device-width, initial-scale=1")/
         title #{title}
+        link(rel="stylesheet" href="./asset/highlight.min.css")/
         link(rel="stylesheet" href="./asset/paper.min.css")/
+        link(rel="stylesheet" href="./asset/monokai.css")/
         link(rel="stylesheet" href="./asset/main.css")/
+        script(src="./asset/highlight.min.js")
+        script hljs.initHighlightingOnLoad();
     body
         div.container
             div.paper
@@ -42,7 +46,8 @@ html
                                                     img(src=namelist[index-1].article_content[i].content[c].data[d].url)/
                                             - if(namelist[index-1].article_content[i].content[c].type == "code")
                                                 - for(var d =0;d<namelist[index-1].article_content[i].content[c].data.length;d++)
-                                                    pre #{namelist[index-1].article_content[i].content[c].data[d].raw}
+                                                    pre
+                                                        code(style="agate",class=namelist[index-1].article_content[i].content[c].data[d].lang) #{namelist[index-1].article_content[i].content[c].data[d].raw}
                             |
                             |
                 div(class="row flex-right")

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>papoGen</title><link rel="stylesheet" href="./asset/paper.min.css"/><link rel="stylesheet" href="./asset/main.css"/></head><body><div class="container"><div class="paper"><div class="demo-title" id="top"><div class="row flex-center"><div class="text-center"> <h1>papoGen</h1></div></div></div><div class="section"><div class="flex-spaces tabs">
+<!DOCTYPE html><html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>papoGen</title><link rel="stylesheet" href="./asset/highlight.min.css"/><link rel="stylesheet" href="./asset/paper.min.css"/><link rel="stylesheet" href="./asset/monokai.css"/><link rel="stylesheet" href="./asset/main.css"/><script src="./asset/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body><div class="container"><div class="paper"><div class="demo-title" id="top"><div class="row flex-center"><div class="text-center"> <h1>papoGen</h1></div></div></div><div class="section"><div class="flex-spaces tabs">
 <input id="tab1" type="radio" name="tabs" checked/>
 <label for="tab1">about me</label>
 
@@ -6,19 +6,18 @@
 <label for="tab2">abstract</label>
 
 <input id="tab3" type="radio" name="tabs" checked/>
-<label for="tab3">contact</label>
+<label for="tab3">code</label>
 
 <input id="tab4" type="radio" name="tabs" checked/>
-<label for="tab4">example</label>
+<label for="tab4">contact</label>
 
 <input id="tab5" type="radio" name="tabs" checked/>
 <label for="tab5">intro</label>
 
-<div class="content" id="content1"><article class="article"> <h1 class="article-title">About me</h1><p class="article-meta">Latest update in Tuesday, December 19, 2017 11:01 AM</p><p class="text-lead"> Kevin Cyu</p><p>NCKU Student,</p><p>Major in Networking/SDN/P4
+<div class="content" id="content1"><article class="article"> <h1 class="article-title">About me</h1><p class="article-meta">Latest update in Tuesday, December 19, 2017 11:18 AM</p><p class="text-lead"> Kevin Cyu</p><p>NCKU Student,</p><p>Major in Networking/SDN/P4
 </p></article></div>
-<div class="content" id="content2"><article class="article"> <h1 class="article-title">Abstract</h1><p class="article-meta">Latest update in Tuesday, December 19, 2017 11:01 AM</p><p class="text-lead"> Benefit of using toolbuddy</p><p>The motto is: 'Make the world a better place.'</p><p>If you have the same enthusiasm, welcome to join us!</p><img src="./res/tb.png"/></article></div>
-<div class="content" id="content3"><article class="article"> <h1 class="article-title">Contact me</h1><p class="article-meta">Latest update in Tuesday, December 19, 2017 11:01 AM</p><p class="text-lead"> Email</p><p>kevinbird61@gmail.com</p><p class="text-lead"> Phone</p><p>+886-912345678</p></article></div>
-<div class="content" id="content4"><article class="article"> <h1 class="article-title">How to use?</h1><p class="article-meta">Latest update in Tuesday, December 19, 2017 11:01 AM</p><p class="text-lead"> Run in command line</p><pre>papogen -s test/ -o docs/ -t papoGen</pre><p class="text-lead"> Have a peek in source code!</p><pre>#! /usr/bin/env node
+<div class="content" id="content2"><article class="article"> <h1 class="article-title">Abstract</h1><p class="article-meta">Latest update in Tuesday, December 19, 2017 11:18 AM</p><p class="text-lead"> Benefit of using toolbuddy</p><p>The motto is: 'Make the world a better place.'</p><p>If you have the same enthusiasm, welcome to join us!</p><img src="./res/tb.png"/></article></div>
+<div class="content" id="content3"><article class="article"> <h1 class="article-title">How to use?</h1><p class="article-meta">Latest update in Tuesday, December 19, 2017 11:18 AM</p><p class="text-lead"> Run in command line</p><pre><code class="bash" style="agate;">papogen -s test/ -o docs/ -t papoGen</code></pre><p class="text-lead"> Have a peek in source code!</p><pre><code class="javascript" style="agate;">#! /usr/bin/env node
 
 var program = require('commander');
 var pug = require('pug');
@@ -78,6 +77,7 @@ else{
         default:
             console.log(chalk.red(`[Error] Model specification &quot;${program.model}&quot; not found`));
     }
-}</pre></article></div>
-<div class="content" id="content5"><article class="article"> <h1 class="article-title">Introduction</h1><p class="article-meta">Latest update in Tuesday, December 19, 2017 11:01 AM</p><p class="text-lead"> Benefit of using papoGen</p><p>Beautiful, eligant way to build website for your document.</p><p>Less effort, you can just using json as configuration to generate.</p></article></div>
+}</code></pre></article></div>
+<div class="content" id="content4"><article class="article"> <h1 class="article-title">Contact me</h1><p class="article-meta">Latest update in Tuesday, December 19, 2017 11:18 AM</p><p class="text-lead"> Email</p><p>kevinbird61@gmail.com</p><p class="text-lead"> Phone</p><p>+886-912345678</p></article></div>
+<div class="content" id="content5"><article class="article"> <h1 class="article-title">Introduction</h1><p class="article-meta">Latest update in Tuesday, December 19, 2017 11:18 AM</p><p class="text-lead"> Benefit of using papoGen</p><p>Beautiful, eligant way to build website for your document.</p><p>Less effort, you can just using json as configuration to generate.</p></article></div>
 </div></div><div class="row flex-right"><p>Created by <span class="badge secondary">@ToolBuddy/@papercss</span></p></div></div></div></body></html>

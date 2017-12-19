@@ -8,7 +8,8 @@
                     "type": "code",
                     "data":[
                         {
-                            "raw": "papogen -s test/ -o docs/ -t papoGen"
+                            "raw": "papogen -s test/ -o docs/ -t papoGen",
+                            "lang": "bash"
                         }
                     ]
                 }
@@ -21,7 +22,8 @@
                     "type": "code",
                     "data": [
                         {
-                            "url": "../../main.js"
+                            "url": "../../main.js",
+                            "lang": "javascript"
                         }
                     ]
                 }
