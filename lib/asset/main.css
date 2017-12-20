@@ -16,3 +16,8 @@ body {
     margin: 0;
     background: rgba(255, 255, 255, .25);
 }
+
+@font-face{
+	font-family: 'setofont';
+	src: url('./font/setofont.ttf');
+}
