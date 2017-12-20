@@ -1,6 +1,8 @@
 ![](./design/badge.png)
 
 # papoGen
+[![npm version](https://badge.fury.io/js/papogen.svg)](https://badge.fury.io/js/papogen)
+[![npm downloads](https://img.shields.io/npm/dm/papogen.svg)](https://img.shields.io/npm/dm/papogen.svg)
 
 Using paper.css and pug.js to generate.
 
