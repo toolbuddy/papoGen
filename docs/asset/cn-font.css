@@ -5,5 +5,5 @@ td.cn { font-family: 'setofont' }
 
 @font-face{
 	font-family: 'setofont';
-	src: url('font/setofont.ttf');
+	src: url('./font/setofont.ttf');
 }
