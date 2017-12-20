@@ -3,7 +3,7 @@ li.cn { font-family: 'setofont' }
 th.cn { font-family: 'setofont' }
 td.cn { font-family: 'setofont' }
 
-h1,h2,h3,h4,h5,h6.cn { font-family: 'setofont' }
+h1.cn,h2.cn,h3.cn,h4.cn,h5.cn,h6.cn { font-family: 'setofont' }
 
 @font-face{
 	font-family: 'setofont';
