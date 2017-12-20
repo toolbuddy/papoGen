@@ -1,9 +1,10 @@
 html {
-    background: lightgoldenrodyellow; 
+    background: lightgoldenrodyellow;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: Neucha, setofont, sans-serif;
 }
 
 body {
@@ -14,4 +15,9 @@ body {
     left: 0;
     margin: 0;
     background: rgba(255, 255, 255, .25);
+}
+
+@font-face{
+	font-family: 'setofont';
+	src: url('./font/setofont.ttf');
 }
