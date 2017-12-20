@@ -1,9 +1,10 @@
 html {
-    background: lightgoldenrodyellow; 
+    background: lightgoldenrodyellow;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: Neucha, setofont, sans-serif;
 }
 
 body {
