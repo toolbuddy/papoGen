@@ -1,0 +1,45 @@
+{
+    "article": "中文支援",
+    "article_content":[
+        {
+            "title":"嘗試引入中文字體",
+            "content": [
+                {
+                    "type": "text",
+                    "data": [
+                        "嗨！",
+                        "你好"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "中文表格支援(papercss 與 setofont 混用)",
+            "content":[
+                {
+                    "type": "table",
+                    "data": [
+                        {
+                            "name": "人名",
+                            "items": [
+                                "旭民", "勇盛"
+                            ]
+                        },
+                        {
+                            "name": "職位",
+                            "items": [
+                                "學生", "學生"
+                            ]
+                        },
+                        {
+                            "name": "Nickname",
+                            "items": [
+                                "Kevin","Lu-Yung"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,10 +1,16 @@
 // mixin - list
 mixin list(obj)
     - for(var i=0;i<obj.length;i++)
-        li #{obj[i].name}
-        - if(obj[i].items != undefined)
-            ul 
-                +list(obj[i].items)
+        - if(obj[i].name.toString().match((/[\u3400-\u9FBF]/)))
+            li(class="cn") #{obj[i].name}
+            - if(obj[i].items != undefined)
+                ul 
+                    +list(obj[i].items)
+        - else
+            li #{obj[i].name}
+            - if(obj[i].items != undefined)
+                ul 
+                    +list(obj[i].items)
 // main
 doctype html
 html
@@ -16,6 +22,7 @@ html
         link(rel="stylesheet" href="./asset/paper.min.css")/
         link(rel="stylesheet" href="./asset/monokai.css")/
         link(rel="stylesheet" href="./asset/main.css")/
+        link(rel="stylesheet" href="./asset/cn-font.css")/
         - for(var i=6;i<=(namelist.length);i++)
             style .tabs input[id=tab#{i}]:checked~div[id=content#{i}]{display:block}
         script(type="text/javascript",src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML",async)
@@ -47,20 +54,32 @@ html
                         - for(var index =1; index<=namelist.length;index++)
                             div(class="content",id="content"+index)
                                 article.article 
-                                    h1(class="article-title") #{namelist[index-1].article}
+                                    - if(namelist[index-1].article.toString().match(/[\u3400-\u9FBF]/))
+                                        h1(class="article-title cn") #{namelist[index-1].article}
+                                    - else 
+                                        h1(class="article-title") #{namelist[index-1].article}
                                     p(class="article-meta") Latest update in #{moment().format('LLLL')}
                                     - for(var i =0;i< (namelist[index-1].article_content!=undefined?namelist[index-1].article_content.length:0) ;i++)
-                                        p(class="text-lead")  #{namelist[index-1].article_content[i].title}
+                                        - if(namelist[index-1].article_content[i].title.toString().match((/[\u3400-\u9FBF]/)))
+                                            p(class="text-lead cn")  #{namelist[index-1].article_content[i].title}
+                                        - else
+                                            p(class="text-lead")  #{namelist[index-1].article_content[i].title}
                                         - for(var c =0;c<namelist[index-1].article_content[i].content.length;c++)
                                             - if(namelist[index-1].article_content[i].content[c].type == "text")
                                                 - for(var d =0;d<namelist[index-1].article_content[i].content[c].data.length;d++)
-                                                    p #{namelist[index-1].article_content[i].content[c].data[d]}
+                                                    - if(namelist[index-1].article_content[i].content[c].data[d].toString().match(/[\u3400-\u9FBF]/))
+                                                        p(class="cn") #{namelist[index-1].article_content[i].content[c].data[d]}                                                    
+                                                    - else
+                                                        p #{namelist[index-1].article_content[i].content[c].data[d]}
                                             - if(namelist[index-1].article_content[i].content[c].type == "hyper")
                                                 p
                                                     - for(var d =0;d<namelist[index-1].article_content[i].content[c].data.length;d++)
                                                         - if(namelist[index-1].article_content[i].content[c].data[d].text != undefined)
                                                             - for(var t=0;t<namelist[index-1].article_content[i].content[c].data[d].text.length;t++)
-                                                                | #{namelist[index-1].article_content[i].content[c].data[d].text[t]}
+                                                                - if(namelist[index-1].article_content[i].content[c].data[d].text[t].toString().match(/[\u3400-\u9FBF]/))
+                                                                    | #{namelist[index-1].article_content[i].content[c].data[d].text[t]}
+                                                                - else
+                                                                    | #{namelist[index-1].article_content[i].content[c].data[d].text[t]}
                                                         - if(namelist[index-1].article_content[i].content[c].data[d].hyper != undefined)
                                                             - for(var h=0;h<namelist[index-1].article_content[i].content[c].data[d].hyper.length;h++)
                                                                 a(href=namelist[index-1].article_content[i].content[c].data[d].hyper[h].link) #{namelist[index-1].article_content[i].content[c].data[d].hyper[h].text}
@@ -84,12 +103,18 @@ html
                                                             thead 
                                                                 tr
                                                                 - for(var d=0;d<namelist[index-1].article_content[i].content[c].data.length;d++)
-                                                                    th #{namelist[index-1].article_content[i].content[c].data[d].name}
+                                                                    - if(namelist[index-1].article_content[i].content[c].data[d].name.toString().match(/[\u3400-\u9FBF]/))
+                                                                        th(class="cn") #{namelist[index-1].article_content[i].content[c].data[d].name}
+                                                                    - else 
+                                                                        th #{namelist[index-1].article_content[i].content[c].data[d].name}
                                                         - else 
                                                             tbody 
                                                                 tr
                                                                 - for(var d=0;d<namelist[index-1].article_content[i].content[c].data.length;d++)
-                                                                    td #{namelist[index-1].article_content[i].content[c].data[d].items[item-1]}
+                                                                    - if(namelist[index-1].article_content[i].content[c].data[d].items[item-1].toString().match(/[\u3400-\u9FBF]/))
+                                                                        td(class="cn") #{namelist[index-1].article_content[i].content[c].data[d].items[item-1]}
+                                                                    - else 
+                                                                        td #{namelist[index-1].article_content[i].content[c].data[d].items[item-1]}
                                                         
                                         br/
                                         br/
