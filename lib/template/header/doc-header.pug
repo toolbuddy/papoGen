@@ -1,0 +1,14 @@
+head
+    meta(charset="utf-8")/
+    meta(name="viewport" content="width=device-width, initial-scale=1")/
+    title #{title}
+    link(rel="stylesheet" href="./asset/highlight.min.css")/
+    link(rel="stylesheet" href="./asset/paper.min.css")/
+    link(rel="stylesheet" href="./asset/monokai.css")/
+    link(rel="stylesheet" href="./asset/main.css")/
+    link(rel="stylesheet" href="./asset/cn-font.css")/
+    - for(var i=6;i<=(namelist.length);i++)
+        style .tabs input[id=tab#{i}]:checked~div[id=content#{i}]{display:block}
+    script(type="text/javascript",src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML",async)
+    script(src="./asset/highlight.min.js")
+    script hljs.initHighlightingOnLoad();

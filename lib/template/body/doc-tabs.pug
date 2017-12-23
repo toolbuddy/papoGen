@@ -1,0 +1,85 @@
+div(class="flex-spaces tabs")
+    - for(var index =1; index<=namelist.length;index++)
+        |
+        |
+        - if(index == 1)
+            input(id="tab"+index,type='radio',name='tabs' checked)/
+        - else 
+            input(id="tab"+index,type='radio',name='tabs')/
+        |
+        |
+        label(for="tab"+index) #{namelist[index-1].filename.split('.')[0]}
+        |
+        |
+    |
+    |
+    - for(var index =1; index<=namelist.length;index++)
+        div(class="content",id="content"+index)
+            article.article 
+                - if(namelist[index-1].article.toString().match(/[\u3400-\u9FBF]/))
+                    h1(class="article-title cn") #{namelist[index-1].article}
+                - else 
+                    h1(class="article-title") #{namelist[index-1].article}
+                p(class="article-meta") Latest update in #{moment().format('LLLL')}
+                - for(var i =0;i< (namelist[index-1].article_content!=undefined?namelist[index-1].article_content.length:0) ;i++)
+                    - if(namelist[index-1].article_content[i].title.toString().match((/[\u3400-\u9FBF]/)))
+                        p(class="text-lead cn")  #{namelist[index-1].article_content[i].title}
+                    - else
+                        p(class="text-lead")  #{namelist[index-1].article_content[i].title}
+                    - for(var c =0;c<namelist[index-1].article_content[i].content.length;c++)
+                        - if(namelist[index-1].article_content[i].content[c].type == "text")
+                            - for(var d =0;d<namelist[index-1].article_content[i].content[c].data.length;d++)
+                                - if(namelist[index-1].article_content[i].content[c].data[d].toString().match(/[\u3400-\u9FBF]/))
+                                    p(class="cn") #{namelist[index-1].article_content[i].content[c].data[d]}                                                    
+                                - else
+                                    p #{namelist[index-1].article_content[i].content[c].data[d]}
+                        - if(namelist[index-1].article_content[i].content[c].type == "hyper")
+                            p
+                                - for(var d =0;d<namelist[index-1].article_content[i].content[c].data.length;d++)
+                                    - if(namelist[index-1].article_content[i].content[c].data[d].text != undefined)
+                                        - for(var t=0;t<namelist[index-1].article_content[i].content[c].data[d].text.length;t++)
+                                            - if(namelist[index-1].article_content[i].content[c].data[d].text[t].toString().match(/[\u3400-\u9FBF]/))
+                                                | #{namelist[index-1].article_content[i].content[c].data[d].text[t]}
+                                            - else
+                                                | #{namelist[index-1].article_content[i].content[c].data[d].text[t]}
+                                    - if(namelist[index-1].article_content[i].content[c].data[d].hyper != undefined)
+                                        - for(var h=0;h<namelist[index-1].article_content[i].content[c].data[d].hyper.length;h++)
+                                            a(href=namelist[index-1].article_content[i].content[c].data[d].hyper[h].link) #{namelist[index-1].article_content[i].content[c].data[d].hyper[h].text}
+                        - if(namelist[index-1].article_content[i].content[c].type == "image")
+                            - for(var d =0;d<namelist[index-1].article_content[i].content[c].data.length;d++)
+                                div(class="row flex-center")
+                                    img(src=namelist[index-1].article_content[i].content[c].data[d].url)/
+                        - if(namelist[index-1].article_content[i].content[c].type == "code")
+                            - for(var d =0;d<namelist[index-1].article_content[i].content[c].data.length;d++)
+                                pre
+                                    code(class=namelist[index-1].article_content[i].content[c].data[d].lang) #{namelist[index-1].article_content[i].content[c].data[d].raw}
+                        - if(namelist[index-1].article_content[i].content[c].type == "formula")
+                            - for(var d =0;d<namelist[index-1].article_content[i].content[c].data.length;d++)                                            
+                                p #{namelist[index-1].article_content[i].content[c].data[d]}
+                        - if(namelist[index-1].article_content[i].content[c].type == "list")
+                            +list(namelist[index-1].article_content[i].content[c].data)
+                        - if(namelist[index-1].article_content[i].content[c].type == "table")
+                            table
+                                - for(var item=0;item<namelist[index-1].article_content[i].content[c].data[0].items.length+1;item++)
+                                    - if(item==0)
+                                        thead 
+                                            tr
+                                            - for(var d=0;d<namelist[index-1].article_content[i].content[c].data.length;d++)
+                                                - if(namelist[index-1].article_content[i].content[c].data[d].name.toString().match(/[\u3400-\u9FBF]/))
+                                                    th(class="cn") #{namelist[index-1].article_content[i].content[c].data[d].name}
+                                                - else 
+                                                    th #{namelist[index-1].article_content[i].content[c].data[d].name}
+                                    - else 
+                                        tbody 
+                                            tr
+                                            - for(var d=0;d<namelist[index-1].article_content[i].content[c].data.length;d++)
+                                                - if(namelist[index-1].article_content[i].content[c].data[d].items[item-1].toString().match(/[\u3400-\u9FBF]/))
+                                                    td(class="cn") #{namelist[index-1].article_content[i].content[c].data[d].items[item-1]}
+                                                - else 
+                                                    td #{namelist[index-1].article_content[i].content[c].data[d].items[item-1]}
+                                    
+                    br/
+                    br/
+                    hr/
+        |               
+        |
