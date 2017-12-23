@@ -59,18 +59,19 @@ else{
     // Get all the .json with specify src
     switch(program.model){
         case 'doc':
+            console.log(`Source directory: ${program.src}, Output directory: ${program.out}`)
             compile_engine.gen_doc(
-                path.resolve(__dirname,program.src),
+                program.src,
                 program.title,
-                path.resolve(__dirname,program.out),
+                program.out,
                 program.gen
             );   
         break;
         case 'resume':
             compile_engine.gen_resume(
-                path.resolve(__dirname,program.src),
+                program.src,
                 program.title,
-                path.resolve(__dirname,program.out),
+                program.out,
                 program.gen
             );
         break;
