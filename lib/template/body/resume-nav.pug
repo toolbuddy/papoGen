@@ -1,0 +1,7 @@
+div(class="row flex-center")
+    div(class="text-center")
+        - for(var index =1; index<=namelist.length;index++)
+            a(href='#'+namelist[index-1].filename.split('.')[0])
+                button(class="btn-success") #{namelist[index-1].filename.split('.')[0]}
+        br
+        hr

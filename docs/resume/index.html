@@ -1,0 +1,90 @@
+<!-- "resume" type--><!-- Author: Kevin Cyu--><!-- using list format in doc type--><!-- mixin - list--><!-- main--><!DOCTYPE html><html><!-- include header--><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>papoGen</title><link rel="stylesheet" href="./asset/highlight.min.css"/><link rel="stylesheet" href="./asset/paper.min.css"/><link rel="stylesheet" href="./asset/monokai.css"/><link rel="stylesheet" href="./asset/main.css"/><link rel="stylesheet" href="./asset/cn-font.css"/><style>.tabs input[id=tab6]:checked~div[id=content6]{display:block}</style><style>.tabs input[id=tab7]:checked~div[id=content7]{display:block}</style><style>.tabs input[id=tab8]:checked~div[id=content8]{display:block}</style><style>.tabs input[id=tab9]:checked~div[id=content9]{display:block}</style><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML" async></script><script src="./asset/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body><div class="container"><div class="paper"><!-- Paper Title--><div class="demo-title" id="top"><div class="row flex-center"><div class="text-center"> <h1>papoGen</h1></div></div></div><!-- Section tag as button--><div id="nav"><div class="row flex-center"><div class="text-center"><a href="#about me"><button class="btn-success">about me</button></a><a href="#abstract"><button class="btn-success">abstract</button></a><a href="#chinese"><button class="btn-success">chinese</button></a><a href="#code"><button class="btn-success">code</button></a><a href="#contact"><button class="btn-success">contact</button></a><a href="#formula"><button class="btn-success">formula</button></a><a href="#input support"><button class="btn-success">input support</button></a><a href="#refs"><button class="btn-success">refs</button></a><a href="#table"><button class="btn-success">table</button></a><br><hr></div></div></div><!-- Section body --><div class="content" id="about me"><article class="article"> <h1 class="article-title">About me</h1><p class="article-meta">Latest update in Saturday, December 23, 2017 1:32 PM</p><p class="text-lead"> Kevin Cyu</p><p>NCKU Student,</p><p>Major in Networking/SDN/P4
+</p><br/><br/><hr/></article></div>              
+<div class="content" id="abstract"><article class="article"> <h1 class="article-title">Abstract</h1><p class="article-meta">Latest update in Saturday, December 23, 2017 1:32 PM</p><p class="text-lead"> Benefit of using toolbuddy</p><p>The motto is: 'Make the world a better place.'</p><p>If you have the same enthusiasm, welcome to join us!</p><div class="row flex-center"><img src="./res/tb.png"/></div><br/><br/><hr/><p class="text-lead"> Benefit of using papoGen</p><p>Beautiful, eligant way to build website for your document.</p><p>Less effort, you can just using json as configuration to generate.</p><br/><br/><hr/></article></div>              
+<div class="content" id="chinese"><article class="article"> <h1 class="article-title cn">中文支援</h1><p class="article-meta">Latest update in Saturday, December 23, 2017 1:32 PM</p><p class="text-lead cn"> 嘗試引入中文字體</p><p class="cn">嗨！                                                    </p><p class="cn">你好                                                    </p><br/><br/><hr/><p class="text-lead cn"> 中文表格支援(papercss 與 setofont 混用)</p><table><thead> <tr></tr><th class="cn">人名</th><th class="cn">職位</th><th>Nickname</th></thead><tbody> <tr></tr><td class="cn">旭民</td><td class="cn">學生</td><td>Kevin</td></tbody><tbody> <tr></tr><td class="cn">勇盛</td><td class="cn">學生</td><td>Lu-Yung</td></tbody></table><br/><br/><hr/><p class="text-lead cn"> 中英文混雜文章</p><p class="cn">哈囉！ Kevin Cyu 先生！                                                    </p><br/><br/><hr/></article></div>              
+<div class="content" id="code"><article class="article"> <h1 class="article-title">How to use?</h1><p class="article-meta">Latest update in Saturday, December 23, 2017 1:32 PM</p><p class="text-lead"> Installation</p><p>You can download it from 'npm', or just clone from source code and use it directly.</p><pre><code class="bash">npm install papogen -g</code></pre><br/><br/><hr/><p class="text-lead"> Run in command line</p><p>papoGen is a cli tool, you can just run the command below to generate!</p><pre><code class="bash">papogen -s test/ -o docs/ -t papoGen</code></pre><br/><br/><hr/><p class="text-lead"> Have a peek in source code!</p><pre><code class="javascript">#! /usr/bin/env node
+
+var program = require('commander');
+var pug = require('pug');
+var path = require('path');
+var chalk = require('chalk');
+
+// module
+const compile_engine = require('./lib/compile_engine');
+const template_api = require('./lib/template');
+
+program
+.version('0.0.1')
+.option('-h, --help', 'Helper manual')
+.option('-s, --src [dir]', 'Input Directory [dir]', __dirname)
+.option('-o, --out [dir]', 'Output Directory [dir]', __dirname)
+.option('-t, --title [name]', 'Specify the title name [name]', 'Power by papoGen')
+.option('-g, --gen [type]', 'Specify the generating mechanism [type]', 'json')
+.option('-m, --model [name]', 'Specify the model/template of result [name] (Default will be `doc`)', 'doc')
+.parse(process.argv);
+
+console.log('\nWelcome using toolbuddy@papoGen!\n');
+if(!program.help){
+    console.log(
+        chalk.red('Usage: papogen -s[--src] &lt;src_path&gt; -o[--out] &lt;out_path&gt; -t[--title] &lt;title&gt; -g[--gen] &lt;type&gt; -m[--model] &lt;name&gt; -h[--help]\n'),
+        chalk.red('    -s[--src] : specify the source files directory(using multiple configure files)\n'),
+        chalk.red('    -o[--out] : specify the output destination directory(will generate website for u!)\n'),
+        chalk.red('    -t[--title] : specify the title name of your website\n'),
+        chalk.red('    -g[--gen] : specify the generating mechanism of result, user can pick from several types. default value is &quot;json&quot;\n'),
+        chalk.red('    -m[--model] : specify the model/template of result\n'),
+        chalk.red('    -h : list out usage of papoGen\n'),
+        chalk.red('=====================================\n'),
+    );
+    console.log(
+        chalk.red('Usage/Detail of papoGen:\n'),
+        chalk.blue('    default value of each parameter:\n'),
+        chalk.red('        src: current working directory\n'),
+        chalk.red('        out: current working directory\n'),
+        chalk.red('        title: &quot;Powered by papoGen&quot;\n'),
+        chalk.red('        gen: &quot;json&quot;\n'),
+        chalk.red('        model: &quot;doc&quot;\n'),
+        chalk.red('=====================================\n'),
+        chalk.red('If specified &quot;-h&quot; in command, then program will only list out usage, without any generation.\n'),
+    );
+    console.log(
+        chalk.red('List all template support by papoGen:')
+    );
+    template_api.list();
+
+    return;
+}
+else{
+    console.log(chalk.blue('   - src is %s', program.src));
+    console.log(chalk.blue('   - out is %s', program.out));
+    console.log(chalk.green('   - title is %s', program.title));
+    console.log(chalk.green('   - gen is %s', program.gen));
+    console.log(chalk.green('   - model is %s', program.model));
+    console.log('\n');
+    // Get all the .json with specify src
+    switch(program.model){
+        case 'doc':
+            compile_engine.gen_doc(
+                path.resolve(__dirname,program.src),
+                program.title,
+                path.resolve(__dirname,program.out),
+                program.gen
+            );   
+        break;
+        case 'resume':
+            compile_engine.gen_resume(
+                path.resolve(__dirname,program.src),
+                program.title,
+                path.resolve(__dirname,program.out),
+                program.gen
+            );
+        break;
+        default:
+            console.log(chalk.red(`[Error] Model specification &quot;${program.model}&quot; not found`));
+    }
+}</code></pre><br/><br/><hr/></article></div>              
+<div class="content" id="contact"><article class="article"> <h1 class="article-title">Contact me</h1><p class="article-meta">Latest update in Saturday, December 23, 2017 1:32 PM</p><p class="text-lead"> Email</p><p>kevinbird61@gmail.com</p><br/><br/><hr/><p class="text-lead"> Phone</p><p>+886-912345678</p><br/><br/><hr/></article></div>              
+<div class="content" id="formula"><article class="article"> <h1 class="article-title">MathJax Usage</h1><p class="article-meta">Latest update in Saturday, December 23, 2017 1:32 PM</p><p class="text-lead"> Inline mathematic</p><p>`x = (-b +- sqrt(b^2-4ac))/(2a) .`</p><br/><br/><hr/></article></div>              
+<div class="content" id="input support"><article class="article"> <h1 class="article-title">List all the input type we support</h1><p class="article-meta">Latest update in Saturday, December 23, 2017 1:32 PM</p><p class="text-lead"> Json</p><li>normal text</li><li>image</li><ul> <li>Just specified the image file under your computer.</li><ul> <li>Or just specified through 'http://...', resources on internet.</li></ul><li>And papoGen will fetch that file and resolve into output for you!</li></ul><li>formula</li><ul> <li>MathJax format</li><li>As a good tool to build math tutorial!</li></ul><li>code</li><li>list</li><li>table</li><br/><br/><hr/></article></div>              
+<div class="content" id="refs"><article class="article"> <h1 class="article-title">Hyperlink usage</h1><p class="article-meta">Latest update in Saturday, December 23, 2017 1:32 PM</p><p class="text-lead"> papoGen</p><p>papoGen source code: <a href="https://github.com/toolbuddy/papoGen">Github</a></p><br/><br/><hr/><p class="text-lead"> papoGen Author</p><p>Personal Website: <a href="https://kevinbird61.github.io/Intro/">link</a></p><br/><br/><hr/></article></div>              
+<div class="content" id="table"><article class="article"> <h1 class="article-title">Table Example</h1><p class="article-meta">Latest update in Saturday, December 23, 2017 1:32 PM</p><p class="text-lead"> My Skill</p><table><thead> <tr></tr><th>Programming Language</th><th>Proficiency</th></thead><tbody> <tr></tr><td>C</td><td>80%</td></tbody><tbody> <tr></tr><td>C++</td><td>80%</td></tbody><tbody> <tr></tr><td>Node.js</td><td>70%</td></tbody></table><br/><br/><hr/><p class="text-lead"> Activities(Another way of usage)</p><table><thead> <tr></tr><th>#(Semaster)</th><th>Big Activities</th></thead><tbody> <tr></tr><td>1</td><td>Play a lots of drama activities</td></tbody><tbody> <tr></tr><td>2</td><td>Hold an e-sport event!</td></tbody><tbody> <tr></tr><td>3</td><td>Enhance self programming skills</td></tbody><tbody> <tr></tr><td>4</td><td>Create an online game!</td></tbody></table><br/><br/><hr/></article></div>              
+<!-- Include copyright--><div class="row flex-right"><p>Created by <span class="badge secondary">@ToolBuddy/@papercss</span></p></div></div></div></body></html>

@@ -66,6 +66,14 @@ else{
                 program.gen
             );   
         break;
+        case 'resume':
+            compile_engine.gen_resume(
+                path.resolve(__dirname,program.src),
+                program.title,
+                path.resolve(__dirname,program.out),
+                program.gen
+            );
+        break;
         default:
             console.log(chalk.red(`[Error] Model specification "${program.model}" not found`));
     }
