@@ -44,6 +44,19 @@ Specified: json/text
 Output dir(for script template): .
 [Success] Write script template file - json/text
 ```
+* 並且在 `0.0.12` 以後支援多個 `format` 格式指定，可以一行指令生成多個 template !
+```
+~/develop » papogen -c json/text/list/table -o .
+...
+生成 text.json, list.json, 以及 table.json
+```
+* 也可以支援全部（每種各一個）
+```
+~/develop » papogen -c json/all -o .
+...
+生成全部的 template ！
+```
+
 
 ### Help Manual
 

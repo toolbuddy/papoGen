@@ -54,14 +54,19 @@ List all template support by papoGen:
     * Using the json files in test/ 
         * In test/, there are several categories of scripts, each one has a directory
         * And there have a `README.md` inside each directory, explain the format of each type.
-
-* Check our `example/` to see more!
+    * View more:
+        * [doc page](https://toolbuddy.github.io/papoGen/)
+        * [resume page](https://toolbuddy.github.io/papoGen/resume)
 
 * Generate script template
     * After you using `-h` to list, you can see the last part of all script support.
-    * And you can using `papogen -c <script>/<format> -o <output>` to generate our template file.
+    * And you can using `papogen -c <script>/<format_1>/<format_2>/... -o <output>` to generate our template file.
         * `<script>` is the blue one. (in `-h` output message)
         * `<format>` is the grey one. (in `-h` output message)
+            * version after `0.0.12` support several template specified, use `/` to separate each format.
+            * or you can just using `json/all` to get all current support copy to target output directory
+
+* Check our `example/` to see more!
 
 ## json
 * Example command:

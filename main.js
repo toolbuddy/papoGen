@@ -71,24 +71,29 @@ else{
         console.log(`Output dir(for script template): ${program.out}`);
 
         let script = program.create.split('/')[0];
-        let format = program.create.split('/')[1];
-
-        fs.readFile(
-            path.join(__dirname,'lib','script',script,format+'.'+script),'utf-8',
-            function(err,data){
-                if(err){
-                    console.log('[Error] Read script template error!');
-                    return;
+        let list_raw = program.create.split('/');
+        // change to format list, so it can be like: xxxx/xxxx/xxxx ... specify several templates
+        if(list_raw.length > 2){
+            // format -> format list
+            for(var i=1;i<list_raw.length;i++){
+                // copy template to target
+                copy_template(program.out,script,list_raw[i]);
+            }
+        }
+        else if(list_raw.length == 2){
+            // only 2, means only need to consider [1] element 
+            if(list_raw[1] == "all"){
+                // copy all 
+                let all_template = template_api.format_list(script);
+                // console.log(all_template);
+                for(var index in all_template){
+                    copy_template(program.out,script,all_template[index]);
                 }
-                // and then write it into output
-                fs.writeFile(path.join(program.out,format+'.'+script),data,'utf-8',function(err){
-                    if(err)
-                        console.log('[Error] Write script template error!');
-                    else 
-                        console.log(chalk.green(`[Success] Write script template file - ${script}/${format}`));
-                });
-            })
-
+            }
+            else{
+                copy_template(program.out,script,list_raw[1]);
+            }
+        }
         return;
     }
 
@@ -114,4 +119,22 @@ else{
         default:
             console.log(chalk.red(`[Error] Model specification "${program.model}" not found`));
     }
+}
+
+function copy_template(out,script,format){
+    fs.readFile(
+        path.join(__dirname,'lib','script',script,format+'.'+script),'utf-8',
+        function(err,data){
+            if(err){
+                console.log('[Error] Read script template error!');
+                return;
+            }
+            // and then write it into output
+            fs.writeFile(path.join(out,format+'.'+script),data,'utf-8',function(err){
+                if(err)
+                    console.log('[Error] Write script template error!');
+                else 
+                    console.log(chalk.green(`[Success] Write script template file - ${script}/${format}`));
+            });
+        })
 }
