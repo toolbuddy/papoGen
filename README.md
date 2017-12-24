@@ -6,6 +6,8 @@
 
 Using paper.css and pug.js to generate.
 
+If you feel `papogen` is good, hope you can give a `star`!
+
 # usage
 
 * Install 
@@ -52,6 +54,14 @@ List all template support by papoGen:
     * Using the json files in test/ 
         * In test/, there are several categories of scripts, each one has a directory
         * And there have a `README.md` inside each directory, explain the format of each type.
+
+* Check our `example/` to see more!
+
+* Generate script template
+    * After you using `-h` to list, you can see the last part of all script support.
+    * And you can using `papogen -c <script>/<format> -o <output>` to generate our template file.
+        * `<script>` is the blue one. (in `-h` output message)
+        * `<format>` is the grey one. (in `-h` output message)
 
 ## json
 * Example command:

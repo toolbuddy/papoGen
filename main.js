@@ -4,6 +4,7 @@ var program = require('commander');
 var pug = require('pug');
 var path = require('path');
 var chalk = require('chalk');
+var fs = require('fs');
 
 // module
 const compile_engine = require('./lib/compile_engine');
@@ -17,19 +18,29 @@ program
 .option('-t, --title [name]', 'Specify the title name [name]', 'Power by papoGen')
 .option('-g, --gen [type]', 'Specify the generating mechanism [type]', 'json')
 .option('-m, --model [name]', 'Specify the model/template of result [name] (Default will be `doc`)', 'doc')
+.option('-c, --create [script/format]', 'Specify the script template to generate [script/format]', undefined)
 .parse(process.argv);
 
-console.log('\nWelcome using toolbuddy@papoGen!\n');
+let dep = fs.readFileSync(path.join(__dirname,'package.json'),'utf-8');
+let depobj = JSON.parse(dep);
+
+console.log('\nWelcome using toolbuddy@papoGen!');
+console.log('Current version: '+chalk.green(depobj.version)+'\n');
 if(!program.help){
     console.log(
-        chalk.red('Usage: papogen -s[--src] <src_path> -o[--out] <out_path> -t[--title] <title> -g[--gen] <type> -m[--model] <name> -h[--help]\n'),
+        chalk.red('Usage:\npapogen -s[--src] <src_path> -o[--out] <out_path> -t[--title] <title> -g[--gen] <type> -m[--model] <name> -h[--help]\n'),
         chalk.red('    -s[--src] : specify the source files directory(using multiple configure files)\n'),
         chalk.red('    -o[--out] : specify the output destination directory(will generate website for u!)\n'),
         chalk.red('    -t[--title] : specify the title name of your website\n'),
         chalk.red('    -g[--gen] : specify the generating mechanism of result, user can pick from several types. default value is "json"\n'),
         chalk.red('    -m[--model] : specify the model/template of result\n'),
         chalk.red('    -h : list out usage of papoGen\n'),
-        chalk.red('=====================================\n'),
+        chalk.red('=====================================\n')
+    );
+    console.log(
+        chalk.green('Optional usage:\npapogen -c[--create] <script/format> -o[--out] <out_path>\n'),
+        chalk.green('   -c[--create] : generate template by command, with -o to specify output directory\n\t(Generation will terminate the program after it finished)\n'),
+        chalk.green('=====================================\n')
     );
     console.log(
         chalk.red('Usage/Detail of papoGen:\n'),
@@ -42,11 +53,7 @@ if(!program.help){
         chalk.red('=====================================\n'),
         chalk.red('If specified "-h" in command, then program will only list out usage, without any generation.\n'),
     );
-    console.log(
-        chalk.red('List all template support by papoGen:')
-    );
     template_api.list();
-
     return;
 }
 else{
@@ -56,6 +63,35 @@ else{
     console.log(chalk.green('   - gen is %s', program.gen));
     console.log(chalk.green('   - model is %s', program.model));
     console.log('\n');
+
+    if(program.create){
+        // user want to generate template
+        console.log(`Generating ... `);
+        console.log(`Specified: ${program.create}`);
+        console.log(`Output dir(for script template): ${program.out}`);
+
+        let script = program.create.split('/')[0];
+        let format = program.create.split('/')[1];
+
+        fs.readFile(
+            path.join(__dirname,'lib','script',script,format+'.'+script),'utf-8',
+            function(err,data){
+                if(err){
+                    console.log('[Error] Read script template error!');
+                    return;
+                }
+                // and then write it into output
+                fs.writeFile(path.join(program.out,format+'.'+script),data,'utf-8',function(err){
+                    if(err)
+                        console.log('[Error] Write script template error!');
+                    else 
+                        console.log(chalk.green(`[Success] Write script template file - ${script}/${format}`));
+                });
+            })
+
+        return;
+    }
+
     // Get all the .json with specify src
     switch(program.model){
         case 'doc':

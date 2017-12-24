@@ -1,0 +1,28 @@
+{
+    "article": "Hyperlink Example",
+    "article_content":[
+        {
+            "title": "papoGen",
+            "content": [
+                {
+                    "type": "hyper",
+                    "data": [
+                        {
+                            "text": [
+                                "papoGen source code: "
+                            ]
+                        },
+                        {
+                            "hyper": [
+                                {
+                                    "text": "Github",
+                                    "link": "https://github.com/toolbuddy/papoGen"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "article": "List Example",
+    "article_content": [
+        {
+            "title": "Json",
+            "content": [
+                {
+                    "type": "list",
+                    "data": [
+                        { 
+                            "name": "normal text"
+                        },
+                        {
+                            "name": "image",
+                            "items": [
+                                { "name": "Just specified the image file under your computer.",
+                                  "items": [
+                                      { "name": "Or just specified through 'http://...', resources on internet." }
+                                  ]},
+                                { "name": "And papoGen will fetch that file and resolve into output for you!" }
+                            ]
+                        },
+                        {
+                            "name": "formula",
+                            "items": [
+                                { "name": "MathJax format" },
+                                { "name": "As a good tool to build math tutorial!" }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

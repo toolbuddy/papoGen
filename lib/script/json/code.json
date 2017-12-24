@@ -1,0 +1,33 @@
+{
+    "article":"Code Example",
+    "article_content":[
+        {
+            "title": "Raw",
+            "content": [
+                {
+                    "type": "code",
+                    "data":[
+                        {
+                            "raw": "npm install papogen -g",
+                            "lang": "bash"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Src",
+            "content": [
+                {
+                    "type": "code",
+                    "data": [
+                        {
+                            "url": "../compile_engine.js",
+                            "lang": "javascript"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
