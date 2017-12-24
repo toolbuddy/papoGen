@@ -21,6 +21,32 @@
 papogen -s src/ -o out/ -t <your title> -m <model you want> -g <support format>
 ```
 
+### Generate script template by command
+
+* 在 `0.0.12` 版開始，可以支援透過 `papogen` 產生可支援的腳本格式！
+* 利用 `papogen -h` 來列出有支援哪些後，便可以利用 `<script>`（**藍色**部份）以及 `<format>`（**灰色**部份）的組合，來產生腳本；
+    * 組合方式： `<script>`/`<format>`
+```bash
+~/develop » papogen -c json/text -o .
+
+Welcome using toolbuddy@papoGen!
+Current version: 0.0.12
+
+   - src is %s /usr/local/lib/node_modules/papogen
+   - out is %s .
+   - title is %s Power by papoGen
+   - gen is %s json
+   - model is %s doc
+
+
+Generating ...
+Specified: json/text
+Output dir(for script template): .
+[Success] Write script template file - json/text
+```
+
+### Help Manual
+
 * 任何疑惑可以下 `-h` 的參數做察看
 ```bash
 papogen -h
