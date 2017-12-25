@@ -1,0 +1,13 @@
+article: Formula Example,
+article_content: 
+  - {
+    title: MathJax,
+    content: [
+      {
+        type: formula,
+        data: [
+          "`x = (-b +- sqrt(b^2-4ac))/(2a) .`"
+        ]
+      }
+    ]
+  }

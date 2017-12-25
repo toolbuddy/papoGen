@@ -1,0 +1,28 @@
+article: Table Example
+article_content: 
+  - {
+    title: My Skill,
+    content:[
+      {
+        type: table,
+        data:[
+          {
+            name: Programming Language,
+            items:[
+              C,
+              C++,
+              Node.js
+            ]
+          }
+          ,{
+            name: Proficiency,
+            items:[
+              80%,
+              80%,
+              70%
+            ]
+          }
+        ]
+      }
+    ]
+  }

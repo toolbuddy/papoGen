@@ -1,0 +1,21 @@
+<<<<<<< HEAD
+/* p.cn { font-family: 'setofont' } */
+/* li.cn { font-family: 'setofont' } */
+/* th.cn { font-family: 'setofont' } */
+/* td.cn { font-family: 'setofont' } */
+
+/* h1.cn,h2.cn,h3.cn,h4.cn,h5.cn,h6.cn { font-family: 'setofont' } */
+=======
+html {
+    font-family: Neucha, 'setofont', sans-serif;
+}
+
+.cn {
+    font-family: Neucha,'setofont',sans-serif;
+}
+>>>>>>> 50637e28a7cd04c3e8134c0fe8ec140517827d62
+
+@font-face{
+	font-family: 'setofont';
+	src: url('./font/setofont.ttf');
+}

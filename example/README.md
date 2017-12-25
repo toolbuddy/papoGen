@@ -21,6 +21,11 @@
 papogen -s src/ -o out/ -t <your title> -m <model you want> -g <support format>
 ```
 
+* 範例：（使用 yaml 做模版生成）
+```bash
+papogen -s test/yaml -o docs/resume-yaml -g yaml -m resume -t papoGen-YAML
+```
+
 ### Generate script template by command
 
 * 在 `0.0.12` 版開始，可以支援透過 `papogen` 產生可支援的腳本格式！

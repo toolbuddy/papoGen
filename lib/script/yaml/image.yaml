@@ -1,0 +1,23 @@
+article: Image Example,
+article_content: 
+  - {
+    title: "Benefit of using toolbuddy",
+    content: [
+      {
+        type: text,
+        data: [
+          "The motto is: 'Make the world a better place.'",
+          If you have the same enthusiasm, welcome to join us!
+        ]
+      },
+      {
+        type: image,
+        data: [
+          {
+            url: "../tb.png",
+            size: 300
+          }
+        ]
+      }
+    ]
+  }

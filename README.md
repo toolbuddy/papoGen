@@ -20,14 +20,22 @@ If you feel `papogen` is good, hope you can give a `star`!
 ```bash
 ~/workspace » papogen -h
 Welcome using toolbuddy@papoGen!
+Current version: 0.0.13
 
-Usage: papogen -s[--src] <src_path> -o[--out] <out_path> -t[--title] <title> -g[--gen] <type> -m[--model] <name> -h[--help]
+Usage:
+papogen -s[--src] <src_path> -o[--out] <out_path> -t[--title] <title> -g[--gen] <type> -m[--model] <name> -h[--help]
      -s[--src] : specify the source files directory(using multiple configure files)
      -o[--out] : specify the output destination directory(will generate website for u!)
      -t[--title] : specify the title name of your website
      -g[--gen] : specify the generating mechanism of result, user can pick from several types. default value is "json"
      -m[--model] : specify the model/template of result
      -h : list out usage of papoGen
+ =====================================
+
+Optional usage:
+papogen -c[--create] <script/format> -o[--out] <out_path>
+    -c[--create] : generate template by command, with -o to specify output directory
+        (Generation will terminate the program after it finished)
  =====================================
 
 Usage/Detail of papoGen:
@@ -43,6 +51,24 @@ Usage/Detail of papoGen:
 List all template support by papoGen:
         doc
         resume
+List all script support by papoGen:
+ (You can use command "papogen -c <script>/<format> -o <output>" to generate script template files)
+        json
+         - code
+         - formula
+         - hyper
+         - image
+         - list
+         - table
+         - text
+        yaml
+         - code
+         - formula
+         - hyper
+         - image
+         - list
+         - table
+         - text
 ```
 
 * Generate
@@ -68,7 +94,7 @@ List all template support by papoGen:
 
 * Check our `example/` to see more!
 
-## json
+## json(default)
 * Example command:
 ```bash
 # Use directly (from source code)
@@ -77,6 +103,19 @@ List all template support by papoGen:
 » papogen -s test/ -o docs/ -t papoGen -m doc
 ```
 * Using `json` as configuration.
+* After specify the `src` directory, paperUI will fetch all .json under `src`, and using each *filename* to be as "tag" in output.
+* And then will base on specified format to generate content (see more detail below)
+    * Currently support: `text` (see the source dir: `test/` as input, and destination dir: `docs/` as output)
+
+## yaml
+* Example command:
+```bash
+# Use directly (from source code)
+» node main.js -s test/ -o docs/ -t papoGen
+# By install 
+» papogen -s test/ -o docs/ -t papoGen -m doc -g yaml
+```
+* Using `yaml` as configuration.
 * After specify the `src` directory, paperUI will fetch all .json under `src`, and using each *filename* to be as "tag" in output.
 * And then will base on specified format to generate content (see more detail below)
     * Currently support: `text` (see the source dir: `test/` as input, and destination dir: `docs/` as output)

@@ -1,0 +1,14 @@
+article: Text example
+article_content:
+  - {
+    title: Kevin Cyu,
+    content: [
+      {
+        type: text,
+        data: [
+          NCKU Student,
+          Major in Networking/SDN/P4
+        ]
+      }
+    ]
+  }
