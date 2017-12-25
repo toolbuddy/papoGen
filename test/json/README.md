@@ -170,3 +170,30 @@
     ...
 }
 ```
+
+### Card Support
+* 這個支援主要是依照 paper.css 的 card 格式產生
+* 產生結果可以參考 demo page，而格式參考下方：
+
+```js
+{
+    ...
+    {
+        "type": "card",
+        "data":[
+            {
+                "url": "<img url>",
+                "title": "Card example with image",
+                "subtitle": "I am subtitle!",
+                "text": [
+                    "Example sentence 1.",
+                    "Example sentence 2."
+                ],
+                "tag": [
+                    "example",
+                    "tag"
+                ]
+            },
+    }
+}
+```

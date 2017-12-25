@@ -1,0 +1,35 @@
+article: Card Example
+article_content:
+  - {
+    title: Specially use in paper.css - Card type,
+    content: [
+      {
+        type: card,
+        data: [
+          {
+            url: https://www.dnrcustoms.com/uploads/3/1/2/1/31214493/s874906050552617097_p10_i1_w480.jpeg,
+            title: Card example with image,
+            subtitle: I am subtitle!,
+            text: [
+              "Example sentence 1.",
+              "Example sentence 2."
+            ],
+            tag: [
+              example,tag
+            ]
+          },
+          {
+            title: Card example with image,
+            subtitle: I am subtitle!,
+            text: [
+              "Example sentence 1.",
+              "Example sentence 2."
+            ],
+            tag: [
+              example,tag
+            ]
+          }
+        ]
+      }
+    ]
+  }

@@ -62,7 +62,22 @@
                                                 td(class="cn") #{namelist[index-1].article_content[i].content[c].data[d].items[item-1]}
                                             - else 
                                                 td #{namelist[index-1].article_content[i].content[c].data[d].items[item-1]}
-                                
+                    - if(namelist[index-1].article_content[i].content[c].type == "card")
+                        - for(var d =0;d<namelist[index-1].article_content[i].content[c].data.length;d++)
+                            // card with image 
+                            div(class="card")
+                                img(src=namelist[index-1].article_content[i].content[c].data[d].url)/
+                                div(class="card-body")
+                                    h4(class="card-title") #{namelist[index-1].article_content[i].content[c].data[d].title}
+                                    h5(class="card-subtitle") #{namelist[index-1].article_content[i].content[c].data[d].subtitle}
+                                    p(class="card-text")
+                                        - for(var t=0;t<namelist[index-1].article_content[i].content[c].data[d].text.length;t++)
+                                            | #{namelist[index-1].article_content[i].content[c].data[d].text[t]}
+                                    - for(var t=0;t<namelist[index-1].article_content[i].content[c].data[d].tag.length;t++)
+                                        button #{namelist[index-1].article_content[i].content[c].data[d].tag[t]}            
+                            |
+                            br/
+
                 br/
                 br/
                 hr/
