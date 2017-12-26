@@ -111,7 +111,7 @@ List all script support by papoGen:
 * Example command:
 ```bash
 # Use directly (from source code)
-» node main.js -s test/ -o docs/ -t papoGen
+» node main.js -s test/ -o docs/ -g yaml -t papoGen
 # By install 
 » papogen -s test/ -o docs/ -t papoGen -m doc -g yaml
 ```

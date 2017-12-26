@@ -51,7 +51,7 @@ if(!program.help){
         chalk.red('        gen: "json"\n'),
         chalk.red('        model: "doc"\n'),
         chalk.red('=====================================\n'),
-        chalk.red('If specified "-h" in command, then program will only list out usage, without any generation.\n'),
+        chalk.red('If specified "-h" in command, then program will only list out usage, without any generation.\n')
     );
     template_api.list();
     return;
