@@ -17,6 +17,7 @@ If you feel `papogen` is good, hope you can give a `star`!
 
 * Help Manual (List out current support)
     * Explain each parameter we support currently!
+    * See more in [here](https://github.com/toolbuddy/papoGen/blob/master/example/README.md).
 ```bash
 ~/workspace » papogen -h
 Welcome using toolbuddy@papoGen!
@@ -96,6 +97,7 @@ List all script support by papoGen:
 
 ## json(default)
 * Example command:
+* See more in [here](https://github.com/toolbuddy/papoGen/blob/master/test/json/README.md)
 ```bash
 # Use directly (from source code)
 » node main.js -s test/ -o docs/ -t papoGen
@@ -108,6 +110,7 @@ List all script support by papoGen:
     * Currently support: `text` (see the source dir: `test/` as input, and destination dir: `docs/` as output)
 
 ## yaml
+* With some format defined in [json](https://github.com/toolbuddy/papoGen/blob/master/test/json/README.md).
 * Example command:
 ```bash
 # Use directly (from source code)
@@ -140,6 +143,9 @@ papogen -s test/md -o docs/md -g md -m md_doc -t Graph\ Theory
    * [YAML - resume](https://toolbuddy.github.io/papoGen/resume-yaml)
 * Generate directly from Markdown format
    * [From Markdown - md_doc](https://toolbuddy.github.io/papoGen/md/)
+
+# Changelog
+* See [here](https://github.com/toolbuddy/papoGen/wiki).
 
 # workflow
 
