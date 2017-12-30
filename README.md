@@ -122,13 +122,24 @@ List all script support by papoGen:
 
 ## Markdown (testing)
 * Generate from markdown directly.
-* Still support multiple markdown as input.
+* *Different* from above format.
+* Still support multiple markdown files as input.
 * support model:
     * `md_doc`
 * Example command:
 ```
 papogen -s test/md -o docs/md -g md -m md_doc -t Graph\ Theory   
 ```
+
+# Demo
+
+* Generate by papoGen format
+   * [JSON - doc](https://toolbuddy.github.io/papoGen/)
+   * [JSON - resume](https://toolbuddy.github.io/papoGen/resume/)
+   * [YAML - doc](https://toolbuddy.github.io/papoGen/doc-yaml)
+   * [YAML - resume](https://toolbuddy.github.io/papoGen/resume-yaml)
+* Generate directly from Markdown format
+   * [From Markdown - md_doc](https://toolbuddy.github.io/papoGen/md/)
 
 # workflow
 
