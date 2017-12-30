@@ -29,7 +29,8 @@
     "mkdirp": "^0.5.1",
     "moment": "^2.20.0",
     "pug": "^2.0.0-rc.4",
-    "js-yaml": "^3.10.0"
+    "js-yaml": "^3.10.0",
+    "markdown-it": "^8.4.0"
   },
   "homepage": "https://github.com/toolbuddy/papoGen#readme",
   "devDependencies": {
@@ -41,7 +42,8 @@
     "mkdirp": "^0.5.1",
     "moment": "^2.20.0",
     "jsonfile": "^4.0.0",
-    "js-yaml": "^3.10.0"
+    "js-yaml": "^3.10.0",
+    "markdown-it": "^8.4.0"
   },
   "bin": {
     "papogen": "main.js"

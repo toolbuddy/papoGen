@@ -120,6 +120,16 @@ List all script support by papoGen:
 * And then will base on specified format to generate content (see more detail below)
     * Currently support: `text` (see the source dir: `test/` as input, and destination dir: `docs/` as output)
 
+## Markdown (testing)
+* Generate from markdown directly.
+* Still support multiple markdown as input.
+* support model:
+    * `md_doc`
+* Example command:
+```
+papogen -s test/md -o docs/md -g md -m md_doc -t Graph\ Theory   
+```
+
 # workflow
 
 ![](./design/workflow.png)

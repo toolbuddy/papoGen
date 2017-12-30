@@ -1,0 +1,18 @@
+div(class="flex-spaces tabs")
+    - for(var index =1; index<=namelist.length;index++)
+        |
+        |
+        - if(index == 1)
+            input(id="tab"+index,type='radio',name='tabs' checked)/
+        - else 
+            input(id="tab"+index,type='radio',name='tabs')/
+        |
+        |
+        label(for="tab"+index) #{namelist[index-1].filename.split('.')[0]}
+        |
+        |
+    |
+    |
+    - for(var index =1; index<=namelist.length;index++)
+        div(class="content",id="content"+index)
+            p!= namelist[index-1].article

@@ -116,6 +116,14 @@ else{
                 program.gen
             );
         break;
+        case 'md_doc':
+            compile_engine.gen_doc(
+                program.src,
+                program.title,
+                program.out,
+                program.gen
+            );
+        break;
         default:
             console.log(chalk.red(`[Error] Model specification "${program.model}" not found`));
     }

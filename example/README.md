@@ -62,6 +62,14 @@ Output dir(for script template): .
 生成全部的 template ！
 ```
 
+### (Test) Generate from Markdown
+* 使用 `markdown-it` 套件輔助
+* 並且套用 `paper.css` 等等自訂的 stylesheet 輔助
+* ***支援直接從 markdown 轉到 html 格式！***
+* 範例使用：
+```
+papogen -s test/md -o docs/md -g md -m md_doc -t Graph\ Theory   
+```
 
 ### Help Manual
 

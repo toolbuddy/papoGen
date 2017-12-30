@@ -1,0 +1,20 @@
+// "doc" type, with tabs usage as template
+// Author: Kevin Cyu
+
+// include mixins
+include mixins/doc-list.pug
+// main
+doctype html
+html
+    // include header
+    include header/doc-header.pug
+    body
+        div.container
+            div.paper
+                div(id="top" class="demo-title")
+                    div.row.flex-center
+                        div.text-center 
+                            h1 #{title}
+                div.section
+                    include body/md-doc-tabs.pug
+                include footer/copy.pug
