@@ -143,6 +143,10 @@ papogen -s test/md -o docs/md -g md -m md_doc -t Graph\ Theory
    * [YAML - resume](https://toolbuddy.github.io/papoGen/resume-yaml)
 * Generate directly from Markdown format
    * [From Markdown - md_doc](https://toolbuddy.github.io/papoGen/md/)
+   * Graph Theory Tutorial:
+      * [ch3](https://toolbuddy.github.io/Graph-Theory/matching-factor/index.html)
+      * [ch4](https://toolbuddy.github.io/Graph-Theory/connectivity-path/)
+   * [simulation project - 802.11 wireless illustration](https://kevinbird61.github.io/simulation-wireless-802.11/)
 
 # Changelog
 * See [here](https://github.com/toolbuddy/papoGen/wiki).
