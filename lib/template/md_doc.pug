@@ -14,7 +14,9 @@ html
                 div(id="top" class="demo-title")
                     div.row.flex-center
                         div.text-center 
-                            h1 #{title}
+                            h1(class=".cn") #{title}
                 div.section
                     include body/md-doc-tabs.pug
+                div(class="to-top")
+                    a(href="#top" class="paper-btn margin") Top
                 include footer/copy.pug

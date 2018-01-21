@@ -18,59 +18,6 @@ If you feel `papogen` is good, hope you can give a `star`!
 * Help Manual (List out current support)
     * Explain each parameter we support currently!
     * See more in [here](https://github.com/toolbuddy/papoGen/blob/master/example/README.md).
-```bash
-~/workspace » papogen -h
-Welcome using toolbuddy@papoGen!
-Current version: 0.0.13
-
-Usage:
-papogen -s[--src] <src_path> -o[--out] <out_path> -t[--title] <title> -g[--gen] <type> -m[--model] <name> -h[--help]
-     -s[--src] : specify the source files directory(using multiple configure files)
-     -o[--out] : specify the output destination directory(will generate website for u!)
-     -t[--title] : specify the title name of your website
-     -g[--gen] : specify the generating mechanism of result, user can pick from several types. default value is "json"
-     -m[--model] : specify the model/template of result
-     -h : list out usage of papoGen
- =====================================
-
-Optional usage:
-papogen -c[--create] <script/format> -o[--out] <out_path>
-    -c[--create] : generate template by command, with -o to specify output directory
-        (Generation will terminate the program after it finished)
- =====================================
-
-Usage/Detail of papoGen:
-     default value of each parameter:
-         src: current working directory
-         out: current working directory
-         title: "Powered by papoGen"
-         gen: "json"
-         model: "doc"
- =====================================
- If specified "-h" in command, then program will only list out usage, without any generation.
-
-List all template support by papoGen:
-        doc
-        resume
-List all script support by papoGen:
- (You can use command "papogen -c <script>/<format> -o <output>" to generate script template files)
-        json
-         - code
-         - formula
-         - hyper
-         - image
-         - list
-         - table
-         - text
-        yaml
-         - code
-         - formula
-         - hyper
-         - image
-         - list
-         - table
-         - text
-```
 
 * Generate
 ```bash
@@ -131,7 +78,7 @@ List all script support by papoGen:
     * `md_doc`
 * Example command:
 ```
-papogen -s test/md -o docs/md -g md -m md_doc -t Graph\ Theory   
+papogen -s test/md -o docs/md -g md -m md_doc -g md -t Graph\ Theory   
 ```
 
 # Demo
