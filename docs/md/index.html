@@ -1,8 +1,39 @@
-<!-- "doc" type, with tabs usage as template--><!-- Author: Kevin Cyu--><!-- include mixins--><!-- mixin - list--><!-- main--><!DOCTYPE html><html><!-- include header--><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Graph Theory</title><link rel="stylesheet" href="./asset/highlight.min.css"/><link rel="stylesheet" href="./asset/paper.min.css"/><link rel="stylesheet" href="./asset/monokai.css"/><link rel="stylesheet" href="./asset/main.css"/><link rel="stylesheet" href="./asset/cn-font.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML" async></script><script src="./asset/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body><div class="container"><div class="paper"><div class="demo-title" id="top"><div class="row flex-center"><div class="text-center"> <h1 class=".cn">Graph Theory</h1></div></div></div><div class="section"><div class="flex-spaces tabs">
+<!-- "doc" type, with tabs usage as template--><!-- Author: Kevin Cyu--><!-- include mixins--><!-- mixin - list--><!-- main--><!DOCTYPE html><html><!-- include header--><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Graph Theory</title><link rel="stylesheet" href="./asset/highlight.min.css"/><link rel="stylesheet" href="./asset/paper.min.css"/><link rel="stylesheet" href="./asset/monokai.css"/><link rel="stylesheet" href="./asset/main.css"/><link rel="stylesheet" href="./asset/cn-font.css"/><script type="text/x-mathjax-config">MathJax.Hub.Config({jax: ["input/TeX", "output/HTML-CSS"],extensions: ["tex2jax.js"],"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] },tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], displayMath: [ ["$$","$$"], ["\\[", "\\]"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno" },TeX: { noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } } },messageStyle: "none"});</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script><script src="./asset/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body><div class="container"><div class="paper"><div class="demo-title" id="top"><div class="row flex-center"><div class="text-center"> <h1 class=".cn">Graph Theory</h1></div></div></div><div class="section"><div class="flex-spaces tabs">
 <input id="tab1" type="radio" name="tabs" checked/>
-<label for="tab1">tutte's theorem</label>
+<label for="tab1">additivity</label>
 
-<div class="content" id="content1"><p><h1>Tutte's theorem</h1>
+<input id="tab2" type="radio" name="tabs"/>
+<label for="tab2">tutte's theorem</label>
+
+<div class="content" id="content1"><p><h3>$Def$ 可加性(additivity) :</h3>
+<ul>
+<li>
+<p>令 $f(x)$ 為一函數，$s,t \in D_f$。若$f(s) + f(t) = f(s+t) , \forall ~s,t$。則我們稱 $f(x)$ 具有<strong>可加性</strong></p>
+</li>
+<li>
+<p>範例： Let $f(x)=87x$，$s,t \in D_f$.Then：
+$f(s)+f(t)=87s+87t=87(s+t)=f(s+t)$&lt;/br&gt;
+$Therefore, f(x)~is~an~additivity~function.$</p>
+</li>
+<li>
+<p>範例：&lt;/br&gt;Let $f(x) = \int x {\rm d}x$，$s=ax+b~,~t=cx+d$.Then：&lt;/br&gt;
+$s+t= (a+b)x+(c+d)$&lt;/br&gt;
+$f(s) = \int (ax+b) {\rm d}x = \frac{1}{2}ax^2+bx+C$&lt;/br&gt;
+$f(t) = \int (cx+d) {\rm d}x = \frac{1}{2}cx^2+dx+C$&lt;/br&gt;
+$f(s)+f(t) = \frac{1}{2}(a+c)x^2+(b+d)x+C$&lt;/br&gt;
+$f(s+t) = \int [(a+b)x+(c+d)] {\rm d}x = \frac{1}{2}(a+b)x^2+(c+d)x+C$&lt;/br&gt;
+$\because f(s)+f(t)=f(s+t)=\frac{1}{2}(a+b)x^2+(c+d)x+C$&lt;/br&gt;
+$\therefore f(x)$ is additivity when $s,t \in P_1$&lt;/br&gt;
+<em>&lt;font color=#FF0000&gt;作者碎碎念&lt;/font&gt;</em>：事實上對於$n$次多項式都有這性質，就是微積分裡面常見的$\int (f(x) \pm g(x)) {\rm d}x = \int f(x) {\rm d}x \pm \int g(x) {\rm d}x$。不過在這邊我只是為了展示可加性，所以就不證明它了( ´ ▽ ` )ﾉ</p>
+</li>
+<li>
+<p>範例：&lt;/br&gt;Let $f(x)=94x+87$，$s,t \in D_f.$Then：&lt;/br&gt;
+$f(s)+f(t)=(94s+87)+(94t+87)=94(s+t)+174$&lt;/br&gt;
+$f(s+t)=94(s+t)+87 \neq f(s)+f(t)=94(s+t)+174$&lt;/br&gt;
+$Therefore, f(x)~is~not~an~additivity~function.$</p>
+</li>
+</ul>
+</p></div><div class="content" id="content2"><p><h1>Tutte's theorem</h1>
 <p>由 Tutte 於 1947 年提出，理論為 <code>A graph G has a 1-factor iff o(G-S)&lt;=|S| for every S ⊆ V(G)</code>，而是理論也稱為該 graph G 的 <code>Tutte's Condition</code></p>
 <ul>
 <li><code>o(G)</code>: 表示 graph G 的 odd components 的數量</li>

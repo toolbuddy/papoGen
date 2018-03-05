@@ -90,6 +90,7 @@ papogen -s test/md -o docs/md -g md -m md_doc -g md -t Graph\ Theory
    * [YAML - resume](https://toolbuddy.github.io/papoGen/resume-yaml)
 * Generate directly from Markdown format
    * [From Markdown - md_doc](https://toolbuddy.github.io/papoGen/md/)
+      * Support "MathJax"!
    * Graph Theory Tutorial:
       * [ch3](https://toolbuddy.github.io/Graph-Theory/matching-factor/index.html)
       * [ch4](https://toolbuddy.github.io/Graph-Theory/connectivity-path/)
