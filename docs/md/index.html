@@ -1,39 +1,11 @@
-<!-- "doc" type, with tabs usage as template--><!-- Author: Kevin Cyu--><!-- include mixins--><!-- mixin - list--><!-- main--><!DOCTYPE html><html><!-- include header--><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Markdown</title><link rel="stylesheet" href="./asset/highlight.min.css"/><link rel="stylesheet" href="./asset/paper.min.css"/><link rel="stylesheet" href="./asset/monokai.css"/><link rel="stylesheet" href="./asset/main.css"/><link rel="stylesheet" href="./asset/cn-font.css"/><script type="text/x-mathjax-config">MathJax.Hub.Config({jax: ["input/TeX", "output/HTML-CSS"],extensions: ["tex2jax.js"],"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] },tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], displayMath: [ ["$$","$$"], ["\\[", "\\]"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno" },TeX: { noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } } },messageStyle: "none"});</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="./asset/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body><div class="container"><div class="paper"><div class="demo-title" id="top"><div class="row flex-center"><div class="text-center"> <h1 class=".cn">Markdown</h1></div></div></div><div class="section"><div class="flex-spaces tabs">
-<input id="tab1" type="radio" name="tabs" checked/>
-<label for="tab1">additivity</label>
+<!-- "doc" type, with tabs usage as template--><!-- Author: Kevin Cyu--><!-- include mixins--><!-- mixin - list--><!-- main--><!DOCTYPE html><html><!-- include header--><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Example</title><link rel="stylesheet" href="./asset/highlight.min.css"><link rel="stylesheet" href="./asset/paper.min.css"><link rel="stylesheet" href="./asset/monokai.css"><link rel="stylesheet" href="./asset/main.css"><link rel="stylesheet" href="./asset/cn-font.css"><script type="text/x-mathjax-config">MathJax.Hub.Config({jax: ["input/TeX", "output/HTML-CSS"],extensions: ["tex2jax.js"],"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] },tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], displayMath: [ ["$$","$$"], ["\\[", "\\]"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno" },TeX: { noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } } },messageStyle: "none"});</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="./asset/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body><div class="container"><div class="paper"><div class="demo-title" id="top"><div class="row flex-center"><div class="text-center"> <h1 class=".cn" id="Example">Example</h1></div></div></div><div class="section"><div class="flex-spaces tabs">
+<input id="tab1" type="radio" name="tabs" checked="">
+<label for="tab1">01-tutte's theorem</label>
 
-<input id="tab2" type="radio" name="tabs"/>
-<label for="tab2">tutte's theorem</label>
+<input id="tab2" type="radio" name="tabs">
+<label for="tab2">02-mathJax</label>
 
-<div class="content" id="content1"><p><h3>$Def$ 可加性(additivity) :</h3>
-<ul>
-<li>
-<p>令 $f(x)$ 為一函數，$s,t \in D_f$。若$f(s) + f(t) = f(s+t) , \forall ~s,t$。則我們稱 $f(x)$ 具有<strong>可加性</strong></p>
-</li>
-<li>
-<p>範例： Let $f(x)=87x$，$s,t \in D_f$.Then：
-$f(s)+f(t)=87s+87t=87(s+t)=f(s+t)$
-$Therefore, f(x)~is~an~additivity~function.$</p>
-</li>
-<li>
-<p>範例：Let $f(x) = \int x {\rm d}x$，$s=ax+b~,~t=cx+d$.Then：
-$s+t= (a+b)x+(c+d)$
-$f(s) = \int (ax+b) {\rm d}x = \frac{1}{2}ax^2+bx+C$
-$f(t) = \int (cx+d) {\rm d}x = \frac{1}{2}cx^2+dx+C$&lt;
-$f(s)+f(t) = \frac{1}{2}(a+c)x^2+(b+d)x+C$
-$f(s+t) = \int [(a+b)x+(c+d)] {\rm d}x = \frac{1}{2}(a+b)x^2+(c+d)x+C$
-$f(s)+f(t)=f(s+t)=\frac{1}{2}(a+b)x^2+(c+d)x+C$
-$f(x)$ is additivity when $s,t \in P_1$
-作者碎碎念：事實上對於$n$次多項式都有這性質，就是微積分裡面常見的$\int (f(x) \pm g(x)) {\rm d}x = \int f(x) {\rm d}x \pm \int g(x) {\rm d}x$。不過在這邊我只是為了展示可加性，所以就不證明它了( ´ ▽ ` )ﾉ</p>
-</li>
-<li>
-<p>範例：Let $f(x)=94x+87$，$s,t \in D_f.$Then：
-$f(s)+f(t)=(94s+87)+(94t+87)=94(s+t)+174$
-$f(s+t)=94(s+t)+87 \neq f(s)+f(t)=94(s+t)+174$
-$Therefore, f(x)~is~not~an~additivity~function.$</p>
-</li>
-</ul>
-</p></div><div class="content" id="content2"><p><h1>Tutte's theorem</h1>
+<div class="content" id="content1"><p></p><h1 id="Tutte's%20theorem">Tutte's theorem</h1>
 <p>由 Tutte 於 1947 年提出，理論為 <code>A graph G has a 1-factor iff o(G-S)&lt;=|S| for every S ⊆ V(G)</code>，而是理論也稱為該 graph G 的 <code>Tutte's Condition</code></p>
 <ul>
 <li><code>o(G)</code>: 表示 graph G 的 odd components 的數量</li>
@@ -45,7 +17,7 @@ $Therefore, f(x)~is~not~an~additivity~function.$</p>
 <li>G 為一個 simple graph，vertex 數量記為 <code>n (e.g. = n(G))</code></li>
 <li>o(G) ≡ n (mod 2), 指的是 o(G) 及 n(G) 同時為 even、或是同時為 odd
 <ul>
-<li>≡: &quot;定義&quot;、&quot;恆等於&quot;</li>
+<li>≡: "定義"、"恆等於"</li>
 </ul>
 </li>
 <li>For S ⊆ V:
@@ -58,14 +30,14 @@ $Therefore, f(x)~is~not~an~additivity~function.$</p>
 <ul>
 <li>∀S ⊂ V : <code>o(G − S) ≤ |S|</code>, <code>- 式(2)</code>
 <ul>
-<li>∀: &quot;任意存在&quot;</li>
+<li>∀: "任意存在"</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 <hr>
-<h1>證明與概念詳細解釋</h1>
+<h1 id="證明與概念詳細解釋">證明與概念詳細解釋</h1>
 <p>從正向（<code>Necessity</code>）與反向（<code>Sufficiency</code>）證明</p>
 <h2>Necessity（必要性）</h2>
 <ul>
@@ -271,9 +243,38 @@ w 可能不一定屬於 H
 <p>如此我們便可以說，在符合 tutte condition 情況下，其必定有 1-factor 的存在</p>
 <h2>Summary</h2>
 <p>Case 1 的部份較為簡單，透過鴿籠原理即可證實。</p>
-<p>Case 2 的部份主要是以<strong>一直符合 Tutte Condition 的 graph G</strong>，在差一條 edge 可以成為 &quot;1-factor&quot; <code>G'</code> 的假設為前提下去做的分析，透過證實在差一條 edge 可成為 1-factor 的這個性質來強調，分析下的 graph 皆為<code>假設下沒有 1-factor</code> 的這個情形。所以從這個 G 下去做分析，來證實 <code>只要符合 tutte condition，就一定有 1-factor 存在</code> 這個性質，說明前面假設部份為錯誤的假設情況。</p>
-<h1>Reference</h1>
+<p>Case 2 的部份主要是以<strong>一直符合 Tutte Condition 的 graph G</strong>，在差一條 edge 可以成為 "1-factor" <code>G'</code> 的假設為前提下去做的分析，透過證實在差一條 edge 可成為 1-factor 的這個性質來強調，分析下的 graph 皆為<code>假設下沒有 1-factor</code> 的這個情形。所以從這個 G 下去做分析，來證實 <code>只要符合 tutte condition，就一定有 1-factor 存在</code> 這個性質，說明前面假設部份為錯誤的假設情況。</p>
+<h1 id="Reference">Reference</h1>
 <ul>
 <li><a href="http://ion.uwinnipeg.ca/~ychen2/advancedAD/notes-March15.pdf">notes-March15.pdf</a></li>
 </ul>
-</p></div></div></div><div class="to-top"><a class="paper-btn margin" href="#top">Top</a></div><div class="row flex-right"><p>Created by <span class="badge secondary">@ToolBuddy/papoGen(papercss)</span></p></div></div></div></body></html>
+<p></p></div><div class="content" id="content2"><p></p><h1 id="Linear%20Algebra">Linear Algebra</h1>
+<h3>$Def$ 可加性(additivity) :</h3>
+<ul>
+<li>
+<p>令 $f(x)$ 為一函數，$s,t \in D_f$。若$f(s) + f(t) = f(s+t) , \forall ~s,t$。則我們稱 $f(x)$ 具有<strong>可加性</strong></p>
+</li>
+<li>
+<p>範例： Let $f(x)=87x$，$s,t \in D_f$.Then：
+$f(s)+f(t)=87s+87t=87(s+t)=f(s+t)$
+$Therefore, f(x)~is~an~additivity~function.$</p>
+</li>
+<li>
+<p>範例：Let $f(x) = \int x {\rm d}x$，$s=ax+b~,~t=cx+d$.Then：
+$s+t= (a+b)x+(c+d)$
+$f(s) = \int (ax+b) {\rm d}x = \frac{1}{2}ax^2+bx+C$
+$f(t) = \int (cx+d) {\rm d}x = \frac{1}{2}cx^2+dx+C$&lt;
+$f(s)+f(t) = \frac{1}{2}(a+c)x^2+(b+d)x+C$
+$f(s+t) = \int [(a+b)x+(c+d)] {\rm d}x = \frac{1}{2}(a+b)x^2+(c+d)x+C$
+$f(s)+f(t)=f(s+t)=\frac{1}{2}(a+b)x^2+(c+d)x+C$
+$f(x)$ is additivity when $s,t \in P_1$
+作者碎碎念：事實上對於$n$次多項式都有這性質，就是微積分裡面常見的$\int (f(x) \pm g(x)) {\rm d}x = \int f(x) {\rm d}x \pm \int g(x) {\rm d}x$。不過在這邊我只是為了展示可加性，所以就不證明它了( ´ ▽ ` )ﾉ</p>
+</li>
+<li>
+<p>範例：Let $f(x)=94x+87$，$s,t \in D_f.$Then：
+$f(s)+f(t)=(94s+87)+(94t+87)=94(s+t)+174$
+$f(s+t)=94(s+t)+87 \neq f(s)+f(t)=94(s+t)+174$
+$Therefore, f(x)~is~not~an~additivity~function.$</p>
+</li>
+</ul>
+<p></p></div></div></div><div class="to-top"><a class="paper-btn margin" href="#top">Top</a></div><div class="to-top"><div class="row flex-spaces child-borders"><label class="paper-btn margin" for="modal-1">T.O.C.</label></div></div><input class="modal-state" id="modal-1" type="checkbox"><div class="modal"><label class="modal-bg" for="modal-1"></label><div class="modal-body"><label class="btn-close" for="modal-1">X </label><h4 class="modal-title">Table of Content</h4><h5 class="modal-subtitle">Click and go !</h5><div id="toc"><p class="modal-text"> Tab:0</p><hr><ol><li><a href="#Tutte's%20theorem">Tutte's theorem</a></li><li><a href="#證明與概念詳細解釋">證明與概念詳細解釋</a></li><li><a href="#Reference">Reference</a></li></ol><p class="modal-text"> Tab:1</p><hr><ol><li><a href="#Linear%20Algebra">Linear Algebra</a></li></ol></div></div></div><div class="row flex-right"><p>Created by <span class="badge secondary">@ToolBuddy/papoGen(papercss)</span></p></div></div></div></body></html>

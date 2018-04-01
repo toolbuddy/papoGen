@@ -19,4 +19,15 @@ html
                     include body/md-doc-tabs.pug
                 div(class="to-top")
                     a(href="#top" class="paper-btn margin") Top
+                div(class="to-top")
+                    div(class="row flex-spaces child-borders")
+                        label(class="paper-btn margin" for="modal-1") T.O.C.
+                input(class="modal-state" id="modal-1" type="checkbox")
+                div(class="modal")
+                    label(class="modal-bg" for="modal-1")
+                    div(class="modal-body")
+                        label(class="btn-close" for="modal-1") X 
+                        h4(class="modal-title") Table of Content
+                        h5(class="modal-subtitle") Click and go !
+                        div(id="toc")
                 include footer/copy.pug
