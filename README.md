@@ -70,7 +70,7 @@ If you feel `papogen` is good, hope you can give a `star`!
 * And then will base on specified format to generate content (see more detail below)
     * Currently support: `text` (see the source dir: `test/` as input, and destination dir: `docs/` as output)
 
-## Markdown (testing)
+## Markdown (Recommended!)
 * Generate from markdown directly.
 * *Different* from above format.
 * Still support multiple markdown files as input.
@@ -98,6 +98,10 @@ papogen -s test/md -o docs/md -g md -m md_doc -g md -t Graph\ Theory
 
 # Changelog
 * See [here](https://github.com/toolbuddy/papoGen/wiki).
+
+* Screenshot (**`v0.1.3`**)
+
+![](res/0_1_3.png)
 
 # workflow
 
