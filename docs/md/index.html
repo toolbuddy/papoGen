@@ -1,9 +1,9 @@
 <!-- "doc" type, with tabs usage as template--><!-- Author: Kevin Cyu--><!-- include mixins--><!-- mixin - list--><!-- main--><!DOCTYPE html><html><!-- include header--><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Example</title><link rel="stylesheet" href="./asset/highlight.min.css"><link rel="stylesheet" href="./asset/paper.min.css"><link rel="stylesheet" href="./asset/monokai.css"><link rel="stylesheet" href="./asset/main.css"><link rel="stylesheet" href="./asset/cn-font.css"><script type="text/x-mathjax-config">MathJax.Hub.Config({jax: ["input/TeX", "output/HTML-CSS"],extensions: ["tex2jax.js"],"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] },tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], displayMath: [ ["$$","$$"], ["\\[", "\\]"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno" },TeX: { noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } } },messageStyle: "none"});</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="./asset/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body><div class="container"><div class="paper"><div class="demo-title" id="top"><div class="row flex-center"><div class="text-center"> <h1 class=".cn" id="Example">Example</h1></div></div></div><div class="section"><div class="flex-spaces tabs">
 <input id="tab1" type="radio" name="tabs" checked="">
-<label for="tab1">01-tutte's theorem</label>
+<label id="label_tab1" for="tab1">01-tutte's theorem</label>
 
 <input id="tab2" type="radio" name="tabs">
-<label for="tab2">02-mathJax</label>
+<label id="label_tab2" for="tab2">02-mathJax</label>
 
 <div class="content" id="content1"><p></p><h1 id="Tutte's%20theorem">Tutte's theorem</h1>
 <p>由 Tutte 於 1947 年提出，理論為 <code>A graph G has a 1-factor iff o(G-S)&lt;=|S| for every S ⊆ V(G)</code>，而是理論也稱為該 graph G 的 <code>Tutte's Condition</code></p>
@@ -39,7 +39,7 @@
 <hr>
 <h1 id="證明與概念詳細解釋">證明與概念詳細解釋</h1>
 <p>從正向（<code>Necessity</code>）與反向（<code>Sufficiency</code>）證明</p>
-<h2>Necessity（必要性）</h2>
+<h2 id="Necessity（必要性）">Necessity（必要性）</h2>
 <ul>
 <li>正面從 G 是為一個 1-factor 的圖做解釋，可以知道以這種情況下可以畫出圖形：</li>
 </ul>
@@ -57,7 +57,7 @@
 而接下來是 tutte 的精華
 </code></pre>
 <hr>
-<h2>Sufficiency（充份性）</h2>
+<h2 id="Sufficiency（充份性）">Sufficiency（充份性）</h2>
 <ul>
 <li>這邊是從後面性質證回來，也就是說明擁有 <code>o(G-S) &lt;= |S|</code> 性質的 graph，其必有 1-factor（perfact matching）的存在
 <ul>
@@ -66,14 +66,14 @@
 </li>
 <li>而我們可以使用反證法（擁有 <code>o(G-S) &lt;= |S|</code> 性質，卻沒有 <code>1-factor</code>）來做證明，透過相同模型（分兩邊做討論），來分析各種情況，舉出擁有 <code>1-factor</code> 的實例，說明此假設錯誤，tutte's theorem 為真</li>
 </ul>
-<h3>先從假設的狀況下手</h3>
+<h3 id="先從假設的狀況下手">先從假設的狀況下手</h3>
 <ul>
 <li>首先我們設定 S 為<code>空集合</code>，這樣從<code>式(2)</code>中可以得到 <em>o(G-S) = o(G) ≤ |S| = 0</em>，所以從<code>式(1)</code>當中可以知道 <code>n(G)</code> 是 even<pre><code>o(G-∅) = o(G) = 0, 表示沒有奇數 component!
 而此代表，graph G 的中 vertex 數量必定為 even !
 </code></pre>
 </li>
 </ul>
-<h3>Claim 1</h3>
+<h3 id="Claim%201">Claim 1</h3>
 <p>增加一條 edge 並<code>維持 Tutte Condition</code>，也就是說，假設 e ∈ E(H)，而 H - e 符合 Tutte Condition（ 這個 H 就是加完 edge 並符合 Tutte Condition 的結果 ）</p>
 <ul>
 <li>
@@ -102,7 +102,7 @@
 </ul>
 </li>
 </ul>
-<h3>Claim 2</h3>
+<h3 id="Claim%202">Claim 2</h3>
 <p>有了以上的認知後，我們可以接下來做；使用多個狀態來展示矛盾狀況即可證明。</p>
 <ul>
 <li>Idea:
@@ -241,7 +241,7 @@ w 可能不一定屬於 H
 </ul>
 <p><img src="https://github.com/toolbuddy/Graph-Theory/blob/master/res/ch3/g-tutte-case2-caseAB.png?raw=true" alt=""></p>
 <p>如此我們便可以說，在符合 tutte condition 情況下，其必定有 1-factor 的存在</p>
-<h2>Summary</h2>
+<h2 id="Summary">Summary</h2>
 <p>Case 1 的部份較為簡單，透過鴿籠原理即可證實。</p>
 <p>Case 2 的部份主要是以<strong>一直符合 Tutte Condition 的 graph G</strong>，在差一條 edge 可以成為 "1-factor" <code>G'</code> 的假設為前提下去做的分析，透過證實在差一條 edge 可成為 1-factor 的這個性質來強調，分析下的 graph 皆為<code>假設下沒有 1-factor</code> 的這個情形。所以從這個 G 下去做分析，來證實 <code>只要符合 tutte condition，就一定有 1-factor 存在</code> 這個性質，說明前面假設部份為錯誤的假設情況。</p>
 <h1 id="Reference">Reference</h1>
@@ -249,7 +249,7 @@ w 可能不一定屬於 H
 <li><a href="http://ion.uwinnipeg.ca/~ychen2/advancedAD/notes-March15.pdf">notes-March15.pdf</a></li>
 </ul>
 <p></p></div><div class="content" id="content2"><p></p><h1 id="Linear%20Algebra">Linear Algebra</h1>
-<h3>$Def$ 可加性(additivity) :</h3>
+<h3 id="$Def$%20可加性(additivity) :">$Def$ 可加性(additivity) :</h3>
 <ul>
 <li>
 <p>令 $f(x)$ 為一函數，$s,t \in D_f$。若$f(s) + f(t) = f(s+t) , \forall ~s,t$。則我們稱 $f(x)$ 具有<strong>可加性</strong></p>
@@ -277,4 +277,44 @@ $f(s+t)=94(s+t)+87 \neq f(s)+f(t)=94(s+t)+174$
 $Therefore, f(x)~is~not~an~additivity~function.$</p>
 </li>
 </ul>
-<p></p></div></div></div><div class="to-top"><a class="paper-btn margin" href="#top">Top</a></div><div class="to-top"><div class="row flex-spaces child-borders"><label class="paper-btn margin" for="modal-1">T.O.C.</label></div></div><input class="modal-state" id="modal-1" type="checkbox"><div class="modal"><label class="modal-bg" for="modal-1"></label><div class="modal-body"><label class="btn-close" for="modal-1">X </label><h4 class="modal-title">Table of Content</h4><h5 class="modal-subtitle">Click and go !</h5><div id="toc"><p class="modal-text"> Tab:0</p><hr><ol><li><a href="#Tutte's%20theorem">Tutte's theorem</a></li><li><a href="#證明與概念詳細解釋">證明與概念詳細解釋</a></li><li><a href="#Reference">Reference</a></li></ol><p class="modal-text"> Tab:1</p><hr><ol><li><a href="#Linear%20Algebra">Linear Algebra</a></li></ol></div></div></div><div class="row flex-right"><p>Created by <span class="badge secondary">@ToolBuddy/papoGen(papercss)</span></p></div></div></div></body></html>
+<p></p></div></div></div><div class="to-top"><a class="paper-btn margin" href="#top">Top</a><div class="row flex-spaces child-borders"><label class="paper-btn margin" for="modal-1">T.O.C.</label></div></div><input class="modal-state" id="modal-1" type="checkbox"><div class="modal modal-dialog"><label class="modal-bg" for="modal-1"></label><div class="modal-body"><label class="btn-close" for="modal-1">X </label><h4 class="modal-title">Table of Content</h4><h5 class="modal-subtitle">Click and go !</h5><div class="modal-body" id="toc"><h4 class="modal-text">01-tutte's theorem</h4><hr><ol><li><a href="#Tutte's%20theorem">Tutte's theorem</a></li><a href="#Tutte's%20theorem">
+</a><ol><a href="#Tutte's%20theorem"></a><li><a href="#Tutte's%20theorem"></a><a href="#Necessity（必要性）">Necessity（必要性）</a></li><a href="#Necessity（必要性）">
+</a><ol><a href="#Necessity（必要性）"></a><li><a href="#Necessity（必要性）"></a><a href="#先從假設的狀況下手">先從假設的狀況下手</a></li><a href="#先從假設的狀況下手">
+</a><li><a href="#先從假設的狀況下手"></a><a href="#Claim%201">Claim 1</a></li><a href="#Claim%201">
+</a><li><a href="#Claim%201"></a><a href="#Claim%202">Claim 2</a></li><a href="#Claim%202">
+</a></ol><li><a href="#Sufficiency（充份性）">Sufficiency（充份性）</a></li><a href="#Sufficiency（充份性）">
+</a><ol><a href="#Sufficiency（充份性）"></a><li><a href="#Sufficiency（充份性）"></a><a href="#先從假設的狀況下手">先從假設的狀況下手</a></li><a href="#先從假設的狀況下手">
+</a><li><a href="#先從假設的狀況下手"></a><a href="#Claim%201">Claim 1</a></li><a href="#Claim%201">
+</a><li><a href="#Claim%201"></a><a href="#Claim%202">Claim 2</a></li><a href="#Claim%202">
+</a></ol><li><a href="#Summary">Summary</a></li><a href="#Summary">
+</a><ol><a href="#Summary"></a><li><a href="#Summary"></a><a href="#先從假設的狀況下手">先從假設的狀況下手</a></li><a href="#先從假設的狀況下手">
+</a><li><a href="#先從假設的狀況下手"></a><a href="#Claim%201">Claim 1</a></li><a href="#Claim%201">
+</a><li><a href="#Claim%201"></a><a href="#Claim%202">Claim 2</a></li><a href="#Claim%202">
+</a></ol></ol><li><a href="#證明與概念詳細解釋">證明與概念詳細解釋</a></li><a href="#證明與概念詳細解釋">
+</a><ol><a href="#證明與概念詳細解釋"></a><li><a href="#證明與概念詳細解釋"></a><a href="#Necessity（必要性）">Necessity（必要性）</a></li><a href="#Necessity（必要性）">
+</a><ol><a href="#Necessity（必要性）"></a><li><a href="#Necessity（必要性）"></a><a href="#先從假設的狀況下手">先從假設的狀況下手</a></li><a href="#先從假設的狀況下手">
+</a><li><a href="#先從假設的狀況下手"></a><a href="#Claim%201">Claim 1</a></li><a href="#Claim%201">
+</a><li><a href="#Claim%201"></a><a href="#Claim%202">Claim 2</a></li><a href="#Claim%202">
+</a></ol><li><a href="#Sufficiency（充份性）">Sufficiency（充份性）</a></li><a href="#Sufficiency（充份性）">
+</a><ol><a href="#Sufficiency（充份性）"></a><li><a href="#Sufficiency（充份性）"></a><a href="#先從假設的狀況下手">先從假設的狀況下手</a></li><a href="#先從假設的狀況下手">
+</a><li><a href="#先從假設的狀況下手"></a><a href="#Claim%201">Claim 1</a></li><a href="#Claim%201">
+</a><li><a href="#Claim%201"></a><a href="#Claim%202">Claim 2</a></li><a href="#Claim%202">
+</a></ol><li><a href="#Summary">Summary</a></li><a href="#Summary">
+</a><ol><a href="#Summary"></a><li><a href="#Summary"></a><a href="#先從假設的狀況下手">先從假設的狀況下手</a></li><a href="#先從假設的狀況下手">
+</a><li><a href="#先從假設的狀況下手"></a><a href="#Claim%201">Claim 1</a></li><a href="#Claim%201">
+</a><li><a href="#Claim%201"></a><a href="#Claim%202">Claim 2</a></li><a href="#Claim%202">
+</a></ol></ol><li><a href="#Reference">Reference</a></li><a href="#Reference">
+</a><ol><a href="#Reference"></a><li><a href="#Reference"></a><a href="#Necessity（必要性）">Necessity（必要性）</a></li><a href="#Necessity（必要性）">
+</a><ol><a href="#Necessity（必要性）"></a><li><a href="#Necessity（必要性）"></a><a href="#先從假設的狀況下手">先從假設的狀況下手</a></li><a href="#先從假設的狀況下手">
+</a><li><a href="#先從假設的狀況下手"></a><a href="#Claim%201">Claim 1</a></li><a href="#Claim%201">
+</a><li><a href="#Claim%201"></a><a href="#Claim%202">Claim 2</a></li><a href="#Claim%202">
+</a></ol><li><a href="#Sufficiency（充份性）">Sufficiency（充份性）</a></li><a href="#Sufficiency（充份性）">
+</a><ol><a href="#Sufficiency（充份性）"></a><li><a href="#Sufficiency（充份性）"></a><a href="#先從假設的狀況下手">先從假設的狀況下手</a></li><a href="#先從假設的狀況下手">
+</a><li><a href="#先從假設的狀況下手"></a><a href="#Claim%201">Claim 1</a></li><a href="#Claim%201">
+</a><li><a href="#Claim%201"></a><a href="#Claim%202">Claim 2</a></li><a href="#Claim%202">
+</a></ol><li><a href="#Summary">Summary</a></li><a href="#Summary">
+</a><ol><a href="#Summary"></a><li><a href="#Summary"></a><a href="#先從假設的狀況下手">先從假設的狀況下手</a></li><a href="#先從假設的狀況下手">
+</a><li><a href="#先從假設的狀況下手"></a><a href="#Claim%201">Claim 1</a></li><a href="#Claim%201">
+</a><li><a href="#Claim%201"></a><a href="#Claim%202">Claim 2</a></li><a href="#Claim%202">
+</a></ol></ol></ol><h4 class="modal-text">02-mathJax</h4><hr><ol><li><a href="#Linear%20Algebra">Linear Algebra</a></li><a href="#Linear%20Algebra">
+<ol></ol></a></ol></div></div></div><div class="row flex-right"><p>Created by <span class="badge secondary">@ToolBuddy/papoGen(papercss)</span></p></div></div></div></body></html>

@@ -8,7 +8,7 @@ div(class="flex-spaces tabs")
             input(id="tab"+index,type='radio',name='tabs')/
         |
         |
-        label(for="tab"+index) #{namelist[index-1].filename.split('.')[0]}
+        label(id="label_tab"+index for="tab"+index) #{namelist[index-1].filename.split('.')[0]}
         |
         |
     |

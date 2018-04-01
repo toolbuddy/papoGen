@@ -42,6 +42,17 @@ If you feel `papogen` is good, hope you can give a `star`!
 
 * Check our `example/` to see more!
 
+## Markdown (Recommended!)
+* Generate from markdown directly.
+* *Different* from above format.
+* Still support multiple markdown files as input.
+* support model:
+    * `md_doc`
+* Example command:
+```
+papogen -s test/md -o docs/md -g md -m md_doc -g md -t Graph\ Theory   
+```
+
 ## json(default)
 * Example command:
 * See more in [here](https://github.com/toolbuddy/papoGen/blob/master/test/json/README.md)
@@ -70,17 +81,6 @@ If you feel `papogen` is good, hope you can give a `star`!
 * And then will base on specified format to generate content (see more detail below)
     * Currently support: `text` (see the source dir: `test/` as input, and destination dir: `docs/` as output)
 
-## Markdown (Recommended!)
-* Generate from markdown directly.
-* *Different* from above format.
-* Still support multiple markdown files as input.
-* support model:
-    * `md_doc`
-* Example command:
-```
-papogen -s test/md -o docs/md -g md -m md_doc -g md -t Graph\ Theory   
-```
-
 # Demo
 
 * Generate by papoGen format
@@ -98,6 +98,11 @@ papogen -s test/md -o docs/md -g md -m md_doc -g md -t Graph\ Theory
 
 # Changelog
 * See [here](https://github.com/toolbuddy/papoGen/wiki).
+
+
+* Screenshot (**`v0.2.0`**)
+
+![](res/0_2_0.png)
 
 * Screenshot (**`v0.1.3`**)
 

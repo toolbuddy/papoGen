@@ -41,3 +41,13 @@ body {
 	font-family: 'setofont';
 	src: url('./font/setofont.ttf');
 }
+
+
+.modal-dialog{
+    overflow-y: initial !important
+}
+.modal-body{
+    width: 70%;
+    height: 70%;
+    overflow-y: auto;
+}
