@@ -57,11 +57,11 @@ if(!program.help){
     return;
 }
 else{
-    console.log(chalk.blue('   - src is %s', program.src));
-    console.log(chalk.blue('   - out is %s', program.out));
-    console.log(chalk.green('   - title is %s', program.title));
-    console.log(chalk.green('   - gen is %s', program.gen));
-    console.log(chalk.green('   - model is %s', program.model));
+    console.log(chalk.blue('   - src is', program.src));
+    console.log(chalk.blue('   - out is', program.out));
+    console.log(chalk.green('   - title is', program.title));
+    console.log(chalk.green('   - gen is', program.gen));
+    console.log(chalk.green('   - model is', program.model));
     console.log('\n');
 
     if(program.create){
