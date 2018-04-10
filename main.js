@@ -26,37 +26,37 @@ let depobj = JSON.parse(dep);
 
 console.log('\nWelcome using toolbuddy@papoGen!');
 console.log('Current version: '+chalk.green(depobj.version)+'\n');
-if(!program.help){
+if (!program.help) {
     console.log(
-        chalk.red('Usage:\npapogen -s[--src] <src_path> -o[--out] <out_path> -t[--title] <title> -g[--gen] <type> -m[--model] <name> -h[--help]\n'),
-        chalk.red('    -s[--src] : specify the source files directory(using multiple configure files)\n'),
-        chalk.red('    -o[--out] : specify the output destination directory(will generate website for u!)\n'),
-        chalk.red('    -t[--title] : specify the title name of your website\n'),
-        chalk.red('    -g[--gen] : specify the generating mechanism of result, user can pick from several types. default value is "json"\n'),
-        chalk.red('    -m[--model] : specify the model/template of result\n'),
-        chalk.red('    -h : list out usage of papoGen\n'),
-        chalk.red('=====================================\n')
+        chalk.red('USAGE:\n      > papogen -s[--src] <src_path> -o[--out] <out_path> -t[--title] <title> -g[--gen] <type> -m[--model] <name> -h[--help]\n'),
+        chalk.red('\t\t-s[--src]: Specify the source files directory(using multiple configure files)\n'),
+        chalk.red('\t\t-o[--out]: Specify the output destination directory(will generate website for u!)\n'),
+        chalk.red('\t\t-t[--title]: Specify the title name of your website\n'),
+        chalk.red('\t\t-g[--gen]: Specify the generating mechanism of result, user can pick from several types. default value is "json"\n'),
+        chalk.red('\t\t-m[--model]: Specify the model/template of result\n'),
+        chalk.red('\t\t-h[--help]: List out usage of papoGen\n\n')
     );
+
     console.log(
-        chalk.green('Optional usage:\npapogen -c[--create] <script/format> -o[--out] <out_path>\n'),
-        chalk.green('   -c[--create] : generate template by command, with -o to specify output directory\n\t(Generation will terminate the program after it finished)\n'),
-        chalk.green('=====================================\n')
+        chalk.yellow('DRTAIL OF USAGE:\n'),
+        chalk.white('     * Default value of each parameter:\n'),
+        chalk.yellow('\tsrc: current working directory\n'),
+        chalk.yellow('\tout: current working directory\n'),
+        chalk.yellow('\ttitle: "Powered by papoGen"\n'),
+        chalk.yellow('\tgen: "json"\n'),
+        chalk.yellow('\tmodel: "doc"\n'),
+        chalk.white('     * If specified "-h" in command, then program will only list out usage, without any generation.\n')
     );
+
     console.log(
-        chalk.red('Usage/Detail of papoGen:\n'),
-        chalk.blue('    default value of each parameter:\n'),
-        chalk.red('        src: current working directory\n'),
-        chalk.red('        out: current working directory\n'),
-        chalk.red('        title: "Powered by papoGen"\n'),
-        chalk.red('        gen: "json"\n'),
-        chalk.red('        model: "doc"\n'),
-        chalk.red('=====================================\n'),
-        chalk.red('If specified "-h" in command, then program will only list out usage, without any generation.\n')
+        chalk.green('OPTIONAL USAGE:\n      > papogen -c[--create] <script/format> -o[--out] <out_path>\n'),
+        chalk.green('\t\t-c[--create]: Generate template by command, with -o to specify output directory\n'),
+        chalk.green('\t\t              (Generation will terminate the program after it finished)\n')
     );
+
     template_api.list();
     return;
-}
-else{
+} else {
     console.log(chalk.blue('   - src is', program.src));
     console.log(chalk.blue('   - out is', program.out));
     console.log(chalk.green('   - title is', program.title));
@@ -64,7 +64,7 @@ else{
     console.log(chalk.green('   - model is', program.model));
     console.log('\n');
 
-    if(program.create){
+    if (program.create) {
         // user want to generate template
         console.log(`Generating ... `);
         console.log(`Specified: ${program.create}`);
@@ -73,24 +73,22 @@ else{
         let script = program.create.split('/')[0];
         let list_raw = program.create.split('/');
         // change to format list, so it can be like: xxxx/xxxx/xxxx ... specify several templates
-        if(list_raw.length > 2){
+        if (list_raw.length > 2) {
             // format -> format list
             for(var i=1;i<list_raw.length;i++){
                 // copy template to target
                 copy_template(program.out,script,list_raw[i]);
             }
-        }
-        else if(list_raw.length == 2){
+        } else if (list_raw.length == 2) {
             // only 2, means only need to consider [1] element 
-            if(list_raw[1] == "all"){
+            if (list_raw[1] == "all") {
                 // copy all 
                 let all_template = template_api.format_list(script);
                 // console.log(all_template);
-                for(var index in all_template){
+                for (var index in all_template) {
                     copy_template(program.out,script,all_template[index]);
                 }
-            }
-            else{
+            } else {
                 copy_template(program.out,script,list_raw[1]);
             }
         }
