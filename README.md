@@ -100,15 +100,11 @@ papogen -s test/md -o docs/md -g md -m md_doc -g md -t Graph\ Theory
 # Changelog
 * See [here](https://github.com/toolbuddy/papoGen/wiki).
 
+* Screenshot
 
-* Screenshot (**`v0.2.0`**)
+| version | Table of content | Main Page |
+| ------- | ------- | ------- |
+| `v0.2.2` | ![](res/v0.2.2_toc.png) | ![](res/v0.2.2_preview.png) |  
 
-![](res/0_2_0.png)
-
-* Screenshot (**`v0.1.3`**)
-
-![](res/0_1_3.png)
-
-# workflow
-
-![](./design/workflow.png)
+# Workflow 
+* See [here](https://github.com/toolbuddy/papoGen/wiki)
