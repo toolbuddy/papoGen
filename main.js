@@ -11,13 +11,13 @@ const compile_engine = require('./lib/compile_engine');
 const template_api = require('./lib/template');
 
 program
-.version('0.0.1')
 .option('-h, --help', 'Helper manual')
 .option('-s, --src [dir]', 'Input Directory [dir]', __dirname)
 .option('-o, --out [dir]', 'Output Directory [dir]', __dirname)
 .option('-t, --title [name]', 'Specify the title name [name]', 'Power by papoGen')
 .option('-g, --gen [type]', 'Specify the generating mechanism [type]', 'json')
 .option('-m, --model [name]', 'Specify the model/template of result [name] (Default will be `doc`)', 'doc')
+.option('--theme [theme]', 'Specify which css theme you want to use for template of website. (Default: `paper.min`)', 'paper.min')
 .option('-c, --create [script/format]', 'Specify the script template to generate [script/format]', undefined)
 .parse(process.argv);
 
@@ -28,12 +28,13 @@ console.log('\nWelcome using toolbuddy@papoGen!');
 console.log('Current version: '+chalk.green(depobj.version)+'\n');
 if (!program.help) {
     console.log(
-        chalk.red('USAGE:\n      > papogen -s[--src] <src_path> -o[--out] <out_path> -t[--title] <title> -g[--gen] <type> -m[--model] <name> -h[--help]\n'),
+        chalk.red('USAGE:\n      > papogen -s[--src] <src_path> -o[--out] <out_path> -t[--title] <title> -g[--gen] <type> -m[--model] <name> --theme <theme> -h[--help]\n'),
         chalk.red('\t\t-s[--src]: Specify the source files directory(using multiple configure files)\n'),
         chalk.red('\t\t-o[--out]: Specify the output destination directory(will generate website for u!)\n'),
         chalk.red('\t\t-t[--title]: Specify the title name of your website\n'),
         chalk.red('\t\t-g[--gen]: Specify the generating mechanism of result, user can pick from several types. default value is "json"\n'),
         chalk.red('\t\t-m[--model]: Specify the model/template of result\n'),
+        chalk.red('\t\t--theme: Specify which css theme you want to use for template of website. (Default: `paper.min`)\n'),
         chalk.red('\t\t-h[--help]: List out usage of papoGen\n\n')
     );
 
@@ -45,6 +46,7 @@ if (!program.help) {
         chalk.yellow('\ttitle: "Powered by papoGen"\n'),
         chalk.yellow('\tgen: "json"\n'),
         chalk.yellow('\tmodel: "doc"\n'),
+        chalk.yellow('\ttheme: "paper"\n'),
         chalk.white('     * If specified "-h" in command, then program will only list out usage, without any generation.\n')
     );
 
@@ -62,6 +64,7 @@ if (!program.help) {
     console.log(chalk.green('   - title is', program.title));
     console.log(chalk.green('   - gen is', program.gen));
     console.log(chalk.green('   - model is', program.model));
+    console.log(chalk.green('   - theme is', program.theme));
     console.log('\n');
 
     if (program.create) {
@@ -103,7 +106,8 @@ if (!program.help) {
                 program.src,
                 program.title,
                 program.out,
-                program.gen
+                program.gen,
+                program.theme
             );   
         break;
         case 'resume':
@@ -111,7 +115,8 @@ if (!program.help) {
                 program.src,
                 program.title,
                 program.out,
-                program.gen
+                program.gen,
+                program.theme
             );
         break;
         case 'md_doc':
@@ -119,7 +124,8 @@ if (!program.help) {
                 program.src,
                 program.title,
                 program.out,
-                program.gen
+                program.gen,
+                program.theme
             );
         break;
         default:
