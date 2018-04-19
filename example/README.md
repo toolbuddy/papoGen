@@ -42,7 +42,7 @@
 
 * 運行範例指令：
 ```bash
-papogen -s test/md -o docs/md -g md -m md_doc
+papogen -s src/md -o out/md -g md -m md_doc
 ```
 
 * 解釋
@@ -61,9 +61,9 @@ papogen -s test/md -o docs/md -g md -m md_doc
 * 運行範例指令
 ```bash
 # 產生 document 版型 - doc
-papogen -s test/json -o docs/json -m doc
+papogen -s src/json -o out/json -m doc
 # 產生 resume 版型 - resume
-papogen -s test/json -o docs/json -m resume
+papogen -s src/json -o out/json -m resume
 ```
 
 * 解釋
@@ -83,9 +83,9 @@ papogen -s test/json -o docs/json -m resume
 * 運行範例指令
 ```bash
 # 產生 document 版型 - doc
-papogen -s test/yaml -o docs/yaml -m doc -g yaml
+papogen -s src/yaml -o out/yaml -m doc -g yaml
 # 產生 resume 版型 - resume
-papogen -s test/yaml -o docs/yaml -m resume -g yaml
+papogen -s src/yaml -o out/yaml -m resume -g yaml
 ```
 
 * 解釋

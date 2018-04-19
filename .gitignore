@@ -1,4 +1,7 @@
 node_modules/
 example/out/json/*
+!example/out/json/.gitkeep
 example/out/md/*
+!example/out/md/.gitkeep
 example/out/yaml/*
+!example/out/yaml/.gitkeep
