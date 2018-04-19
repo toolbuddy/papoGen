@@ -10,6 +10,8 @@ If you feel `papogen` is good, hope you can give a `star`!
 
 # usage
 
+> [使用說明 - 中文詳細版本](example/)
+
 * Install 
 ```bash
 » [sudo] npm install papogen -g
@@ -50,7 +52,7 @@ If you feel `papogen` is good, hope you can give a `star`!
     * `md_doc`
 * Example command:
 ```
-papogen -s test/md -o docs/md -g md -m md_doc -g md -t Graph\ Theory   
+papogen -s test/md -o docs/md -g md -m md_doc -t Graph\ Theory   
 ```
 
 ## json(default)
