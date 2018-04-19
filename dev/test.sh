@@ -11,9 +11,12 @@ NC='\033[0m'
 SUCCESS_COUNT=0
 TESTCASE=0
 
+EXEC=../main.js
+SRC=../test/
+
 # 1) ============================================================== Run json example
 # running json - doc format test
-./main.js -s test/json -o /tmp > /dev/null 2>&1
+${EXEC} -s ${SRC}json -o /tmp > /dev/null 2>&1
 TESTCASE=$((TESTCASE+1))
 error=$?
 if [ $error -eq 0 ]
@@ -24,7 +27,7 @@ else
     echo -e "${RED}[papoGen test] ${LIGHT_CRAY}JSON${GREEN}-${CRAY}doc${NC} format generating process fail.${NC}"
 fi
 # running json - resume format test
-./main.js -s test/json -o /tmp -m resume > /dev/null 2>&1
+${EXEC} -s ${SRC}json -o /tmp -m resume > /dev/null 2>&1
 TESTCASE=$((TESTCASE+1))
 error=$?
 if [ $error -eq 0 ]
@@ -37,7 +40,7 @@ fi
 
 # 2) ============================================================== Run yaml example
 # running yaml - doc format test
-./main.js -s test/yaml -o /tmp -g yaml -m doc > /dev/null 2>&1
+${EXEC} -s ${SRC}yaml -o /tmp -g yaml -m doc > /dev/null 2>&1
 TESTCASE=$((TESTCASE+1))
 error=$?
 if [ $error -eq 0 ]
@@ -49,7 +52,7 @@ else
 fi
 
 # running yaml - resume format test
-./main.js -s test/yaml -o /tmp -g yaml -m resume > /dev/null 2>&1
+${EXEC} -s ${SRC}yaml -o /tmp -g yaml -m resume > /dev/null 2>&1
 TESTCASE=$((TESTCASE+1))
 error=$?
 if [ $error -eq 0 ]
@@ -62,7 +65,7 @@ fi
 
 # 3) ============================================================== Run Markdown example
 # running markdown - md_doc format test
-./main.js -s test/md -o /tmp -g md -m md_doc > /dev/null 2>&1
+${EXEC} -s ${SRC}md -o /tmp -g md -m md_doc > /dev/null 2>&1
 TESTCASE=$((TESTCASE+1))
 error=$?
 if [ $error -eq 0 ]
