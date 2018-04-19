@@ -14,67 +14,108 @@ TESTCASE=0
 EXEC=../main.js
 SRC=../test/
 
+# Define error log place
+ERR=/tmp/papogen.error.log
+LOG=/tmp/papogen.log
+TMP=logfile
+# clear first
+rm ERR LOG > /dev/null 2>&1
 # 1) ============================================================== Run json example
 # running json - doc format test
-${EXEC} -s ${SRC}json -o /tmp > /dev/null 2>&1
 TESTCASE=$((TESTCASE+1))
+${EXEC} -s ${SRC}json -o /tmp > ${TMP}
 error=$?
-if [ $error -eq 0 ]
-then 
+if [ "${error}" == "0" ]
+then
     echo -e "${GREEN}[papoGen test] ${LIGHT_CRAY}JSON${GREEN}-${CRAY}doc${NC} format generating process success.${NC}"
+    echo -e "${GREEN}[papoGen test] ${LIGHT_CRAY}JSON${GREEN}-${CRAY}doc${NC} format generating process success.${NC}" >> ${LOG}
     SUCCESS_COUNT=$((SUCCESS_COUNT + 1))
+    # pass to log 
+    cat ${TMP} >> ${LOG}
 else
     echo -e "${RED}[papoGen test] ${LIGHT_CRAY}JSON${GREEN}-${CRAY}doc${NC} format generating process fail.${NC}"
+    echo -e "${RED}[papoGen test] ${LIGHT_CRAY}JSON${GREEN}-${CRAY}doc${NC} format generating process fail.${NC}"  >> ${ERR}
+    # pass to error 
+    cat ${TMP} >> ${ERR}
 fi
 # running json - resume format test
-${EXEC} -s ${SRC}json -o /tmp -m resume > /dev/null 2>&1
 TESTCASE=$((TESTCASE+1))
+${EXEC} -s ${SRC}json -o /tmp -m resume > ${TMP}
 error=$?
-if [ $error -eq 0 ]
+if [ "${error}" == "0" ]
 then 
     echo -e "${GREEN}[papoGen test] ${LIGHT_CRAY}JSON${GREEN}-${CRAY}resume${NC} format generating process success.${NC}"
+    echo -e "${GREEN}[papoGen test] ${LIGHT_CRAY}JSON${GREEN}-${CRAY}resume${NC} format generating process success.${NC}"  >> ${LOG}
     SUCCESS_COUNT=$((SUCCESS_COUNT + 1))
+    # pass to log 
+    cat ${TMP} >> ${LOG}
 else
     echo -e "${RED}[papoGen test] ${LIGHT_CRAY}JSON${GREEN}-${CRAY}resume${NC} format generating process fail.${NC}"
+    echo -e "${RED}[papoGen test] ${LIGHT_CRAY}JSON${GREEN}-${CRAY}resume${NC} format generating process fail.${NC}" >> ${ERR}
+    # pass to error 
+    cat ${TMP} >> ${ERR}
 fi
 
 # 2) ============================================================== Run yaml example
 # running yaml - doc format test
-${EXEC} -s ${SRC}yaml -o /tmp -g yaml -m doc > /dev/null 2>&1
 TESTCASE=$((TESTCASE+1))
+${EXEC} -s ${SRC}yaml -o /tmp -g yaml -m doc > ${TMP}
 error=$?
-if [ $error -eq 0 ]
-then 
+if [ "${error}" == "0" ]
+then
     echo -e "${GREEN}[papoGen test] ${LIGHT_CRAY}YAML${GREEN}-${CRAY}doc${NC} format generating process success.${NC}"
+    echo -e "${GREEN}[papoGen test] ${LIGHT_CRAY}YAML${GREEN}-${CRAY}doc${NC} format generating process success.${NC}"  >> ${LOG}
     SUCCESS_COUNT=$((SUCCESS_COUNT + 1))
+    # pass to log 
+    cat ${TMP} >> ${LOG}
 else
     echo -e "${RED}[papoGen test] ${LIGHT_CRAY}YAML${GREEN}-${CRAY}doc${NC} format generating process fail.${NC}"
+    echo -e "${RED}[papoGen test] ${LIGHT_CRAY}YAML${GREEN}-${CRAY}doc${NC} format generating process fail.${NC}"  >> ${ERR}
+    # pass to error 
+    cat ${TMP} >> ${ERR}
 fi
 
 # running yaml - resume format test
-${EXEC} -s ${SRC}yaml -o /tmp -g yaml -m resume > /dev/null 2>&1
 TESTCASE=$((TESTCASE+1))
+${EXEC} -s ${SRC}yaml -o /tmp -g yaml -m resume > ${TMP}
 error=$?
-if [ $error -eq 0 ]
-then 
+if [ "${error}" == "0" ]
+then
     echo -e "${GREEN}[papoGen test] ${LIGHT_CRAY}YAML${GREEN}-${CRAY}resume${NC} format generating process success.${NC}"
+    echo -e "${GREEN}[papoGen test] ${LIGHT_CRAY}YAML${GREEN}-${CRAY}resume${NC} format generating process success.${NC}"  >> ${LOG}
     SUCCESS_COUNT=$((SUCCESS_COUNT + 1))
+    # pass to log 
+    cat ${TMP} >> ${LOG}
 else
     echo -e "${RED}[papoGen test] ${LIGHT_CRAY}YAML${GREEN}-${CRAY}resume${NC} format generating process fail.${NC}"
+    echo -e "${RED}[papoGen test] ${LIGHT_CRAY}YAML${GREEN}-${CRAY}resume${NC} format generating process fail.${NC}" >> ${ERR}
+    # pass to error 
+    cat ${TMP} >> ${ERR}
 fi
 
 # 3) ============================================================== Run Markdown example
 # running markdown - md_doc format test
-${EXEC} -s ${SRC}md -o /tmp -g md -m md_doc > /dev/null 2>&1
 TESTCASE=$((TESTCASE+1))
+${EXEC} -s ${SRC}md -o /tmp -g md -m md_doc > ${TMP}
 error=$?
-if [ $error -eq 0 ]
-then 
-    echo -e "${GREEN}[papoGen test] ${LIGHT_CRAY}MARKDOWN${GREEN}-${CRAY}md_doc${NC} format generating process success.${NC}"
+if [ "${error}" == "0" ]
+then
+    echo -e "${GREEN}[papoGen test] ${LIGHT_CRAY}MARKDOWN${GREEN}-${CRAY}md_doc${NC} format generating process success.${NC}" 
+    echo -e "${GREEN}[papoGen test] ${LIGHT_CRAY}MARKDOWN${GREEN}-${CRAY}md_doc${NC} format generating process success.${NC}"  >> ${LOG}
     SUCCESS_COUNT=$((SUCCESS_COUNT + 1))
+    # pass to log 
+    cat ${TMP} >> ${LOG}
 else
     echo -e "${RED}[papoGen test] ${LIGHT_CRAY}MARKDOWN${GREEN}-${CRAY}md_doc${NC} format generating process fail.${NC}"
+    echo -e "${RED}[papoGen test] ${LIGHT_CRAY}MARKDOWN${GREEN}-${CRAY}md_doc${NC} format generating process fail.${NC}" >> ${ERR}
+    # pass to error 
+    cat ${TMP} >> ${ERR}
 fi
 
 
+# remove
+rm ${TMP}
+
 echo -e "\n${GREEN}Pass${NC}/Total testcase: ${GREEN}${SUCCESS_COUNT}${NC}/${TESTCASE}\n"
+echo -e "Check the error log for here: ${RED}${ERR}${NC}"
+echo -e "Check the log for here: ${GREEN}${LOG}${NC}"
