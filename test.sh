@@ -49,7 +49,7 @@ else
 fi
 
 # running yaml - resume format test
-./main.js -s test/yaml -o docs/doc-yaml -g yaml -m resume > /dev/null 2>&1
+./main.js -s test/yaml -o /tmp -g yaml -m resume > /dev/null 2>&1
 TESTCASE=$((TESTCASE+1))
 error=$?
 if [ $error -eq 0 ]
@@ -62,7 +62,7 @@ fi
 
 # 3) ============================================================== Run Markdown example
 # running markdown - md_doc format test
-./main.js -s test/md -o docs/md -g md -m md_doc > /dev/null 2>&1
+./main.js -s test/md -o /tmp -g md -m md_doc > /dev/null 2>&1
 TESTCASE=$((TESTCASE+1))
 error=$?
 if [ $error -eq 0 ]
