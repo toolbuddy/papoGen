@@ -1,1 +1,4 @@
 node_modules/
+example/out/json/*
+example/out/md/*
+example/out/yaml/*
