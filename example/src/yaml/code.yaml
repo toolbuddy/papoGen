@@ -1,0 +1,30 @@
+article: Code example
+article_content:
+  - {
+    title: Raw,
+    content: [
+      {
+        type: code,
+        data: [
+          {
+            raw: npm install papogen -g,
+            lang: bash
+          }
+        ]
+      }
+    ]
+  }
+  - {
+    title: Src,
+    content: [
+      {
+        type: code,
+        data: [
+          {
+            url: ../main.js,
+            lang: javascript
+          }
+        ]
+      }
+    ]
+  }

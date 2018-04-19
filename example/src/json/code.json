@@ -1,0 +1,59 @@
+{
+    "article":"Code Example",
+    "article_content":[
+        {
+            "title": "Installation",
+            "content": [
+                {
+                    "type": "text",
+                    "data": [
+                        "You can download it from 'npm', or just clone from source code and use it directly."
+                    ]
+                },
+                {
+                    "type": "code",
+                    "data":[
+                        {
+                            "raw": "npm install papogen -g",
+                            "lang": "bash"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Run in command line",
+            "content": [
+                {
+                    "type": "text",
+                    "data": [
+                        "papoGen is a cli tool, you can just run the command below to generate!"
+                    ]
+                },
+                {
+                    "type": "code",
+                    "data":[
+                        {
+                            "raw": "papogen -s test/ -o docs/ -t papoGen",
+                            "lang": "bash"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Have a peek in source code!",
+            "content": [
+                {
+                    "type": "code",
+                    "data": [
+                        {
+                            "url": "../main.js",
+                            "lang": "javascript"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
