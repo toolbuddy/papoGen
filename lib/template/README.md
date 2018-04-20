@@ -17,7 +17,12 @@
         * 像是程式碼的部份，原本路徑的地方就會被前處理讀取後存進 json object 內；
         * 而圖片則是會幫使用者做複製後，更改原本的相對路徑，處理成目標最後能夠使用的相對路徑
 
-## 傳入的 json 格式
+## 傳入 Markdown 格式
+
+* 基本上 html tag 都是傳統的 `h1,h2,... div` 等等標籤
+* 由於 markdown 格式都是透過現有套件 - `markdown-it` 來做轉換，所以對 html 額外的操作都會在 `lib/compile_engine_md.js` 當中
+
+## 傳入 json/yaml 格式
 
 * 可以看到，每個檔案 object 除了 `filename`, `loc` 欄位之外，其餘 `article`, `article_content` 都跟文件定義的內容一樣
 * 所以基本上只要按照你所需要的部份來做編寫、抓取你要的內容、`field` 來做 `pug` 檔案，就可以完成你的 template!
