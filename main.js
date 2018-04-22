@@ -23,7 +23,7 @@ if(process.argv.length>2){
     .option('-t, --title [name]', 'Specify the title name [name]', 'Power by papoGen')
     .option('-g, --gen [type]', 'Specify the generating mechanism [type]', 'json')
     .option('-m, --model [name]', 'Specify the model/template of result [name] (Default will be `doc`)', 'doc')
-    .option('--theme [theme]', 'Specify which css theme you want to use for template of website. (Default: `paper.min`)', 'paper.min')
+    .option('--theme [theme]', 'Specify which css theme you want to use for template of website. (Default: `paper`)', 'paper')
     .option('-c, --create [script/format]', 'Specify the script template to generate [script/format]', undefined)
     .parse(process.argv);
 
@@ -40,7 +40,7 @@ if(process.argv.length>2){
             chalk.red('\t\t-t[--title]: Specify the title name of your website\n'),
             chalk.red('\t\t-g[--gen]: Specify the generating mechanism of result, user can pick from several types. default value is "json"\n'),
             chalk.red('\t\t-m[--model]: Specify the model/template of result\n'),
-            chalk.red('\t\t--theme: Specify which css theme you want to use for template of website. (Default: `paper.min`)\n'),
+            chalk.red('\t\t--theme: Specify which css theme you want to use for template of website. (Default: `paper`)\n'),
             chalk.red('\t\t-h[--help]: List out usage of papoGen\n\n')
         );
 
