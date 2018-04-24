@@ -2,13 +2,13 @@ head
     meta(charset="utf-8")/
     meta(name="viewport" content="width=device-width, initial-scale=1")/
     title #{title}
-    link(rel="stylesheet" href="./asset/highlight.min.css")/
     // select the right theme
     if theme == "paper"
         link(rel="stylesheet" href="./asset/paper.min.css")/
         link(rel="stylesheet" href="./asset/monokai.css")/
-    link(rel="stylesheet" href="./asset/main.css")/
-    link(rel="stylesheet" href="./asset/cn-font.css")/
+        link(rel="stylesheet" href="./asset/main.css")/
+        link(rel="stylesheet" href="./asset/cn-font.css")/
+        link(rel="stylesheet" href="./asset/highlight.min.css")/
     - for(var i=6;i<=(namelist.length);i++)
         style .tabs input[id=tab#{i}]:checked~div[id=content#{i}]{display:block}
     script(type="text/x-mathjax-config") MathJax.Hub.Config({jax: ["input/TeX", "output/HTML-CSS"],extensions: ["tex2jax.js"],"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] },tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], displayMath: [ ["$$","$$"], ["\\[", "\\]"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno" },TeX: { noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } } },messageStyle: "none"});
