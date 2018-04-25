@@ -21,6 +21,15 @@
 
 * 基本上 html tag 都是傳統的 `h1,h2,... div` 等等標籤
 * 由於 markdown 格式都是透過現有套件 - `markdown-it` 來做轉換，所以對 html 額外的操作都會在 `lib/compile_engine_md.js` 當中
+* **注意：傳入 pug 的變數如下**
+
+```js
+{
+    title: title,  // 產生網頁的顯示標題
+    namelist: fnamelist,  // 為一 json array, 每個 element 都是一個 markdown 轉換而成的 html，會套用在 md-doc-tabs.pug
+    theme: theme // 所選擇的 css theme 主題樣板，會套用在 doc-header.pug
+}
+```
 
 ## 傳入 json/yaml 格式
 
