@@ -111,6 +111,16 @@ papogen -s test/md -o docs/md -g md -m md_doc -t Graph\ Theory
 # Workflow 
 * See [here](https://github.com/toolbuddy/papoGen/wiki)
 
+# WIP
+
+If you want to contribute the project, please using `git clone` with `--recursive` to clone the entire project. ( or using `git submodule update` to update your old version. )
+
+* [papoGen.css](third_party/papoGen.css)
+    * our new css template is creating now!
+    * will introduce the new theme, and template into `papoGen`.
+
+
+
 # Author 
 
 [Kevin Cyu](https://github.com/kevinbird61), kevinbird61@gmail.com
