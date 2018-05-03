@@ -115,7 +115,7 @@ papogen -s test/md -o docs/md -g md -m md_doc -t Graph\ Theory
 
 If you want to contribute the project, please using `git clone` with `--recursive` to clone the entire project. ( or using `git submodule update` to update your old version. )
 
-* [papoGen.css](third_party/papoGen.css)
+* [papoGen.css](https://github.com/toolbuddy/papoGen.css)
     * our new css template is creating now!
     * will introduce the new theme, and template into `papoGen`.
 
