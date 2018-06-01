@@ -1,0 +1,3 @@
+[submodule "third_party/papoGen.css"]
+	path = third_party/papoGen.css
+	url = git@github.com:toolbuddy/papoGen.css.git
