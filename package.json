@@ -1,6 +1,6 @@
 {
   "name": "papogen",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "Building website with pugjs and paper.css",
   "main": "main.js",
   "scripts": {
