@@ -14,24 +14,24 @@ const template_api = require('./lib/template');
 const papogen_api = {};
 
 // If process.argv elements are more than 2, use CLI mode
-if(process.argv.length>2){
+if (process.argv.length > 2) {
     // Commander
     program
-    .option('-h, --help', 'Helper manual')
-    .option('-s, --src [dir]', 'Input Directory [dir]', __dirname)
-    .option('-o, --out [dir]', 'Output Directory [dir]', __dirname)
-    .option('-t, --title [name]', 'Specify the title name [name]', 'Power by papoGen')
-    .option('-g, --gen [type]', 'Specify the generating mechanism [type]', 'json')
-    .option('-m, --model [name]', 'Specify the model/template of result [name] (Default will be `doc`)', 'doc')
-    .option('--theme [theme]', 'Specify which css theme you want to use for template of website. (Default: `paper`)', 'paper')
-    .option('-c, --create [script/format]', 'Specify the script template to generate [script/format]', undefined)
-    .parse(process.argv);
+        .option('-h, --help', 'Helper manual')
+        .option('-s, --src [dir]', 'Input Directory [dir]', __dirname)
+        .option('-o, --out [dir]', 'Output Directory [dir]', __dirname)
+        .option('-t, --title [name]', 'Specify the title name [name]', 'Power by papoGen')
+        .option('-g, --gen [type]', 'Specify the generating mechanism [type]', 'json')
+        .option('-m, --model [name]', 'Specify the model/template of result [name] (Default will be `doc`)', 'doc')
+        .option('--theme [theme]', 'Specify which CSS theme you want to use for template of website. (Default: `paper`)', 'paper')
+        .option('-c, --create [script/format]', 'Specify the script template to generate [script/format]', undefined)
+        .parse(process.argv);
 
-    let dep = fs.readFileSync(path.join(__dirname,'package.json'),'utf-8');
+    let dep = fs.readFileSync(path.join(__dirname, 'package.json'), 'utf-8');
     let depobj = JSON.parse(dep);
 
     console.log('\nWelcome using toolbuddy@papoGen!');
-    console.log('Current version: '+chalk.green(depobj.version)+'\n');
+    console.log('Current version: ' + chalk.green(depobj.version) + '\n');
     if (!program.help) {
         console.log(
             chalk.red('USAGE:\n      > papogen -s[--src] <src_path> -o[--out] <out_path> -t[--title] <title> -g[--gen] <type> -m[--model] <name> --theme <theme> -h[--help]\n'),
@@ -40,7 +40,7 @@ if(process.argv.length>2){
             chalk.red('\t\t-t[--title]: Specify the title name of your website\n'),
             chalk.red('\t\t-g[--gen]: Specify the generating mechanism of result, user can pick from several types. default value is "json"\n'),
             chalk.red('\t\t-m[--model]: Specify the model/template of result\n'),
-            chalk.red('\t\t--theme: Specify which css theme you want to use for template of website. (Default: `paper`)\n'),
+            chalk.red('\t\t--theme: Specify which CSS theme you want to use for template of website. (Default: `paper`)\n'),
             chalk.red('\t\t-h[--help]: List out usage of papoGen\n\n')
         );
 
@@ -77,16 +77,16 @@ if(process.argv.length>2){
             // user want to generate template
             console.log(`Generating ... `);
             console.log(`Specified: ${program.create}`);
-            console.log(`Output dir(for script template): ${program.out}`);
+            console.log(`Output dir (for script template): ${program.out}`);
 
             let script = program.create.split('/')[0];
             let list_raw = program.create.split('/');
             // change to format list, so it can be like: xxxx/xxxx/xxxx ... specify several templates
             if (list_raw.length > 2) {
                 // format -> format list
-                for(var i=1;i<list_raw.length;i++){
+                for (var i = 1; i < list_raw.length; i++) {
                     // copy template to target
-                    copy_template(program.out,script,list_raw[i]);
+                    copy_template(program.out, script, list_raw[i]);
                 }
             } else if (list_raw.length == 2) {
                 // only 2, means only need to consider [1] element 
@@ -95,17 +95,17 @@ if(process.argv.length>2){
                     let all_template = template_api.format_list(script);
                     // console.log(all_template);
                     for (var index in all_template) {
-                        copy_template(program.out,script,all_template[index]);
+                        copy_template(program.out, script, all_template[index]);
                     }
                 } else {
-                    copy_template(program.out,script,list_raw[1]);
+                    copy_template(program.out, script, list_raw[1]);
                 }
             }
             return;
         }
 
         // Get all the .json with specify src
-        switch(program.model){
+        switch (program.model) {
             case 'doc':
                 console.log(`Source directory: ${program.src}, Output directory: ${program.out}`)
                 compile_engine.gen_doc(
@@ -114,8 +114,8 @@ if(process.argv.length>2){
                     program.out,
                     program.gen,
                     program.theme
-                );   
-            break;
+                );
+                break;
             case 'resume':
                 compile_engine.gen_resume(
                     program.src,
@@ -124,7 +124,7 @@ if(process.argv.length>2){
                     program.gen,
                     program.theme
                 );
-            break;
+                break;
             case 'md_doc':
                 compile_engine.gen_doc(
                     program.src,
@@ -133,33 +133,42 @@ if(process.argv.length>2){
                     program.gen,
                     program.theme
                 );
-            break;
+                break;
+            case 'test':
+                compile_engine.gen_test(
+                    program.src,
+                    program.title,
+                    program.out,
+                    program.gen,
+                    program.theme
+                );
+                break;
             default:
                 console.log(chalk.red(`[Error] Model specification "${program.model}" not found`));
         }
     }
 }
 
-function copy_template(out,script,format){
+function copy_template(out, script, format) {
     fs.readFile(
-        path.join(__dirname,'lib','script',script,format+'.'+script),'utf-8',
-        function(err,data){
-            if(err){
+        path.join(__dirname, 'lib', 'script', script, format + '.' + script), 'utf-8',
+        function(err, data) {
+            if (err) {
                 console.log('[Error] Read script template error!');
                 return;
             }
             // and then write it into output
-            fs.writeFile(path.join(out,format+'.'+script),data,'utf-8',function(err){
-                if(err)
+            fs.writeFile(path.join(out, format + '.' + script), data, 'utf-8', function(err) {
+                if (err)
                     console.log('[Error] Write script template error!');
-                else 
+                else
                     console.log(chalk.green(`[Success] Write script template file - ${script}/${format}`));
             });
         })
 }
 
 // For API export 
-papogen_api.gen_api = function(model,src,title,out,gen,theme){
+papogen_api.gen_api = function(model, src, title, out, gen, theme) {
     console.log('\nWelcome using toolbuddy@papoGen API version!');
 
     console.log(chalk.blue('   - src is', src));
@@ -170,7 +179,7 @@ papogen_api.gen_api = function(model,src,title,out,gen,theme){
     console.log(chalk.green('   - theme is', theme));
     console.log('\n');
 
-    switch(model){
+    switch (model) {
         case 'doc':
             console.log(`Source directory: ${src}, Output directory: ${out}`)
             compile_engine.gen_doc(
@@ -179,8 +188,8 @@ papogen_api.gen_api = function(model,src,title,out,gen,theme){
                 out,
                 gen,
                 theme
-            );   
-        break;
+            );
+            break;
         case 'resume':
             compile_engine.gen_resume(
                 src,
@@ -189,7 +198,7 @@ papogen_api.gen_api = function(model,src,title,out,gen,theme){
                 gen,
                 theme
             );
-        break;
+            break;
         case 'md_doc':
             compile_engine.gen_doc(
                 src,
@@ -198,7 +207,7 @@ papogen_api.gen_api = function(model,src,title,out,gen,theme){
                 gen,
                 theme
             );
-        break;
+            break;
         default:
             console.log(chalk.red(`[Error] Model specification "${model}" not found`));
     }

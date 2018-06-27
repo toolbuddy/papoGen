@@ -1,11 +1,11 @@
-- for(var index =1; index<=namelist.length;index++)
-    div(class="content",id=namelist[index-1].filename.split('.')[0])
+- for (var index = 1; index <= namelist.length; ++index)
+    div(class = "content",id = namelist[index - 1].filename.split('.')[0])
         article.article 
-            - if(namelist[index-1].article.toString().match(/[\u3400-\u9FBF]/))
+            - if (namelist[index-1].article.toString().match(/[\u3400-\u9FBF]/))
                 h1(class="article-title cn") #{namelist[index-1].article}
             - else 
                 h1(class="article-title") #{namelist[index-1].article}
-            p(class="article-meta") Latest update in #{moment().format('LLLL')}
+            p (class="article-meta") Latest update in #{moment().format('LLLL')}
             - for(var i =0;i< (namelist[index-1].article_content!=undefined?namelist[index-1].article_content.length:0) ;i++)
                 - if(namelist[index-1].article_content[i].title.toString().match((/[\u3400-\u9FBF]/)))
                     p(class="text-lead cn")  #{namelist[index-1].article_content[i].title}
@@ -30,20 +30,20 @@
                                 - if(namelist[index-1].article_content[i].content[c].data[d].hyper != undefined)
                                     - for(var h=0;h<namelist[index-1].article_content[i].content[c].data[d].hyper.length;h++)
                                         a(href=namelist[index-1].article_content[i].content[c].data[d].hyper[h].link) #{namelist[index-1].article_content[i].content[c].data[d].hyper[h].text}
-                    - if(namelist[index-1].article_content[i].content[c].type == "image")
+                    - if (namelist[index-1].article_content[i].content[c].type == "image")
                         - for(var d =0;d<namelist[index-1].article_content[i].content[c].data.length;d++)
                             div(class="row flex-center")
                                 img(src=namelist[index-1].article_content[i].content[c].data[d].url)/
-                    - if(namelist[index-1].article_content[i].content[c].type == "code")
+                    - if (namelist[index-1].article_content[i].content[c].type == "code")
                         - for(var d =0;d<namelist[index-1].article_content[i].content[c].data.length;d++)
                             pre
                                 code(class=namelist[index-1].article_content[i].content[c].data[d].lang) #{namelist[index-1].article_content[i].content[c].data[d].raw}
-                    - if(namelist[index-1].article_content[i].content[c].type == "formula")
+                    - if (namelist[index-1].article_content[i].content[c].type == "formula")
                         - for(var d =0;d<namelist[index-1].article_content[i].content[c].data.length;d++)                                            
                             p #{namelist[index-1].article_content[i].content[c].data[d]}
-                    - if(namelist[index-1].article_content[i].content[c].type == "list")
+                    - if (namelist[index-1].article_content[i].content[c].type == "list")
                         +list(namelist[index-1].article_content[i].content[c].data)
-                    - if(namelist[index-1].article_content[i].content[c].type == "table")
+                    - if (namelist[index-1].article_content[i].content[c].type == "table")
                         table
                             - for(var item=0;item<namelist[index-1].article_content[i].content[c].data[0].items.length+1;item++)
                                 - if(item==0)

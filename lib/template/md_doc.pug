@@ -1,32 +1,32 @@
 // "doc" type, with tabs usage as template
 // Author: Kevin Cyu
 
-// include mixins
-include mixins/doc-list.pug
-// main
+// Include mixin
+include mixin/doc-list.pug
+// Main
 doctype html
 html
-    // include header
-    include header/doc-header.pug
+    // Include head
+    include head/doc-head.pug
     body
         div.container
             div.paper
-                div(id="top" class="demo-title")
+                div(id = "top" class = "demo-title")
                     div.row.flex-center
                         div.text-center 
                             h1(class=".cn") #{title}
                 div.section
                     include body/md-doc-tabs.pug
-                div(class="to-top")
-                    a(href="#top" class="paper-btn margin") Top
-                    div(class="row flex-spaces child-borders")
-                        label(class="paper-btn margin" for="modal-1") T.O.C.
-                input(class="modal-state" id="modal-1" type="checkbox")
-                div(class="modal modal-dialog")
-                    label(class="modal-bg" for="modal-1")
-                    div(class="modal-body")
-                        label(class="btn-close" for="modal-1") X 
-                        h4(class="modal-title") Table of Content
-                        h5(class="modal-subtitle") Click and go !
-                        div(id="toc" class="modal-body")
+                div(class = "to-top")
+                    a(href = "#top" class="paper-btn margin") Top
+                    div(class = "row flex-spaces child-borders")
+                        label(class="paper-btn margin" for = "modal-1") T.O.C.
+                input(class = "modal-state" id = "modal-1" type = "checkbox")
+                div(class = "modal modal-dialog")
+                    label(class = "modal-bg" for = "modal-1")
+                    div(class = "modal-body")
+                        label(class = "btn-close" for = "modal-1") X 
+                        h4(class = "modal-title") Table of Content
+                        h5(class = "modal-subtitle") Click and go !
+                        div(id = "toc" class = "modal-body")
                 include footer/copy.pug
