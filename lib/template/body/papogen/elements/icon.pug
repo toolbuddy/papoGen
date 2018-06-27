@@ -1,0 +1,23 @@
+// papogen.css - Elements/Icon
+
+mixin icon(obj)
+    - var className = "icon " + obj.data
+    - if (obj.attr.color != undefined)
+        - if (obj.attr.color == "red" || obj.attr.color == "orange" || obj.attr.color == "yellow" || obj.attr.color == "green" || obj.attr.color == "blue" || obj.attr.color == "navy" || obj.attr.color == "purple" || obj.attr.color == "pink" || obj.attr.color == "brown" || obj.attr.color == "grey")
+            - className = " icon-" + obj.attr.color
+    - if (obj.attr.inverted != undefined)
+        - if (obj.attr.inverted)
+            - className += " icon-inverted"
+    - if (obj.attr.squared != undefined)
+        - if (obj.attr.squared)
+            - className += " icon-squared"
+    - if (obj.attr.circular != undefined)
+        - if (obj.attr.circular)
+            - className += " icon-circular"
+    - if (obj.attr.link != undefined)
+        - if (obj.attr.link)
+            - className += " icon-link"
+    - if (obj.attr.size != undefined)
+        - if (obj.attr.size == "mini" || obj.attr.size == "tiny" || obj.attr.size == "small" || obj.attr.size == "big" || obj.attr.size == "large" || obj.attr.size == "huge" || obj.attr.size == "massive")
+            - className = className + " icon-" + obj.attr.size
+    i(class=className)

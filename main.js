@@ -134,8 +134,9 @@ if (process.argv.length > 2) {
                     program.theme
                 );
                 break;
-            case 'test':
-                compile_engine.gen_test(
+            case 'papogen': 
+                // Using custom papogen template
+                compile_engine.gen_papogen(
                     program.src,
                     program.title,
                     program.out,
@@ -143,6 +144,15 @@ if (process.argv.length > 2) {
                     program.theme
                 );
                 break;
+            /*case 'test':
+                compile_engine.gen_test(
+                    program.src,
+                    program.title,
+                    program.out,
+                    program.gen,
+                    program.theme
+                );
+                break;*/
             default:
                 console.log(chalk.red(`[Error] Model specification "${program.model}" not found`));
         }
