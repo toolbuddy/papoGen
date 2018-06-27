@@ -7,7 +7,7 @@ mixin image(obj)
             - className = className + " img-" + obj.attr.size
     - if (obj.attr.floated != undefined)
         - if (obj.attr.floated == "right" || obj.attr.floated == "left")
-            - className = className + " img-" + obj.attr.floated
+            - className = className + " img-floated-" + obj.attr.floated
     - if (obj.attr.centered != undefined)
         - if (obj.attr.centered)
             - className += " img-centered"
