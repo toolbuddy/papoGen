@@ -1,4 +1,4 @@
-// papogen.css - Icon
+// papogen.css - Elements/Icon
 
 mixin icon(obj)
     - var className = "icon " + obj.data
@@ -18,6 +18,6 @@ mixin icon(obj)
         - if (obj.attr.link)
             - className += " icon-link"
     - if (obj.attr.size != undefined)
-        - if (obj.attr.size == "mini" || obj.attr.size == "tiny" || obj.attr.size == "small" || obj.attr.size == "big" || obj.attr.size == "large" || obj.attr.size == "huge" || obj.attr.size == "massive" ||)
+        - if (obj.attr.size == "mini" || obj.attr.size == "tiny" || obj.attr.size == "small" || obj.attr.size == "big" || obj.attr.size == "large" || obj.attr.size == "huge" || obj.attr.size == "massive")
             - className = className + " icon-" + obj.attr.size
     i(class=className)

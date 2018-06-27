@@ -1,4 +1,4 @@
-// papogen.css - Section
+// papogen.css - Element/Section
 
 mixin section(obj)
     - var className = "section"
@@ -6,7 +6,7 @@ mixin section(obj)
         - if (obj.attr.floated == "right" || obj.attr.floated == "left")
             - className = className + " section-floated-" + obj.attr.floated
     - if (obj.attr.aligned != undefined)
-        - if (obj.attr.aligned == "left" || obj.attr.aligned == "center" || obj.attr.aligned == "right" ||)
+        - if (obj.attr.aligned == "left" || obj.attr.aligned == "center" || obj.attr.aligned == "right")
             - className = className + " section-aligned-" + obj.attr.aligned
     - if (obj.attr.basic != undefined)
         - if (obj.attr.basic)

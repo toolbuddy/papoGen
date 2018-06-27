@@ -1,2 +1,57 @@
 // papogen.css - Displays/Alert
 
+include icon.pug
+
+mixin alert-mixin(data, attr, content)
+    case attr.status
+        while "info"
+            - var icon-obj = {
+                data: "info circle"
+            }
+            +icon(icon-obj)
+        while "warning"
+            - var icon-obj = {
+                data: "exclamation circle"
+            }
+            +icon(icon-obj)
+        while "positive"
+            - var icon-obj = {
+                data: "check circle"
+            }
+            +icon(icon-obj)
+        while "negative"
+            - var icon-obj = {
+                data: "times circle"
+            }
+            +icon(icon-obj)
+    - if (attr.icon != undefined)
+        - if (content.icon != undefined)
+            - var icon-obj = {
+                    data: content.icon
+                }
+            +icon(icon-obj)
+    - if (content.hdr != undefined)
+        div(class="alert-content")
+            div(class="alert-hdr") #{content.hdr}
+        | #{data}
+    | #{data}
+
+mixin alert(obj)
+    - var className = "alert"
+    - if (obj.attr.color != undefined)
+        - if (obj.attr.color == "red" || obj.attr.color == "orange" || obj.attr.color == "yellow" || obj.attr.color == "green" || obj.attr.color == "blue" || obj.attr.color == "navy" || obj.attr.color == "purple" || obj.attr.color == "pink" || obj.attr.color == "brown" || obj.attr.color == "grey")
+            - className = className + " alert-" + obj.attr.color
+    - if (obj.attr.size != undefined)
+        - if (obj.attr.size == "mini" || obj.attr.size == "tiny" || obj.attr.size == "small" || obj.attr.size == "big" || obj.attr.size == "large" || obj.attr.size == "huge" || obj.attr.size == "massive")
+            - className = className + " alert-" + obj.attr.size
+    - if (obj.attr.status != undefined)
+        - if (obj.attr.status == "info" || obj.attr.status == "warning" || obj.attr.status == "positive" || obj.attr.status == "negative")
+            - className = className + " alert-" + obj.attr.status
+    - if (obj.attr.compact != undefined)
+        - if (obj.attr.compact)
+            - className += " alert-compact"
+    - if (obj.attr.floated != undefined)
+        - if (obj.attr.floated)
+            - className += " alert-floated"
+    div(class=className)
+        +alert-mixin(obj.data, obj.attr, obj.content)

@@ -1,4 +1,4 @@
-// papogen.css - List
+// papogen.css - Elements/List
 include icon.pug
 
 mixin list-mixin(data, attr)
@@ -46,7 +46,7 @@ mixin list(obj)
         - if (obj.attr.horizontal)
             - className += " list-h"
     - if (obj.attr.size != undefined)
-        - if (obj.attr.size == "mini" || obj.attr.size == "tiny" || obj.attr.size == "small" || obj.attr.size == "big" || obj.attr.size == "large" || obj.attr.size == "huge" || obj.attr.size == "massive" ||)
+        - if (obj.attr.size == "mini" || obj.attr.size == "tiny" || obj.attr.size == "small" || obj.attr.size == "big" || obj.attr.size == "large" || obj.attr.size == "huge" || obj.attr.size == "massive")
             - className = className + " list-" + obj.attr.size
     - if (obj.attr.celled != undefined)
         - if (obj.attr.celled)
