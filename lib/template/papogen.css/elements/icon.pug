@@ -1,7 +1,7 @@
 // papogen.css - Icon
 
 mixin icon(obj)
-    - var className = "icon"
+    - var className = "icon " + obj.data
     - if (obj.attr.color != undefined)
         - if (obj.attr.color == "red" || obj.attr.color == "orange" || obj.attr.color == "yellow" || obj.attr.color == "green" || obj.attr.color == "blue" || obj.attr.color == "navy" || obj.attr.color == "purple" || obj.attr.color == "pink" || obj.attr.color == "brown" || obj.attr.color == "grey")
             - className = " icon-" + obj.attr.color

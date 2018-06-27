@@ -4,9 +4,12 @@ include icon.pug
 mixin divider-mixin(data, attr, content)
     - if (attr.horizontal)
         - if (content.icon != undefined)
-            +icon(class="icon " + content.icon) #{data}
+            - var icon-obj = {
+                data: content.icon
+            }
+            +icon(icon-obj) #{data}
         - else
-            #{data}
+            | #{data}
 
 mixin divider(obj)
     - var className = "divider"

@@ -5,7 +5,10 @@ include icon.pug
 mixin header-mixin(data, attr, content)
     - if (attr.icon && !attr.img)
         - if (content.icon != undefined)
-            +icon(class="icon " + content.icon)
+            - var icon-obj = {
+                data: content.icon
+            }
+            +icon(icon-obj)
         - if (content.data != undefined)
             div(class="hdr-content") #{data}
             - if (content.sub != undefined)
