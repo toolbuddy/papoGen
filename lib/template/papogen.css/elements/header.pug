@@ -24,16 +24,17 @@ mixin header-mixin(data, attr, content)
 mixin header(obj)
     - var className = "hdr"
     - if (obj.attr.color != undefined)
-        - className = " hdr-" + obj.attr.color
+        - if (obj.attr.color == "red" || obj.attr.color == "orange" || obj.attr.color == "yellow" || obj.attr.color == "green" || obj.attr.color == "blue" || obj.attr.color == "navy" || obj.attr.color == "purple" || obj.attr.color == "pink" || obj.attr.color == "brown" || obj.attr.color == "grey")
+            - className = className + " hdr-" + obj.attr.color
     - if (obj.attr.inverted != undefined)
         - if (obj.attr.inverted)
             - className += " hdr-inverted"
     - if (obj.attr.aligned != undefined)
         - if (obj.attr.aligned == "right" || obj.attr.aligned == "left" || obj.attr.aligned == "center" || obj.attr.aligned == "justified")
-            - className = " hdr-" + obj.attr.aligned
+            - className = className + " hdr-" + obj.attr.aligned
     - if (obj.attr.floated != undefined)
         - if (obj.attr.floated == "right" || obj.attr.floated == "left")
-            - className = " hdr-" + obj.attr.floated
+            - className = className + " hdr-" + obj.attr.floated
     - if (obj.attr.block != undefined)
         - if (obj.attr.block)
             - className += " hdr-block"

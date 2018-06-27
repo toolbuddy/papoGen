@@ -1,9 +1,10 @@
 // papogen.css - Divider
+include icon.pug
 
 mixin divider-mixin(data, attr, content)
     - if (attr.horizontal)
         - if (content.icon != undefined)
-            i(class="icon " + content.icon) #{data}
+            +icon(class="icon " + content.icon) #{data}
         - else
             #{data}
 
