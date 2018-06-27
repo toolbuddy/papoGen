@@ -1,27 +1,27 @@
 // "resume" type
 // Author: Kevin Cyu
 
-// using list format in doc type
-include mixins/doc-list.pug
-// main
+// Using list format in doc type
+include mixin/doc-list.pug
+// Main
 doctype html
 html
-    // include header
-    include header/doc-header.pug
+    // Include head
+    include head/doc-head.pug
     body
         div.container
             div.paper
                 // Paper Title
-                div(id="top" class="demo-title")
+                div(id = "top" class = "demo-title")
                     div.row.flex-center
                         div.text-center 
                             h1 #{title}
                 // Section tag as button
-                div(id="nav")
+                div(id = "nav")
                     include body/resume-nav.pug
                 // Section body 
                 include body/resume-body.pug
-                div(class="to-top")
-                    a(href="#top" class="paper-btn margin") Top
+                div(class = "to-top")
+                    a(href = "#top" class="paper-btn margin") Top
                 // Include copyright
                 include footer/copy.pug

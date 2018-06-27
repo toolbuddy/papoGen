@@ -1,22 +1,22 @@
 // "doc" type, with tabs usage as template
 // Author: Kevin Cyu
 
-// include mixins
-include mixins/doc-list.pug
-// main
+// Include mixin
+include mixin/doc-list.pug
+// Main
 doctype html
 html
-    // include header
-    include header/doc-header.pug
+    // Include head
+    include head/doc-head.pug
     body
         div.container
             div.paper
-                div(id="top" class="demo-title")
+                div(id = "top" class = "demo-title")
                     div.row.flex-center
                         div.text-center 
                             h1 #{title}
                 div.section
                     include body/doc-tabs.pug
-                div(class="to-top")
-                    a(href="#top" class="paper-btn margin") Top
+                div(class = "to-top")
+                    a(href = "#top" class = "paper-btn margin") Top
                 include footer/copy.pug

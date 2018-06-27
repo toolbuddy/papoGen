@@ -4,7 +4,7 @@
 [![npm version](https://img.shields.io/npm/v/papogen.svg?style=for-the-badge)](https://badge.fury.io/js/papogen)
 [![npm downloads](https://img.shields.io/npm/dm/papogen.svg?style=for-the-badge)](https://www.npmjs.com/package/papogen)
 
-Using **paper.css** and **pug.js** to generate.
+Using **paper.css** and **Pug** to generate.
 
 If you feel `papogen` is good, hope you can give a `star`!
 
@@ -56,8 +56,7 @@ If you feel `papogen` is good, hope you can give a `star`!
 * *Different* from above format.
 * Generates from the file in markdown directly.
 * Supports multiple markdown files as input.
-* Supports model:
-    * `md_doc`
+* Supports model: `md_doc`
 * Example command
 
 ```bash

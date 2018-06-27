@@ -1,0 +1,27 @@
+// papogen.css - Displays/Timeline
+
+mixin timeline-mixin(data, attr, content)
+    - for (var i = 0; i < data.length; ++i)
+        - if (data[i].name.toString().match((/[\u3400-\u9FBF]/)))
+            li(class="timeline-item cn")
+                div(class="timeline-tail")
+                div(class="timeline-head")
+                - if (data[i].name != undefined)
+                    div(class="timeline-content") #{data[i].name}
+        - else
+            li(class="timeline-item")
+                div(class="timeline-tail")
+                div(class="timeline-head")
+                - if (data[i].name != undefined)
+                    div(class="timeline-content") #{data[i].name}
+
+mixin timeline(obj)
+    - var className = "timeline"
+    - if (obj.attr.color != undefined)
+        - if (obj.attr.color == "red" || obj.attr.color == "orange" || obj.attr.color == "yellow" || obj.attr.color == "green" || obj.attr.color == "blue" || obj.attr.color == "navy" || obj.attr.color == "purple" || obj.attr.color == "pink" || obj.attr.color == "brown" || obj.attr.color == "grey")
+            - className = " timeline-" + obj.attr.color
+    - if (obj.attr.inverted != undefined)
+        - if (obj.attr.inverted)
+            - className += " timeline-inverted"
+    ul(class=className)
+        +timeline-mixin(obj.data, obj.attr, obj.content)

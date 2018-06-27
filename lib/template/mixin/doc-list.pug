@@ -1,0 +1,13 @@
+// mixin - list
+mixin list(obj)
+    - for (var i = 0; i < obj.length; ++i)
+        - if (obj[i].name.toString().match((/[\u3400-\u9FBF]/)))
+            li(class="cn") #{obj[i].name}
+            - if(obj[i].items != undefined)
+                ul 
+                    +list(obj[i].items)
+        - else
+            li #{obj[i].name}
+            - if (obj[i].items != undefined)
+                ul 
+                    +list(obj[i].items)
