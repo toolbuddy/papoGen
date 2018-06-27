@@ -1,4 +1,4 @@
-// papogen.css - header
+// papogen.css - Header
 
 mixin header-mixin(data, attr, content)
     - if (attr.icon && !attr.img)
@@ -22,7 +22,7 @@ mixin header-mixin(data, attr, content)
                 div(class="hdr hdr-sub") #{content.sub}
 
 mixin header(obj)
-    var className = "hdr"
+    - var className = "hdr"
     - if (obj.attr.color != undefined)
         - className = " hdr-" + obj.attr.color
     - if (obj.attr.inverted != undefined)
