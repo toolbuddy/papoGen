@@ -1,85 +1,123 @@
-- for (var index = 1; index <= namelist.length; ++index)
-    div(class = "content",id = namelist[index - 1].filename.split('.')[0])
-        article.article 
-            - if (namelist[index-1].article.toString().match(/[\u3400-\u9FBF]/))
-                h1(class="article-title cn") #{namelist[index-1].article}
-            - else 
-                h1(class="article-title") #{namelist[index-1].article}
-            p (class="article-meta") Latest update in #{moment().format('LLLL')}
-            - for(var i =0;i< (namelist[index-1].article_content!=undefined?namelist[index-1].article_content.length:0) ;i++)
-                - if(namelist[index-1].article_content[i].title.toString().match((/[\u3400-\u9FBF]/)))
-                    p(class="text-lead cn")  #{namelist[index-1].article_content[i].title}
-                - else
-                    p(class="text-lead")  #{namelist[index-1].article_content[i].title}
-                - for(var c =0;c<namelist[index-1].article_content[i].content.length;c++)
-                    - if(namelist[index-1].article_content[i].content[c].type == "text")
-                        - for(var d =0;d<namelist[index-1].article_content[i].content[c].data.length;d++)
-                            - if(namelist[index-1].article_content[i].content[c].data[d].toString().match(/[\u3400-\u9FBF]/))
-                                p(class="cn") #{namelist[index-1].article_content[i].content[c].data[d]}                                                    
-                            - else
-                                p #{namelist[index-1].article_content[i].content[c].data[d]}
-                    - if(namelist[index-1].article_content[i].content[c].type == "hyper")
-                        p
-                            - for(var d =0;d<namelist[index-1].article_content[i].content[c].data.length;d++)
-                                - if(namelist[index-1].article_content[i].content[c].data[d].text != undefined)
-                                    - for(var t=0;t<namelist[index-1].article_content[i].content[c].data[d].text.length;t++)
-                                        - if(namelist[index-1].article_content[i].content[c].data[d].text[t].toString().match(/[\u3400-\u9FBF]/))
-                                            | #{namelist[index-1].article_content[i].content[c].data[d].text[t]}
-                                        - else
-                                            | #{namelist[index-1].article_content[i].content[c].data[d].text[t]}
-                                - if(namelist[index-1].article_content[i].content[c].data[d].hyper != undefined)
-                                    - for(var h=0;h<namelist[index-1].article_content[i].content[c].data[d].hyper.length;h++)
-                                        a(href=namelist[index-1].article_content[i].content[c].data[d].hyper[h].link) #{namelist[index-1].article_content[i].content[c].data[d].hyper[h].text}
-                    - if (namelist[index-1].article_content[i].content[c].type == "image")
-                        - for(var d =0;d<namelist[index-1].article_content[i].content[c].data.length;d++)
-                            div(class="row flex-center")
-                                img(src=namelist[index-1].article_content[i].content[c].data[d].url)/
-                    - if (namelist[index-1].article_content[i].content[c].type == "code")
-                        - for(var d =0;d<namelist[index-1].article_content[i].content[c].data.length;d++)
-                            pre
-                                code(class=namelist[index-1].article_content[i].content[c].data[d].lang) #{namelist[index-1].article_content[i].content[c].data[d].raw}
-                    - if (namelist[index-1].article_content[i].content[c].type == "formula")
-                        - for(var d =0;d<namelist[index-1].article_content[i].content[c].data.length;d++)                                            
-                            p #{namelist[index-1].article_content[i].content[c].data[d]}
-                    - if (namelist[index-1].article_content[i].content[c].type == "list")
-                        +list(namelist[index-1].article_content[i].content[c].data)
-                    - if (namelist[index-1].article_content[i].content[c].type == "table")
-                        table
-                            - for(var item=0;item<namelist[index-1].article_content[i].content[c].data[0].items.length+1;item++)
-                                - if(item==0)
-                                    thead 
-                                        tr
-                                        - for(var d=0;d<namelist[index-1].article_content[i].content[c].data.length;d++)
-                                            - if(namelist[index-1].article_content[i].content[c].data[d].name.toString().match(/[\u3400-\u9FBF]/))
-                                                th(class="cn") #{namelist[index-1].article_content[i].content[c].data[d].name}
-                                            - else 
-                                                th #{namelist[index-1].article_content[i].content[c].data[d].name}
-                                - else 
-                                    tbody 
-                                        tr
-                                        - for(var d=0;d<namelist[index-1].article_content[i].content[c].data.length;d++)
-                                            - if(namelist[index-1].article_content[i].content[c].data[d].items[item-1].toString().match(/[\u3400-\u9FBF]/))
-                                                td(class="cn") #{namelist[index-1].article_content[i].content[c].data[d].items[item-1]}
-                                            - else 
-                                                td #{namelist[index-1].article_content[i].content[c].data[d].items[item-1]}
-                    - if(namelist[index-1].article_content[i].content[c].type == "card")
-                        - for(var d =0;d<namelist[index-1].article_content[i].content[c].data.length;d++)
-                            // card with image 
-                            div(class="card")
-                                img(src=namelist[index-1].article_content[i].content[c].data[d].url)/
-                                div(class="card-body")
-                                    h4(class="card-title") #{namelist[index-1].article_content[i].content[c].data[d].title}
-                                    h5(class="card-subtitle") #{namelist[index-1].article_content[i].content[c].data[d].subtitle}
-                                    p(class="card-text")
-                                        - for(var t=0;t<namelist[index-1].article_content[i].content[c].data[d].text.length;t++)
-                                            | #{namelist[index-1].article_content[i].content[c].data[d].text[t]}
-                                    - for(var t=0;t<namelist[index-1].article_content[i].content[c].data[d].tag.length;t++)
-                                        button #{namelist[index-1].article_content[i].content[c].data[d].tag[t]}            
-                            |
-                            br/
+- var article = namelist[1].article
+- var articlie_content = namelist[1].article_content
+- var header-obj = {
+    data: namelist[1].article,
+    attr: {
+        size: "h2"
+    },
+    content: undefined
+}
++header(header-obj)
 
-                br/
-                br/
-                hr/
-    |               
-    |
+- for (var i = 0; i < (articlie_content != undefined ? articlie_content.length : 0); ++i)
+    - header-obj = {
+        data: articlie_content[i].title,
+        attr: {
+            color: "grey",
+            divided: true,
+            size: "h3"
+        },
+        articlie_content: {
+            icon: "id card"
+        }
+    }
+    +header(header-obj)
+    - for (var c = 0; c < articlie_content[i].content.length; ++c)
+        - if (articlie_content[i].content[c].type == "text")
+            - for (var d = 0; d < article_content[i].content[c].data.length; ++d)
+                - if (article_content[i].content[c].data[d].toString().match(/[\u3400-\u9FBF]/))
+                    p(class="cn") #{article_content[i].content[c].data[d]}                                                    
+                - else
+                    p #{article_content[i].content[c].data[d]}
+        - if (article_content[i].content[c].type == "hyper")
+            p
+                - for (var d = 0; d < article_content[i].content[c].data.length; ++d)
+                    - if (article_content[i].content[c].data[d].text != undefined)
+                        - for (var t = 0; t < article_content[i].content[c].data[d].text.length; ++t)
+                            - if (article_content[i].content[c].data[d].text[t].toString().match(/[\u3400-\u9FBF]/))
+                                | #{article_content[i].content[c].data[d].text[t]}
+                            - else
+                                | #{article_content[i].content[c].data[d].text[t]}
+                    - if (article_content[i].content[c].data[d].hyper != undefined)
+                        - for (var h = 0; h < article_content[i].content[c].data[d].hyper.length; ++h)
+                            a(href=article_content[i].content[c].data[d].hyper[h].link) #{article_content[i].content[c].data[d].hyper[h].text}
+        - if (article_content[i].content[c].type == "image")
+            - for (var d = 0; d < article_content[i].content[c].data.length; ++d)
+                - var image-obj = {
+                    data: article_content[i].content[c].data[d].url,
+                    attr: {
+                        floated: "right",
+                        rounded: true,
+                        size: "small"
+                    }, 
+                    content: undefined
+                }
+                +image(image-obj)
+        - if (article_content[i].content[c].type == "code")
+            - for (var d = 0; d < article_content[i].content[c].data.length; ++d)
+                pre
+                    code(class=article_content[i].content[c].data[d].lang) #{article_content[i].content[c].data[d].raw}
+        - if (article_content[i].content[c].type == "formula")
+            - for (var d = 0; d < article_content[i].content[c].data.length; ++d)                                            
+                - var formula-obj = {
+                    data: article_content[i].content[c].data[d],
+                    attr: undefined,
+                    content: undefined
+                }
+                +section(section-obj)
+        - if (article_content[i].content[c].type == "list")
+            - var list-obj = {
+                data: article_content[i].content[c].data,
+                attr: {
+                    bulleted: true,
+                    selectable: true
+                },
+                content: undefined
+            }
+            +list(list-obj)
+        - if (article_content[i].content[c].type == "table")
+            - var table-obj = {
+                data: article_content[i].content[c].data,
+                attr: {
+                    monotonic: true,
+                    selectable: true
+                },
+                content: undefined
+            }
+            +table(table-obj)
+        - if (article_content[i].content[c].type == "section")
+            - for (var d = 0; d < article_content[i].content[c].data.length; ++d)
+                - var section-obj = {
+                    data: article_content[i].content[c].data,
+                    attr: undefined,
+                    content: undefined
+                }
+                +section(section-obj)
+        - if (article_content[i].content[c].type == "statistic")
+            - for (var d = 0; d < article_content[i].content[c].data.length; ++d)
+                - var statistic-obj = {
+                    data: article_content[i].content[c].data,
+                    attr: undefined,
+                    content: undefined
+                }
+                +statistic(statistic-obj)
+        - if (article_content[i].content[c].type == "timeline")
+            - for (var d = 0; d < article_content[i].content[c].data.length; ++d)
+                - var timeline-obj = {
+                    data: article_content[i].content[c].data,
+                    attr: {
+                        color: "navy"
+                    },
+                    content: undefined
+                }
+                +timeline(timeline-obj)
+        - if (article_content[i].content[c].type == "alert")
+            - for (var d = 0; d < article_content[i].content[c].data.length; ++d)
+                - var alert-obj = {
+                    data: article_content[i].content[c].data,
+                    attr: {
+                        status: "info"
+                    },
+                    content: undefined
+                }
+                +alert(alert-obj)

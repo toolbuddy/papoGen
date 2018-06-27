@@ -208,6 +208,15 @@ papogen_api.gen_api = function(model, src, title, out, gen, theme) {
                 theme
             );
             break;
+        case 'papogen-resume':
+            compile_engine.gen_resume(
+                src,
+                title,
+                out,
+                gen,
+                theme
+            );
+            break;
         default:
             console.log(chalk.red(`[Error] Model specification "${model}" not found`));
     }

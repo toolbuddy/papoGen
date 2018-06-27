@@ -7,7 +7,7 @@ mixin list-mixin(data, attr)
             div(class="item cn")
             - if (data[i].icon != undefined)
                 - var icon-obj = {
-                    data: content.icon,
+                    data: data[i].icon,
                     attr: undefined,
                     content: undefined
                 }
@@ -27,7 +27,7 @@ mixin list-mixin(data, attr)
             div(class="item")
             - if (data[i].icon != undefined)
                 - var icon-obj = {
-                    data: content.icon,
+                    data: data[i].icon,
                     attr: undefined,
                     content: undefined
                 }
@@ -63,9 +63,9 @@ mixin list(obj)
             - className += " list-relaxed"
         - if (obj.attr.relaxed == "very")
             - className += " list-exrelaxed"
-    - if (obj.attr.selection != undefined)
-        - if (obj.attr.selection)
-            - className += " list-selection"
+    - if (obj.attr.selectable != undefined)
+        - if (obj.attr.selectable)
+            - className += " list-selectable"
     - if (obj.attr.inverted != undefined)
         - if (obj.attr.inverted)
             - className += " list-inverted"

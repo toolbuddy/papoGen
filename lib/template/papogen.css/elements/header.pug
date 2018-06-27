@@ -30,6 +30,8 @@ mixin header-mixin(data, attr, content)
 
 mixin header(obj)
     - var className = "hdr"
+    - if (obj.data.toString().match(/[\u3400-\u9FBF]/))
+        - className += " cn"
     - if (obj.attr.color != undefined)
         - if (obj.attr.color == "red" || obj.attr.color == "orange" || obj.attr.color == "yellow" || obj.attr.color == "green" || obj.attr.color == "blue" || obj.attr.color == "navy" || obj.attr.color == "purple" || obj.attr.color == "pink" || obj.attr.color == "brown" || obj.attr.color == "grey")
             - className = className + " hdr-" + obj.attr.color
