@@ -17,6 +17,9 @@ mixin image(obj)
     - if (obj.attr.fluid != undefined)
         - if (obj.attr.fluid)
             - className += " img-fluid"
+    - if (obj.attr.inline != undefined)
+        - if (obj.attr.inline)
+            - className += " img-inline"
     - if (obj.attr.avatar != undefined)
         - if (obj.attr.avatar)
             - className += " img-avatar"

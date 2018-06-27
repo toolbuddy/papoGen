@@ -7,7 +7,9 @@ mixin list-mixin(data, attr)
             div(class="item cn") #{obj[i].data}
             - if (data[i].icon != undefined)
                 - var icon-obj = {
-                    data: content.icon
+                    data: content.icon,
+                    attr: undefined,
+                    content: undefined
                 }
                 +icon(icon-obj)
             - if (data[i].detail != undefined && data[i].name != undefined)
@@ -25,7 +27,9 @@ mixin list-mixin(data, attr)
             div(class="item") #{data[i].data}
             - if (data[i].icon != undefined)
                 - var icon-obj = {
-                    data: content.icon
+                    data: content.icon,
+                    attr: undefined,
+                    content: undefined
                 }
                 +icon(icon-obj)
             - if (data[i].detail != undefined && data[i].name != undefined)

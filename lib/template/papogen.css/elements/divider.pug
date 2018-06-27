@@ -5,7 +5,9 @@ mixin divider-mixin(data, attr, content)
     - if (attr.horizontal)
         - if (content.icon != undefined)
             - var icon-obj = {
-                data: content.icon
+                data: content.icon,
+                attr: undefined,
+                content: undefined
             }
             +icon(icon-obj) #{data}
         - else

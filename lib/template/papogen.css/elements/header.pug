@@ -6,7 +6,9 @@ mixin header-mixin(data, attr, content)
     - if (attr.icon && !attr.img)
         - if (content.icon != undefined)
             - var icon-obj = {
-                data: content.icon
+                data: content.icon,
+                attr: undefined,
+                content: undefined
             }
             +icon(icon-obj)
         - if (content.data != undefined)
