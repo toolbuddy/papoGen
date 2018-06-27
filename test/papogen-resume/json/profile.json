@@ -1,0 +1,30 @@
+{
+    "article": "Resume",
+    "article_content": [{
+        "title": "David Lu",
+        "content": [{
+            "type": "text",
+            "data": [
+                "TEST"
+            ]
+        }]
+    }, {
+        "title": "Profile",
+        "content": [{
+            "type": "hyper",
+            "data": [{
+                    "text": [
+                        "CEO/President, "
+                    ]
+                },
+                {
+                    "hyper": [{
+                        "text": "ToolBuddy",
+                        "link": "https://toolbuddy.github.io"
+                    }]
+                }
+            ]
+        }]
+
+    }]
+}

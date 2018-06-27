@@ -5,11 +5,7 @@ include icon.pug
 mixin header-mixin(data, attr, content)
     - if (attr.icon && !attr.img)
         - if (content.icon != undefined)
-            - var icon-obj = {
-                data: content.icon,
-                attr: undefined,
-                content: undefined
-            }
+            - var icon-obj = { data: content.icon, attr: undefined, content: undefined }
             +icon(icon-obj)
         - if (content.data != undefined)
             div(class="hdr-content") #{data}
@@ -66,7 +62,7 @@ mixin header(obj)
                     +header-mixin(obj.data, obj.attr, obj.content)
             when "h4"
                 h4(class=className)
-                    +header-mixin(obj.data, obj.attr obj.content)
+                    +header-mixin(obj.data, obj.attr, obj.content)
             when "h5"
                 h5(class=className)
                     +header-mixin(obj.data, obj.attr, obj.content)

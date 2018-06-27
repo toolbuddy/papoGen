@@ -8,27 +8,17 @@ include body/papogen/papogen.pug
 doctype html
 html
     // Include head
-    include ../head/doc-head.pug
+    include head/doc-head.pug
     body
         div(class="container")
             div(class="grid")
                 div(class="col col-span-6")
                     div(class="section")
                         img(class="img img-fluid")
-                        - var header-obj = {
-                            data: namelist[0].article,
-                            attr: {
-                                aligned: "center",
-                                size: "h1"
-                            },
-                            content: {
-                                sub: "Programmer"
-                            }
-                        }
+                        - var header-obj = { data: namelist[0].article, attr: { aligned: "center", size: "h1" }, content: { sub: "Programmer" } }
                         +header(header-obj)
                         div(class="divider")
-                        
                 div(class="col col-span-10")
                     // papoGen Resume Body
-                    include ../body/papogen-resume-body.pug
+                    //include ../body/papogen-resume-body.pug
             

@@ -1,34 +1,24 @@
 // papogen.css - Displays/Alert
 
-include icon.pug
+include ../elements/icon.pug
 
 mixin alert-mixin(data, attr, content)
     case attr.status
-        while "info"
-            - var icon-obj = {
-                data: "info circle"
-            }
+        when "info"
+            - var icon-obj = { data: "info circle" }
             +icon(icon-obj)
-        while "warning"
-            - var icon-obj = {
-                data: "exclamation circle"
-            }
+        when "warning"
+            - var icon-obj = { data: "exclamation circle" }
             +icon(icon-obj)
-        while "positive"
-            - var icon-obj = {
-                data: "check circle"
-            }
+        when "positive"
+            - var icon-obj = { data: "check circle" }
             +icon(icon-obj)
-        while "negative"
-            - var icon-obj = {
-                data: "times circle"
-            }
+        when "negative"
+            - var icon-obj = { data: "times circle" }
             +icon(icon-obj)
     - if (attr.icon != undefined)
         - if (content.icon != undefined)
-            - var icon-obj = {
-                    data: content.icon
-                }
+            - var icon-obj = { data: content.icon }
             +icon(icon-obj)
     - if (content.hdr != undefined)
         div(class="alert-content")

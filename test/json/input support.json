@@ -1,44 +1,40 @@
 {
     "article": "List all the input type we support",
-    "article_content": [
-        {
-            "title": "Json",
-            "content": [
+    "article_content": [{
+        "title": "Json",
+        "content": [{
+            "type": "list",
+            "data": [{
+                    "name": "normal text"
+                },
                 {
-                    "type": "list",
-                    "data": [
-                        { 
-                            "name": "normal text"
-                        },
-                        {
-                            "name": "image",
+                    "name": "image",
+                    "items": [{
+                            "name": "Just specified the image file under your computer.",
                             "items": [
-                                { "name": "Just specified the image file under your computer.",
-                                  "items": [
-                                      { "name": "Or just specified through 'http://...', resources on internet." }
-                                  ]},
-                                { "name": "And papoGen will fetch that file and resolve into output for you!" }
+                                { "name": "Or just specified through 'http://...', resources on internet." }
                             ]
                         },
-                        {
-                            "name": "formula",
-                            "items": [
-                                { "name": "MathJax format" },
-                                { "name": "As a good tool to build math tutorial!" }
-                            ]
-                        },
-                        {
-                            "name": "code"
-                        },
-                        {
-                            "name": "list"
-                        },
-                        {
-                            "name": "table"
-                        }
+                        { "name": "And papoGen will fetch that file and resolve into output for you!" }
                     ]
+                },
+                {
+                    "name": "formula",
+                    "items": [
+                        { "name": "MathJax format" },
+                        { "name": "As a good tool to build math tutorial!" }
+                    ]
+                },
+                {
+                    "name": "code"
+                },
+                {
+                    "name": "list"
+                },
+                {
+                    "name": "table"
                 }
             ]
-        }
-    ]
+        }]
+    }]
 }

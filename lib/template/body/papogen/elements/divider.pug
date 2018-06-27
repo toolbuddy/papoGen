@@ -3,12 +3,8 @@ include icon.pug
 
 mixin divider-mixin(data, attr, content)
     - if (attr.horizontal)
-        - if (content.icon != undefined)
-            - var icon-obj = {
-                data: content.icon,
-                attr: undefined,
-                content: undefined
-            }
+        - if (data.icon != undefined)
+            - var icon-obj = { data: data.icon, attr: undefined, content: undefined }
             +icon(icon-obj) #{data}
         - else
             | #{data}

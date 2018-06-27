@@ -6,21 +6,10 @@ include ../elements/image.pug
 mixin statistic-mixin(data, attr, content)
     div(class="statistic-value")
         - if (content.icon != undefined)
-            - var icon-obj = {
-                data: content.icon,
-                attr: undefined,
-                content: undefined
-            }
+            - var icon-obj = { data: content.icon, attr: undefined, content: undefined }
             +icon(icon-obj)
         - if (content.img != undefined)
-            - var img-obj = {
-                data: content.img
-                attr: {
-                    avatar: true,
-                    inline: true,
-                    size: "mini"
-                }
-            }
+            - var img-obj = { data: content.img, attr: { avatar: true, inline: true, size: "mini" } }
             +image(img-obj)
         - if (data.value != undefined)
             | #{data.value}

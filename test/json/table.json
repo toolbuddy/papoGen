@@ -1,52 +1,45 @@
 {
     "article": "Table Example",
-    "article_content":[
-        {
+    "article_content": [{
             "title": "My Skill",
-            "content": [
-                {
-                    "type": "table",
-                    "data":[
-                        {
-                            "name": "Programming Language",
-                            "items": [
-                                "C", "C++", "Node.js"
-                            ]
-                        },
-                        {
-                            "name": "Proficiency",
-                            "items": [
-                                "80%", "80%", "70%"
-                            ]
-                        }
-                    ]
-                }
-            ]
+            "content": [{
+                "type": "table",
+                "data": [{
+                        "name": "Programming Language",
+                        "items": [
+                            "C", "C++", "Node.js"
+                        ]
+                    },
+                    {
+                        "name": "Proficiency",
+                        "items": [
+                            "80%", "80%", "70%"
+                        ]
+                    }
+                ]
+            }]
         },
         {
             "title": "Activities(Another way of usage)",
-            "content": [
-                {
-                    "type": "table",
-                    "data":[
-                        {
-                            "name": "#(Semaster)",
-                            "items": [
-                                1, 2, 3, 4
-                            ]
-                        },
-                        {
-                            "name": "Big Activities",
-                            "items": [
-                                "Play a lots of drama activities",
-                                "Hold an e-sport event!",
-                                "Enhance self programming skills",
-                                "Create an online game!"
-                            ]
-                        }
-                    ]
-                }
-            ]
+            "content": [{
+                "type": "table",
+                "data": [{
+                        "name": "#(Semaster)",
+                        "items": [
+                            1, 2, 3, 4
+                        ]
+                    },
+                    {
+                        "name": "Big Activities",
+                        "items": [
+                            "Play a lots of drama activities",
+                            "Hold an e-sport event!",
+                            "Enhance self programming skills",
+                            "Create an online game!"
+                        ]
+                    }
+                ]
+            }]
         }
     ]
 }

@@ -1,16 +1,12 @@
 {
     "article": "MathJax Usage",
-    "article_content": [
-        {
-            "title": "Inline mathematic",
-            "content": [
-                {
-                    "type": "formula",
-                    "data": [
-                        "`x = (-b +- sqrt(b^2-4ac))/(2a) .`"
-                    ]
-                }
+    "article_content": [{
+        "title": "Inline mathematic",
+        "content": [{
+            "type": "formula",
+            "data": [
+                "`x = (-b +- sqrt(b^2-4ac))/(2a) .`"
             ]
-        }
-    ]
+        }]
+    }]
 }

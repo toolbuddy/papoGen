@@ -1,10 +1,8 @@
 {
     "article": "Abstract",
-    "article_content":[
-        {
-            "title":"Benefit of using toolbuddy",
-            "content": [
-                {
+    "article_content": [{
+            "title": "Benefit of using toolbuddy",
+            "content": [{
                     "type": "text",
                     "data": [
                         "The motto is: 'Make the world a better place.'",
@@ -13,26 +11,22 @@
                 },
                 {
                     "type": "image",
-                    "data": [
-                        {
-                            "url": "../tb.png",
-                            "size": 300
-                        }
-                    ]
+                    "data": [{
+                        "url": "../tb.png",
+                        "size": 300
+                    }]
                 }
             ]
         },
         {
-            "title":"Benefit of using papoGen",
-            "content": [
-                {
-                    "type": "text",
-                    "data": [
-                        "Beautiful, eligant way to build website for your document.",
-                        "Less effort, you can just using json as configuration to generate."
-                    ]
-                }
-            ]
+            "title": "Benefit of using papoGen",
+            "content": [{
+                "type": "text",
+                "data": [
+                    "Beautiful, eligant way to build website for your document.",
+                    "Less effort, you can just using json as configuration to generate."
+                ]
+            }]
         }
     ]
 }

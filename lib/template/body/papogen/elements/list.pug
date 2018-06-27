@@ -6,11 +6,7 @@ mixin list-mixin(data, attr)
         - if (data[i].name.toString().match((/[\u3400-\u9FBF]/)))
             div(class="item cn")
             - if (data[i].icon != undefined)
-                - var icon-obj = {
-                    data: data[i].icon,
-                    attr: undefined,
-                    content: undefined
-                }
+                - var icon-obj = { data: data[i].icon, attr: undefined, content: undefined }
                 +icon(icon-obj)
             - if (data[i].detail != undefined && data[i].name != undefined)
                 div(class="item-content")
@@ -26,11 +22,7 @@ mixin list-mixin(data, attr)
         - else
             div(class="item")
             - if (data[i].icon != undefined)
-                - var icon-obj = {
-                    data: data[i].icon,
-                    attr: undefined,
-                    content: undefined
-                }
+                - var icon-obj = { data: data[i].icon, attr: undefined, content: undefined }
                 +icon(icon-obj)
             - if (data[i].detail != undefined && data[i].name != undefined)
                 div(class="item-content")

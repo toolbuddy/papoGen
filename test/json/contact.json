@@ -1,27 +1,22 @@
 {
     "article": "Contact me",
-    "article_content":[
-        {
-            "title":"Email",
-            "content": [
-                {
-                    "type": "text",
-                    "data": [
-                        "kevinbird61@gmail.com"
-                    ]
-                }
-            ]
+    "article_content": [{
+            "title": "Email",
+            "content": [{
+                "type": "text",
+                "data": [
+                    "kevinbird61@gmail.com"
+                ]
+            }]
         },
         {
-            "title":"Phone",
-            "content": [
-                {
-                    "type": "text",
-                    "data": [
-                        "+886-912345678"
-                    ]
-                }
-            ]
+            "title": "Phone",
+            "content": [{
+                "type": "text",
+                "data": [
+                    "+886-912345678"
+                ]
+            }]
         }
     ]
 }
