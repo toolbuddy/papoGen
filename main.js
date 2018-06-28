@@ -134,7 +134,7 @@ if (process.argv.length > 2) {
                     program.theme
                 );
                 break;
-            case 'papogen': 
+            case 'papogen':
                 // Using custom papogen template
                 // default set theme to papogen
                 compile_engine.gen_papogen(
@@ -145,15 +145,6 @@ if (process.argv.length > 2) {
                     "papogen"
                 );
                 break;
-            /*case 'test':
-                compile_engine.gen_test(
-                    program.src,
-                    program.title,
-                    program.out,
-                    program.gen,
-                    program.theme
-                );
-                break;*/
             default:
                 console.log(chalk.red(`[Error] Model specification "${program.model}" not found`));
         }
@@ -212,15 +203,6 @@ papogen_api.gen_api = function(model, src, title, out, gen, theme) {
             break;
         case 'md_doc':
             compile_engine.gen_doc(
-                src,
-                title,
-                out,
-                gen,
-                theme
-            );
-            break;
-        case 'papogen-resume':
-            compile_engine.gen_resume(
                 src,
                 title,
                 out,
