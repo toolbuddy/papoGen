@@ -1,30 +1,15 @@
 {
     "article": "Profile",
     "article_content": [{
-        "title": "David Lu",
+        "title": "Name",
         "content": [{
-            "type": "text",
-            "data": [
-                "TEST"
-            ]
+            "type": "header",
+            "data": "David Lu",
+            "attr": {
+                "size": "h1",
+                "sub": "Programmer",
+                "aligned": "center"
+            }
         }]
-    }, {
-        "title": "Profile",
-        "content": [{
-            "type": "hyper",
-            "data": [{
-                    "text": [
-                        "Member"
-                    ]
-                },
-                {
-                    "hyper": [{
-                        "text": "ToolBuddy",
-                        "link": "https://toolbuddy.github.io"
-                    }]
-                }
-            ]
-        }]
-
     }]
 }

@@ -1,47 +1,47 @@
 // papogen.css - Displays/Alert
 
-include ../elements/icon.pug
+include icon.pug
 
-mixin alert-mixin(data, attr, content)
+mixin alert_mixin(data, attr)
     case attr.status
         when "info"
-            - var icon-obj = { data: "info circle" }
-            +icon(icon-obj)
+            - var icon_obj = { data: "info circle" }
+            +icon(icon_obj)
         when "warning"
-            - var icon-obj = { data: "exclamation circle" }
-            +icon(icon-obj)
+            - var icon_obj = { data: "exclamation circle" }
+            +icon(icon_obj)
         when "positive"
-            - var icon-obj = { data: "check circle" }
-            +icon(icon-obj)
+            - var icon_obj = { data: "check circle" }
+            +icon(icon_obj)
         when "negative"
-            - var icon-obj = { data: "times circle" }
-            +icon(icon-obj)
-    - if (attr.icon != undefined)
-        - if (content.icon != undefined)
-            - var icon-obj = { data: content.icon }
-            +icon(icon-obj)
-    - if (content.hdr != undefined)
+            - var icon_obj = { data: "times circle" }
+            +icon(icon_obj)
+    - if (typeof attr.icon !== undefined)
+        - var icon_obj = { data: attr.icon }
+        +icon(icon_obj)
+    - for (var i = 0; i < data.length; ++i)
         div(class="alert-content")
-            div(class="alert-hdr") #{content.hdr}
-        | #{data}
-    | #{data}
+            // - if (typeof data[i].hdr !== undefined)
+            // div(class="alert-hdr") #{data[i].hdr}
+            // - else
+            | #{data[i].content}
 
 mixin alert(obj)
     - var className = "alert"
-    - if (obj.attr.color != undefined)
+    - if (typeof obj.attr.color !== undefined)
         - if (obj.attr.color == "red" || obj.attr.color == "orange" || obj.attr.color == "yellow" || obj.attr.color == "green" || obj.attr.color == "blue" || obj.attr.color == "navy" || obj.attr.color == "purple" || obj.attr.color == "pink" || obj.attr.color == "brown" || obj.attr.color == "grey")
             - className = className + " alert-" + obj.attr.color
-    - if (obj.attr.size != undefined)
+    - if (typeof obj.attr.size !== undefined)
         - if (obj.attr.size == "mini" || obj.attr.size == "tiny" || obj.attr.size == "small" || obj.attr.size == "big" || obj.attr.size == "large" || obj.attr.size == "huge" || obj.attr.size == "massive")
             - className = className + " alert-" + obj.attr.size
-    - if (obj.attr.status != undefined)
+    - if (typeof obj.attr.status !== undefined)
         - if (obj.attr.status == "info" || obj.attr.status == "warning" || obj.attr.status == "positive" || obj.attr.status == "negative")
             - className = className + " alert-" + obj.attr.status
-    - if (obj.attr.compact != undefined)
+    - if (typeof obj.attr.compact !== undefined)
         - if (obj.attr.compact)
             - className += " alert-compact"
-    - if (obj.attr.floated != undefined)
+    - if (typeof obj.attr.floated !== undefined)
         - if (obj.attr.floated)
             - className += " alert-floated"
     div(class=className)
-        +alert-mixin(obj.data, obj.attr, obj.content)
+        +alert_mixin(obj.data, obj.attr)

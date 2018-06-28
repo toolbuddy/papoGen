@@ -1,13 +1,4 @@
 // papogen.css - Elements/Divider
-include icon.pug
-
-mixin divider-mixin(data, attr, content)
-    - if (attr.horizontal)
-        - if (data.icon != undefined)
-            - var icon-obj = { data: data.icon, attr: undefined, content: undefined }
-            +icon(icon-obj) #{data}
-        - else
-            | #{data}
 
 mixin divider(obj)
     - var className = "divider"
@@ -23,9 +14,5 @@ mixin divider(obj)
     - if (obj.attr.inverted != undefined)
         - if (obj.attr.inverted)
             - className += " divider-inverted"
-    - if (obj.attr.horizontal != undefined)
-        - if (obj.attr.inverted)
-            - className += " divider-h"
     div(class=className)
-        +divider-mixin(obj.data, obj.attr, obj.content)
     

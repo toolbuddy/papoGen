@@ -3,21 +3,21 @@
 mixin table-mixin(data, attr, content)
     - for (var item = 0; item < data[0].items.length + 1; ++item)
         - if (item == 0)
-            thead 
-                tr
-                - for (var d = 0; d < data.length; ++d)
-                    - if (data[d].name.toString().match(/[\u3400-\u9FBF]/))
-                        th(class="cn") #{namelist[index-1].article_content[i].content[c].data[d].name}
-                    - else 
-                        th #{namelist[index-1].article_content[i].content[c].data[d].name}
+        thead 
+            tr
+            - for (var d = 0; d < data.length; ++d)
+                - if (data[d].name.toString().match(/[\u3400-\u9FBF]/))
+                th(class="cn") #{namelist[index-1].article_content[i].content[c].data[d].name}
+                - else 
+                th #{namelist[index-1].article_content[i].content[c].data[d].name}
         - else 
-            tbody 
-                tr
-                - for (var d = 0; d < data.length; ++d)
-                    - if (data[d].items[item - 1].toString().match(/[\u3400-\u9FBF]/))
-                        td(class="cn") #{data[d].items[item - 1]}
-                    - else 
-                        td #{data[d].items[item - 1]}
+        tbody 
+            tr
+            - for (var d = 0; d < data.length; ++d)
+                - if (data[d].items[item - 1].toString().match(/[\u3400-\u9FBF]/))
+                td(class="cn") #{data[d].items[item - 1]}
+                - else 
+                td #{data[d].items[item - 1]}
 
 mixin table(obj)
     - var className = "table"

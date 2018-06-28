@@ -1,7 +1,7 @@
 // papogen.css - Displays/Statistic
 
-include ../elements/icon.pug
-include ../elements/image.pug
+include icon.pug
+include image.pug
 
 mixin statistic-mixin(data, attr, content)
     div(class="statistic-value")
@@ -12,10 +12,10 @@ mixin statistic-mixin(data, attr, content)
             - var img-obj = { data: content.img, attr: { avatar: true, inline: true, size: "mini" } }
             +image(img-obj)
         - if (data.value != undefined)
-            | #{data.value}
+        | #{data.value}
     div(class="statistic-label")
         - if (data.label != undefined)
-            | #{data.label}
+        | #{data.label}
 
 mixin statistic(obj)
     - var className = "statistic"

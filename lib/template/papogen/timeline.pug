@@ -1,0 +1,19 @@
+// papogen.css - Displays/Timeline
+
+mixin timeline_mixin(data, attr)
+    - for (var i = 0; i < data.length && typeof data[i] !== undefined; ++i)
+        li(class="timeline-item")
+            div(class="timeline-tail")
+            div(class="timeline-head")
+            div(class="timeline-content") #{data[i]}
+
+mixin timeline(obj)
+    - var className = "timeline"
+    - if (obj.attr.color != undefined)
+        - if (obj.attr.color == "red" || obj.attr.color == "orange" || obj.attr.color == "yellow" || obj.attr.color == "green" || obj.attr.color == "blue" || obj.attr.color == "navy" || obj.attr.color == "purple" || obj.attr.color == "pink" || obj.attr.color == "brown" || obj.attr.color == "grey")
+            - className = className + " timeline-" + obj.attr.color
+    - if (obj.attr.inverted != undefined)
+        - if (obj.attr.inverted)
+            - className += " timeline-inverted"
+    ul(class=className)
+        +timeline_mixin(obj.data, obj.attr)

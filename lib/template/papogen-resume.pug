@@ -2,7 +2,15 @@
 // Author: David Lu, Kevin Cyu
 
 // Include mixin
-// include ./body/papogen/papogen.pug
+// include papogen/divider.pug
+include papogen/header.pug
+include papogen/icon.pug
+// include papogen/list.pug
+// include papogen/section.pug
+include papogen/alert.pug
+// include papogen/statistic.pug
+// include papogen/table.pug
+include papogen/timeline.pug
 
 // Main
 doctype html
@@ -14,12 +22,13 @@ html
             div(class="grid")
                 div(class="col col-span-6")
                     div(class="section")
-                        img(class="img img-fluid")
-                        p #{title}
-                        // - var header-obj = { data: namelist[0], attr: { aligned: "center", size: "h1" }, content: { sub: "Programmer" } }
-                        // +header(header-obj)
+                        img(class="img img-centered" src="../../test/tb.png")/
+                        - var header_obj = { data: namelist[0].article_content[0].content[0].data, attr: namelist[0].article_content[0].content[0].attr }
+                        +header(header_obj)
                         div(class="divider")
+
                 div(class="col col-span-10")
-                    // papoGen Resume Body
-                    //include ../body/papogen-resume-body.pug
+                    div(class="section")
+                        // papoGen Resume Body
+                        include body/papogen-resume-body.pug
             

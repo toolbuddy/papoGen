@@ -9,103 +9,15 @@
             ]
         }]
     }, {
-        "title": "WORK EXPERIENCE",
-        "content": [{
-            "type": "hyper",
-            "data": [{
-                    "text": [
-                        "CEO/President, "
-                    ]
-                },
-                {
-                    "hyper": [{
-                        "text": "ToolBuddy",
-                        "link": "https://toolbuddy.github.io"
-                    }]
-                }
-            ]
-        }, {
-            "type": "text",
-            "data": [
-                "What we cannot create, we do not understand. Crafting tools by our knowledge and own hands, aim to make the world a better place."
-            ]
-        }, {
-            "type": "list",
-            "data": [{
-                    "name": "Build an algorithm for artist to detect if their music was violating copy right infringement laws"
-                },
-                {
-                    "name": "Successfully won Techcrunch Disrupt",
-                    "items": [{
-                            "name": "Just specified the image file under your computer.",
-                            "items": [
-                                { "name": "Or just specified through 'http://...', resources on internet." }
-                            ]
-                        },
-                        {
-                            "name": "And papoGen will fetch that file and resolve into output for you!"
-                        }
-                    ]
-                },
-                {
-                    "name": "Optimized an algorithm that holds the current world record for Weisman Scores",
-                    "items": [{
-                            "name": "MathJax format"
-                        },
-                        {
-                            "name": "As a good tool to build math tutorial!"
-                        }
-                    ]
-                }
-            ]
-        }]
-    }, {
-        "title": "EDUCATION",
-        "content": [{
-            "type": "list",
-            "data": [{
-                "name": "Computer Science and Engineering, Master, NCTU"
-            }, {
-                "name": "Computer Science and Engineering, Bachelor, NCKU"
-            }]
-        }]
-    }, {
-        "title": "SKILLS",
-        "content": [{
-            "type": "list",
-            "data": [{
-                "name": "Computer Science and Engineering, Master, NCTU"
-            }, {
-                "name": "Computer Science and Engineering, Bachelor, NCKU"
-            }]
-        }]
-    }, {
         "title": "AWARDS",
         "content": [{
             "type": "timeline",
-            "data": [{
-                "name": "Digital Compression Pioneer Award Techcrunch"
-            }, {
-                "name": "Digital Compression Pioneer Award Techcrunch"
-            }]
-        }]
-    }, {
-        "title": "VOLUNTEER WORK",
-        "content": [{
-            "type": "timeline",
-            "data": [{
-                "name": "aaa"
-            }, {
-                "name": "aaa"
-            }]
-        }]
-    }, {
-        "title": "INTERESTS",
-        "content": [{
-            "type": "text",
+            "attr": {
+                "color": "navy"
+            },
             "data": [
-                "NCKU Student,",
-                "Major in Networking/SDN/P4\n"
+                "中文",
+                "Digital Compression Pioneer Award Techcrunch"
             ]
         }]
     }, {
@@ -118,9 +30,12 @@
             ]
         }, {
             "type": "alert",
-            "data": [
-                "NCKU Student,"
-            ]
+            "attr": {
+                "status": "info"
+            },
+            "data": [{
+                "content": "NCKU Student,"
+            }]
         }]
     }]
 }
