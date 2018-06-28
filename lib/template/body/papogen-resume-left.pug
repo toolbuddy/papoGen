@@ -23,6 +23,9 @@
         - if (article_content[i].content[c].type == "divider")
             - var divider_obj = { data: article_content[i].content[c].data, attr: article_content[i].content[c].attr }
             +divider(divider_obj)
+        - if (article_content[i].content[c].type == "list")
+            - var list_obj = { data: article_content[i].content[c].data, attr: article_content[i].content[c].attr }
+            +list(list_obj)
         - if (article_content[i].content[c].type == "section")
             - if (article_content[i].content[c].data.length > 1)
                 div(class="sections") 

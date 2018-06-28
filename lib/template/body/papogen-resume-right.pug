@@ -12,6 +12,9 @@
                     p(class="cn") #{article_content[i].content[c].data[d]}                                                    
                 - else
                     p #{article_content[i].content[c].data[d]}
+        - if (article_content[i].content[c].type == "divider")
+            - var divider_obj = { data: article_content[i].content[c].data, attr: article_content[i].content[c].attr }
+            +divider(divider_obj)
         - if (article_content[i].content[c].type == "header")
             - header_obj = { data: article_content[i].content[c].data, attr: article_content[i].content[c].attr }
             +header(header_obj)
@@ -23,9 +26,9 @@
             - else
                 - var image_obj = { data: article_content[i].content[c].data, attr: article_content[i].content[c].attr }
                 +image(image_obj)
-        - if (article_content[i].content[c].type == "divider")
-            - var divider_obj = { data: article_content[i].content[c].data, attr: article_content[i].content[c].attr }
-            +divider(divider_obj)
+        - if (article_content[i].content[c].type == "list")
+            - var list_obj = { data: article_content[i].content[c].data, attr: article_content[i].content[c].attr }
+            +list(list_obj)
         - if (article_content[i].content[c].type == "section")
             - if (article_content[i].content[c].data.length > 1)
                 div(class="sections") 

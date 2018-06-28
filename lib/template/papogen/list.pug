@@ -1,72 +1,54 @@
 // papogen.css - Elements/List
 include icon.pug
 
-mixin list-mixin(data, attr)
+mixin list_mixin(data, attr)
     - for (var i = 0; i < data.length; ++i)
-        - if (data[i].name.toString().match((/[\u3400-\u9FBF]/)))
-        div(class="item cn")
-            - if (data[i].icon != undefined)
-                - var icon-obj = { data: data[i].icon, attr: undefined, content: undefined }
-                +icon(icon-obj)
-            - if (data[i].detail != undefined && data[i].name != undefined)
-            div(class="item-content")
-                div(class="item-hdr") #{data[i].name}
-                div(class="item-detail") #{data[i].detail}
-            - if (data[i].icon != undefined && data[i].detail == undefined && data[i].name != undefined)
-            div(class="item-content") #{data[i].name}
-            - if (data[i].icon == undefined && data[i].detail == undefined && data[i].name != undefined)
-            | #{data[i].name}
-            - if(data[i].data != undefined)
-            div(class="list") 
-                +list(data[i].data)
-        - else
         div(class="item")
-            - if (data[i].icon != undefined)
-                - var icon-obj = { data: data[i].icon, attr: undefined, content: undefined }
-                +icon(icon-obj)
-            - if (data[i].detail != undefined && data[i].name != undefined)
-            div(class="item-content")
-                div(class="item-hdr") #{data[i].name}
-                div(class="item-detail") #{data[i].detail}
-            - if (data[i].icon != undefined && data[i].detail == undefined && data[i].name != undefined)
-                div(class="item-content") #{data[i].name}
-            - if (data[i].icon == undefined && data[i].detail == undefined && data[i].name != undefined)
-                | #{data[i].name}
-            - if (data[i].data != undefined)
-            div(class="list")
-                +list(data[i].data)
+            - if (typeof attr.bulleted === undefined && typeof data[i].icon !== undefined)
+                - var icon_obj = { data: data[i].icon, attr: {} }
+                +icon(icon_obj)
+            - else
+                - if (typeof data[i].detail === undefined && typeof data[i].name !== undefined)
+                    | #{data[i].name}
+                - else
+                    div(class="item-content")
+                        div(class="item-hdr") #{data[i].name}
+                    - if (typeof data[i].detail !== undefined)
+                        div(class="item-detail") #{data[i].detail}
+                    - if (data[i].items !== undefined)
+                        div(class="list")
+                            +list_mixin(data[i].items, {})
 
 mixin list(obj)
     - var className = "list"
-    - if (obj.attr.horizontal != undefined)
+    - if (typeof obj.attr.horizontal !== undefined)
         - if (obj.attr.horizontal)
             - className += " list-h"
-    - if (obj.attr.size != undefined)
+    - if (typeof obj.attr.size !== undefined)
         - if (obj.attr.size == "mini" || obj.attr.size == "tiny" || obj.attr.size == "small" || obj.attr.size == "big" || obj.attr.size == "large" || obj.attr.size == "huge" || obj.attr.size == "massive")
             - className = className + " list-" + obj.attr.size
-    - if (obj.attr.celled != undefined)
+    - if (typeof obj.attr.celled !== undefined)
         - if (obj.attr.celled)
             - className += " list-celled"
-    - if (obj.attr.divided != undefined)
+    - if (typeof obj.attr.divided !== undefined)
         - if (obj.attr.divided)
             - className += " list-divided"
-    - if (obj.attr.relaxed != undefined)
+    - if (typeof obj.attr.relaxed !== undefined)
         - if (obj.attr.relaxed == "normal")
             - className += " list-relaxed"
         - if (obj.attr.relaxed == "very")
             - className += " list-exrelaxed"
-    - if (obj.attr.selectable != undefined)
+    - if (typeof obj.attr.selectable !== undefined)
         - if (obj.attr.selectable)
             - className += " list-selectable"
-    - if (obj.attr.inverted != undefined)
+    - if (typeof obj.attr.inverted !== undefined)
         - if (obj.attr.inverted)
             - className += " list-inverted"
-    - if (obj.attr.ordered != undefined)
+    - if (typeof obj.attr.ordered !== undefined)
         - if (obj.attr.ordered)
             - className += " list-ordered"
-    - if (obj.attr.bulleted != undefined)
+    - if (typeof obj.attr.bulleted !== undefined)
         - if (obj.attr.bulleted)
             - className += " list-bulleted"
-
     div(class=className)
-        +list-mixin(obj.data, obj.attr)
+        +list_mixin(obj.data, obj.attr)

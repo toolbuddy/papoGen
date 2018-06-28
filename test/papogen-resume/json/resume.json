@@ -41,11 +41,40 @@
         "title": "EDUCATION",
         "content": [{
             "type": "list",
+            "attr": {
+                "bulleted": true
+            },
             "data": [{
-                "name": "Computer Science and Engineering, Master, NCTU"
-            }, {
-                "name": "Computer Science and Engineering, Bachelor, NCKU"
-            }]
+                    "icon": "marker",
+                    "name": "normal text",
+                    "detail": "Detail"
+                },
+                {
+                    "icon": "mail",
+                    "name": "image",
+                    "items": [{
+                            "name": "Just specified the image file under your computer.",
+                            "items": [{
+                                "name": "Or just specified through 'http://...', resources on internet."
+                            }]
+                        },
+                        {
+                            "name": "And papoGen will fetch that file and resolve into output for you!"
+                        }
+                    ]
+                },
+                {
+                    "icon": "users",
+                    "name": "formula",
+                    "items": [{
+                            "name": "MathJax format"
+                        },
+                        {
+                            "name": "As a good tool to build math tutorial!"
+                        }
+                    ]
+                }
+            ]
         }]
     }, {
         "title": "INTERESTS",
