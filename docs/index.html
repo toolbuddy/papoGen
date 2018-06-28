@@ -2,6 +2,12 @@
 <input id="tab1" type="radio" name="tabs" checked="">
 <label id="label_tab1" for="tab1">README</label>
 
+<input id="tab2" type="radio" name="tabs">
+<label id="label_tab2" for="tab2">how to use</label>
+
+<input id="tab3" type="radio" name="tabs">
+<label id="label_tab3" for="tab3">json format</label>
+
 <div class="content" id="content1"><p></p><h2 id="papoGen">papoGen</h2>
 <p><a href="https://badge.fury.io/js/papogen"><img src="https://img.shields.io/npm/v/papogen.svg?style=for-the-badge" alt="npm version"></a>
 <a href="https://www.npmjs.com/package/papogen"><img src="https://img.shields.io/npm/dm/papogen.svg?style=for-the-badge" alt="npm downloads"></a></p>
@@ -14,23 +20,376 @@
 <h3 id="Demo">Demo</h3>
 <p>JSON format:</p>
 <ul>
-<li><a href="https://toolbuddy.github.io/papoGen/doc">doc</a></li>
-<li><a href="https://toolbuddy.github.io/papoGen/resume">resume</a></li>
+<li><a href="https://toolbuddy.github.io/papoGen/out/doc">doc</a></li>
+<li><a href="https://toolbuddy.github.io/papoGen/out/resume">resume</a></li>
 </ul>
 <p>YAML format:</p>
 <ul>
-<li><a href="https://toolbuddy.github.io/papoGen/doc">doc</a></li>
-<li><a href="https://toolbuddy.github.io/papoGen/resume">resume</a></li>
+<li><a href="https://toolbuddy.github.io/papoGen/out/doc">doc</a></li>
+<li><a href="https://toolbuddy.github.io/papoGen/out/resume">resume</a></li>
 </ul>
 <p>Markdown format:</p>
 <ul>
-<li><a href="https://toolbuddy.github.io/papoGen/md">md_doc</a></li>
+<li><a href="https://toolbuddy.github.io/papoGen/out/md">md_doc</a></li>
 </ul>
 <p>papogen format:</p>
 <ul>
-<li><a href="https://toolbuddy.github.io/papoGen/papogen">resume</a></li>
+<li><a href="https://toolbuddy.github.io/papoGen/out/papogen">resume</a></li>
 </ul>
+<p></p></div><div class="content" id="content2"><p></p><h1 id="Demonstration">Demonstration</h1>
+<p>以下展示了如何透過 <em>papoGen</em> 來快速生成一個網頁，使用者可以透過 CLI 指令來做產生; 以下會展示如何使用、以及指令參數的意義</p>
+<ul>
+<li>測試來源腳本放置於 <code>src/</code> 底下，並透過不同來源種類做資料夾分類</li>
+<li>產生的結果放置於 <code>out/</code> 底下，一樣透過來源種類做分類</li>
+</ul>
+<h2 id="Get%20Started">Get Started</h2>
+<ul>
+<li>安裝 Node.js
+<ul>
+<li>Linux 可以透過指令安裝:<pre><code class="language-bash">$ source &lt;(curl -s https://raw.githubusercontent.com/toolbuddy/ssfw/master/install_nodejs.sh)
+</code></pre>
+</li>
+</ul>
+</li>
+<li>透過 npm 安裝 <code>papogen</code><pre><code class="language-bash">$ [sudo] npm install -g papogen
+</code></pre>
+</li>
+</ul>
+<blockquote>
+<p>Help Manual:</p>
+<p>任何疑惑可以下 <code>-h</code> 的參數做察看</p>
+<pre><code class="language-bash">papogen -h
+</code></pre>
+</blockquote>
+<p>完成基本需求後，可以進到下面的練習部份囉！</p>
+<p><strong>(注意！ 以下練習都是在這個 <code>example/</code> 資料夾中做的演示！)</strong></p>
+<h3 id="Markdown%20(Recommended)">Markdown (Recommended)</h3>
+<ul>
+<li>運行範例指令：<pre><code class="language-bash">$ papogen -s src/md -o out/md -g md -m md_doc
+</code></pre>
+</li>
+<li>解釋
+<ul>
+<li><code>-s</code> 指定了來源，這邊因為要使用 Markdown 格式，所以使用 <code>test/md</code> 底下的所有檔案</li>
+<li><code>-o</code> 則是指定輸出的位置，這邊會輸出一份靜態網頁（可以透過 <code>google-chrome-stable out/md/index.html</code> 或是 <code>firefox out/md/index.html</code> 來做開啟 ）</li>
+<li><code>-g</code> 則是指定我們要用的來源格式，這邊我們要用的是 Markdown 格式，所以給予 <code>md</code> 的值</li>
+<li><code>-m</code> 這邊則是指定網站的版型，目前 Markdown 的支援只有 <code>md_doc</code>，也就是 document 的格式 （支援版型可以參考根目錄中 <code>lib/template/</code> 裡頭的 <code>Pug.js</code>）</li>
+</ul>
+</li>
+<li>額外內容
+<ul>
+<li><code>-t</code> 可以指定產生網頁的標題</li>
+<li><code>--theme</code> 可以指定 CSS theme template (正在籌備其他 CSS 主題當中)</li>
+</ul>
+</li>
+</ul>
+<h3 id="JSON">JSON</h3>
+<ul>
+<li>
+<p>運行範例指令</p>
+<pre><code class="language-bash"># 產生 document 版型 - doc
+$ papogen -s src/json -o out/json -m doc
+# 產生 resume 版型 - resume
+$ papogen -s src/json -o out/json -m resume
+</code></pre>
+</li>
+<li>
+<p>解釋</p>
+<ul>
+<li><code>-s</code> 指定了來源，這邊因為要使用 JSON 格式，所以使用 <code>test/json</code> 底下的所有檔案</li>
+<li><code>-o</code> 則是指定輸出的位置，這邊會輸出一份靜態網頁</li>
+<li>由於 <em>papogen</em> 預設是以 JSON 格式來做輸出，所以如果要產生 JSON 格式，可以不需要指定！</li>
+<li><code>-m</code> 這邊則是指定網站的版型，JSON 格式目前支援兩種 - <code>doc</code>, <code>resume</code>，可以依據需求做指定</li>
+</ul>
+</li>
+<li>
+<p>額外內容</p>
+<ul>
+<li><code>-t</code> 可以指定產生網頁的標題</li>
+<li><code>--theme</code> 可以指定 CSS theme template (正在籌備其他 CSS 主題當中)</li>
+</ul>
+</li>
+<li>
+<p>如何編輯 JSON 格式可以參考 <a href="https://github.com/toolbuddy/papoGen/blob/master/test/json/README.md">這裡</a></p>
+</li>
+</ul>
+<h3 id="YAML">YAML</h3>
+<ul>
+<li>運行範例指令<pre><code class="language-bash"># 產生 document 版型 - doc
+$ papogen -s src/yaml -o out/yaml -m doc -g yaml
+# 產生 resume 版型 - resume
+$ papogen -s src/yaml -o out/yaml -m resume -g yaml
+</code></pre>
+</li>
+<li>解釋
+<ul>
+<li><code>-s</code> 指定了來源，這邊因為要使用 YAML 格式，所以使用 <code>test/yaml</code> 底下的所有檔案</li>
+<li><code>-o</code> 則是指定輸出的位置，這邊會輸出一份靜態網頁</li>
+<li><code>-g</code> 由於 <em>papoGen</em> 預設是以 YAML 格式來做輸出，所以如果要產生 yaml 格式，就必須透過 <code>-g yaml</code> 來做指定</li>
+<li><code>-m</code> 這邊則是指定網站的版型，YAML 格式目前支援兩種 - <code>doc</code>, <code>resume</code>，可以依據需求做指定</li>
+</ul>
+</li>
+<li>額外內容
+<ul>
+<li><code>-t</code> 可以指定產生網頁的標題</li>
+<li><code>--theme</code> 可以指定 CSS theme template (正在籌備其他 css 主題當中)</li>
+</ul>
+</li>
+<li>如何編輯 YAML 格式可以參考 <a href="https://github.com/toolbuddy/papoGen/blob/master/test/json/README.md">這裡</a> （和 JSON 格式寫法相同！）.</li>
+</ul>
+<h2 id="透過指令產生腳本範本" class=" cn">透過指令產生腳本範本</h2>
+<ul>
+<li>在 <code>0.0.12</code> 版開始，可以支援透過 <em>papoGen</em> 產生可支援的腳本格式！</li>
+<li>利用 <code>papogen -h</code> 來列出有支援哪些後，便可以利用 <code>&lt;script&gt;</code>以及 <code>&lt;format&gt;</code>的組合，來產生腳本；
+<ul>
+<li>組合方式： <code>&lt;script&gt;</code>/<code>&lt;format&gt;</code></li>
+<li><code>&lt;script&gt;</code> 目前支援 JSON / YAML / Markdown。</li>
+<li><code>&lt;format&gt;</code> 則有多種，可以透過 <code>papogen -h</code> 來做察看。</li>
+</ul>
+</li>
+<li>示範指令
+<ul>
+<li>產生一個 JSON 格式中 <code>text</code> 樣式的腳本到目前的工作目錄<pre><code class="language-bash">$ papogen -c json/text -o .
+</code></pre>
+</li>
+<li>多個樣式 (生成 <code>text.json</code>, <code>list.json</code>, 以及 <code>table.json</code>)<pre><code class="language-bash">$ papogen -c json/text/list/table -o .
+</code></pre>
+</li>
+<li>全部範本都做生成<pre><code class="language-bash">$ papogen -c json/all -o .
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<p></p></div><div class="content" id="content3"><p></p><h1 id="JSON%20規格的使用" class=" cn">JSON 規格的使用</h1>
+<h2 id="<em>papoGen</em>%20如何使用 JSON ？" class=" cn"><em>papoGen</em> 如何使用 JSON ？</h2>
+<ul>
+<li>在 <em>papoGen</em> 當中，目前支援的 JSON 格式</li>
+<li>而可以在主頁的 <code>README.md</code> 中看到 command 的使用情況，可以指定一個資料夾作為生成來源的依據</li>
+<li>我們可以指定一個 folder 來做生成；而這時我們就可以把所有 JSON 檔案放在這裏面！</li>
+<li>每個 JSON 都會佔據一個 tab ，並以其<code>檔案名稱</code>當作該 tab 的<code>顯示名稱</code> (網站中的其中一頁，詳情請參考 repo 首頁上方的 demo 連結)</li>
+<li>而其內部內容就會轉換成為那一頁的顯示內容</li>
+<li>依據 command 指定的 template，在生成上會有些微的差異</li>
+<li>接下來我們就可以進到每個 JSON 檔內支援什麼格式囉</li>
+</ul>
+<h2 id="Type%20support">Type support</h2>
+<ul>
+<li>先來看到一個 JSON 檔案內概況：
+<ul>
+<li>每個檔案內都有個欄位 <code>article</code> 作為該頁的主題（顯示於內文最上方）</li>
+<li>並跟隨一個 json array: <code>article_content</code></li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-js">{
+    article: "Title name",
+    article_content: [ ... ]
+}
+</code></pre>
+<ul>
+<li><code>article_content</code> 格式：
+<ul>
+<li>每個 element 都有以下的欄位：
+<ul>
+<li><code>title</code>： Subtitle name</li>
+<li><code>content</code>： 為 json array，內部會裝載各式各樣支援的格式（以下會詳細介紹），<em>papoGen</em> 則會依據你所指定的以下格式來做轉換，成為美美的 document!</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-js">{
+    title: "Subtitle Name",
+    content: [ ... ]
+}
+</code></pre>
+<ul>
+<li>那麼接下來就開始介紹 <code>content</code> 內部格式吧！</li>
+<li>以下每個種類都是放置於 <code>content</code> 內的元件！</li>
+</ul>
+<h3 id="Normal%20Article">Normal Article</h3>
+<ul>
+<li>為一般文字支援</li>
+<li>每個 <code>data</code> 裡頭的 element 都會自成獨立的一行</li>
+</ul>
+<pre><code class="language-js">[
+    ... (assume inside `content` array)
+    {
+        "type": "text",
+        "data": [
+            "sentence 1",
+            "sentence 2"
+        ]
+    },
+    ...
+]
+</code></pre>
+<h3 id="HyperLinks">HyperLinks</h3>
+<ul>
+<li>為超連結支援</li>
+<li>可與一般文字混用
+<ul>
+<li>注意在這個型態使用底下時，換行字元<code>要自行加在要換行</code>的字串後面！</li>
+<li>容許超連結與文章混合</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-js">[
+    ... (assume inside `content` array)
+    {
+        "type": "hyper",
+        "data": [
+            {
+                "text": [
+                    "sentence1","sentence2",...
+                ]
+            },
+            {
+                "hyper":[
+                    { "text": "display text", "link":"&lt;url&gt;" } ...
+                ]
+            }
+        ]
+    },
+    ...
+]
+</code></pre>
+<h3 id="Image%20support">Image support</h3>
+<ul>
+<li>為圖片支援</li>
+<li>來源位置是為跟該 JSON 檔案的相對位置</li>
+</ul>
+<pre><code class="language-js">[
+    ... (assume inside `content` array)
+    {
+        "type": "image",
+        "data": [ 
+            {
+                "url": "../path/to/your/img or http://....",
+                "size": 300 // px
+            }
+        ]
+    },
+    ...
+]
+</code></pre>
+<h3 id="Code%20support">Code support</h3>
+<ul>
+<li>為原始碼支援，支援兩種來源
+<ul>
+<li><code>url</code>: 透過檔案的方式做引入</li>
+<li><code>raw</code>: 可以直接輸入程式碼</li>
+</ul>
+</li>
+<li>來源位置是為跟該 JSON 檔案的相對位置</li>
+</ul>
+<pre><code class="language-js">[
+    ... (assume inside `content` array)
+    {
+        "type": "code",
+        "data": [ 
+            {
+                "url": "../path/to/your/code"
+            },
+            {
+                "raw": "const var = require('meme')"
+            }
+        ]
+    },
+    ...
+]
+</code></pre>
+<h3 id="Formula%20support">Formula support</h3>
+<ul>
+<li>數學式的支援，支援 <code>MathJax</code> 的格式</li>
+</ul>
+<pre><code class="language-js">[
+    ... (assume inside `content` array)
+    {
+        "type": "formula",
+        "data": [
+            "`x = (-b +- sqrt(b^2-4ac))/(2a) .`"
+        ]
+    },
+    ...
+]
+
+</code></pre>
+<h3 id="Table%20support">Table support</h3>
+<ul>
+<li>表格的支援
+<ul>
+<li>每個 <code>data</code> 內的元素，都是一條獨立的 column</li>
+<li>而各自都 <code>items</code> 的 JSON array 來裝屬於該 column 的 elements</li>
+</ul>
+</li>
+<li>注意！ 每個 <code>items</code> 內的欄位數目要相同！否則會有 undefined behavior 發生！</li>
+</ul>
+<pre><code class="language-js">{
+    ... (assume inside `content` array)
+    {
+        "type": "table",
+        "data": [
+            {
+                "name": "column title 1",
+                "items": [
+                    "var1", "var2" ,...
+                ]
+            },
+            {
+                "name": "column title 2",
+                "items": [
+                    "var1-attr", "var2-attr" ,...
+                ]
+            }
+        ]
+    },
+    ...
+}
+</code></pre>
+<h3 id="Card%20Support">Card Support</h3>
+<ul>
+<li>這個支援主要是依照 <em>paper.css</em> 的 card 格式產生</li>
+<li>產生結果可以參考 DEMO page，而格式參考下方：</li>
+</ul>
+<pre><code class="language-js">{
+    ...
+    {
+        "type": "card",
+        "data":[
+            {
+                "url": "&lt;img url&gt;",
+                "title": "Card example with image",
+                "subtitle": "I am subtitle!",
+                "text": [
+                    "Example sentence 1.",
+                    "Example sentence 2."
+                ],
+                "tag": [
+                    "example",
+                    "tag"
+                ]
+            },
+    }
+}
+</code></pre>
 <p></p></div></div></div><div class="to-top"><a class="paper-btn margin" href="#top">Top</a><div class="row flex-spaces child-borders"><label class="paper-btn margin" for="modal-1">T.O.C.</label></div></div><input class="modal-state" id="modal-1" type="checkbox"><div class="modal modal-dialog"><label class="modal-bg" for="modal-1"></label><div class="modal-body"><label class="btn-close" for="modal-1">X </label><h4 class="modal-title">Table of Content</h4><h5 class="modal-subtitle">Click and go !</h5><div class="modal-body" id="toc"><h4 class="modal-text">README</h4><hr><ol><ol><li><a href="#papoGen">papoGen</a></li><a href="#papoGen">
 </a><ol><a href="#papoGen"></a><li><a href="#papoGen"></a><a href="#About">About</a></li><a href="#About">
 </a><li><a href="#About"></a><a href="#Demo">Demo</a></li><a href="#Demo">
+</a></ol></ol></ol><h4 class="modal-text">how to use</h4><hr><ol><li><a href="#Demonstration">Demonstration</a></li><a href="#Demonstration">
+</a><ol><a href="#Demonstration"></a><li><a href="#Demonstration"></a><a href="#Get%20Started">Get Started</a></li><a href="#Get%20Started">
+</a><ol><a href="#Get%20Started"></a><li><a href="#Get%20Started"></a><a href="#Markdown%20(Recommended)">Markdown (Recommended)</a></li><a href="#Markdown%20(Recommended)">
+</a><li><a href="#Markdown%20(Recommended)"></a><a href="#JSON">JSON</a></li><a href="#JSON">
+</a><li><a href="#JSON"></a><a href="#YAML">YAML</a></li><a href="#YAML">
+</a></ol><li><a href="#透過指令產生腳本範本">透過指令產生腳本範本</a></li><a href="#透過指令產生腳本範本">
+</a></ol></ol><h4 class="modal-text">json format</h4><hr><ol><li><a href="#JSON%20規格的使用">JSON 規格的使用</a></li><a href="#JSON%20規格的使用">
+</a><ol><a href="#JSON%20規格的使用"></a><li><a href="#JSON%20規格的使用"></a><a href="#<em">papoGen%20如何使用 JSON ？&gt;<em>papoGen</em> 如何使用 JSON ？</a></li><a href="#<em">
+</a><li><a href="#<em"></a><a href="#Type%20support">Type support</a></li><a href="#Type%20support">
+</a><ol><a href="#Type%20support"></a><li><a href="#Type%20support"></a><a href="#Normal%20Article">Normal Article</a></li><a href="#Normal%20Article">
+</a><li><a href="#Normal%20Article"></a><a href="#HyperLinks">HyperLinks</a></li><a href="#HyperLinks">
+</a><li><a href="#HyperLinks"></a><a href="#Image%20support">Image support</a></li><a href="#Image%20support">
+</a><li><a href="#Image%20support"></a><a href="#Code%20support">Code support</a></li><a href="#Code%20support">
+</a><li><a href="#Code%20support"></a><a href="#Formula%20support">Formula support</a></li><a href="#Formula%20support">
+</a><li><a href="#Formula%20support"></a><a href="#Table%20support">Table support</a></li><a href="#Table%20support">
+</a><li><a href="#Table%20support"></a><a href="#Card%20Support">Card Support</a></li><a href="#Card%20Support">
 </a></ol></ol></ol></div></div></div><div class="row flex-right"><p>Created by <span class="badge secondary">@ToolBuddy/papoGen(papercss)</span></p></div></div></div></body></html>

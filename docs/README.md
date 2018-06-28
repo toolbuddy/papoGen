@@ -16,15 +16,15 @@ If you feel `papogen` is good, hope you can give a `star`!
 ### Demo
 
 JSON format:
-* [doc](https://toolbuddy.github.io/papoGen/doc)
-* [resume](https://toolbuddy.github.io/papoGen/resume)
+* [doc](https://toolbuddy.github.io/papoGen/out/doc)
+* [resume](https://toolbuddy.github.io/papoGen/out/resume)
 
 YAML format:
-* [doc](https://toolbuddy.github.io/papoGen/doc)
-* [resume](https://toolbuddy.github.io/papoGen/resume)
+* [doc](https://toolbuddy.github.io/papoGen/out/doc)
+* [resume](https://toolbuddy.github.io/papoGen/out/resume)
 
 Markdown format:
-* [md_doc](https://toolbuddy.github.io/papoGen/md)
+* [md_doc](https://toolbuddy.github.io/papoGen/out/md)
 
 papogen format:
-* [resume](https://toolbuddy.github.io/papoGen/papogen)
+* [resume](https://toolbuddy.github.io/papoGen/out/papogen)

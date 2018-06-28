@@ -100,12 +100,12 @@ If you feel `papogen` is good, hope you can give a `star`!
 ## DEMO
 
 * Example: Generating by *papoGen* format
-   * [JSON - doc](https://toolbuddy.github.io/papoGen/)
-   * [JSON - resume](https://toolbuddy.github.io/papoGen/resume/)
-   * [YAML - doc](https://toolbuddy.github.io/papoGen/doc-yaml)
-   * [YAML - resume](https://toolbuddy.github.io/papoGen/resume-yaml)
+   * [JSON - doc](https://toolbuddy.github.io/papoGen/out/doc)
+   * [JSON - resume](https://toolbuddy.github.io/papoGen/out/resume/)
+   * [YAML - doc](https://toolbuddy.github.io/papoGen/out/doc)
+   * [YAML - resume](https://toolbuddy.github.io/papoGen/out/resume/)
 * Example: Generating directly from **Markdown** format
-   * [From Markdown - md_doc](https://toolbuddy.github.io/papoGen/md/)
+   * [From Markdown - md_doc](https://toolbuddy.github.io/papoGen/out/md/)
        * Support "MathJax" & "Table of content"!
    * Graph Theory Tutorial:
       * [ch3](https://toolbuddy.github.io/Graph-Theory/matching-factor/index.html)
@@ -134,8 +134,6 @@ If you want to contribute the project, please using `git clone` with `--recursiv
 * [papoGen.css](https://github.com/toolbuddy/papoGen.css)
     * our new css template is creating now!
     * will introduce the new theme, and template into `papoGen`.
-
-
 
 # Author 
 
