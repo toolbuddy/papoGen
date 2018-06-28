@@ -1,30 +1,31 @@
 // papogen.css - Displays/Alert
 
-include icon.pug
+//include icon.pug
 
 mixin alert_mixin(data, attr)
     case attr.status
         when "info"
-            - var icon_obj = { data: "info circle" }
+            - var icon_obj = { data: "info circle", attr: {}, content: {} }
             +icon(icon_obj)
         when "warning"
-            - var icon_obj = { data: "exclamation circle" }
+            - var icon_obj = { data: "exclamation circle", attr: {}, content: {} }
             +icon(icon_obj)
         when "positive"
-            - var icon_obj = { data: "check circle" }
+            - var icon_obj = { data: "check circle", attr: {}, content: {} }
             +icon(icon_obj)
         when "negative"
-            - var icon_obj = { data: "times circle" }
+            - var icon_obj = { data: "times circle", attr: {}, content: {} }
             +icon(icon_obj)
-    - if (typeof attr.icon !== undefined)
-        - var icon_obj = { data: attr.icon }
+    - if (typeof attr.status === undefined && typeof attr.icon !== undefined)
+        - var icon_obj = { data: attr.icon, attr: {}, content: {} }
         +icon(icon_obj)
     - for (var i = 0; i < data.length; ++i)
-        div(class="alert-content")
-            // - if (typeof data[i].hdr !== undefined)
-            // div(class="alert-hdr") #{data[i].hdr}
-            // - else
-            | #{data[i].content}
+        - if (typeof data[i].header !== undefined)
+            div(class="alert-content")
+                div(class="alert-hdr") #{data[i].header}
+                | #{data[i].content}
+        - else
+            div(class="alert-content") #{data[i].content}
 
 mixin alert(obj)
     - var className = "alert"
