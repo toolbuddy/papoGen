@@ -5,12 +5,12 @@
         "content": [{
             "type": "image",
             "data": [
-                "../../test/tb.png"
+                "./res/avatar.png"
             ],
             "attr": {
                 "avatar": true,
                 "centered": true,
-                "size": "big"
+                "size": "small"
             }
         }]
     }, {
