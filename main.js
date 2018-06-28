@@ -136,12 +136,13 @@ if (process.argv.length > 2) {
                 break;
             case 'papogen': 
                 // Using custom papogen template
+                // default set theme to papogen
                 compile_engine.gen_papogen(
                     program.src,
                     program.title,
                     program.out,
                     program.gen,
-                    program.theme
+                    "papogen"
                 );
                 break;
             /*case 'test':
