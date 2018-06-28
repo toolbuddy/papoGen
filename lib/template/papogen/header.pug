@@ -5,14 +5,14 @@ include icon.pug
 mixin header_mixin(data, attr)
     - if (typeof attr.icon !== undefined && typeof attr.img === undefined)
         - if (typeof attr.icon !== undefined)
-            - var icon_obj = { data: attr.icon, attr: {}, content: {} }
+            - var icon_obj = { data: attr.icon, attr: {} }
             +icon(icon_obj)
         - if (typeof data !== undefined)
         div(class="hdr-content") #{data}
-            - if (typeof attr.sub !== {})
+            - if (typeof attr.sub !== undefined)
             div(class="hdr hdr-sub") #{attr.sub}
-    - if (typeof attr.icon === {} && typeof attr.img !== {})
-        - if (typeof attr.img !== {})
+    - if (typeof attr.icon === undefined && typeof attr.img !== undefined)
+        - if (typeof attr.img !== undefined)
         img(src=attr.img)
         - if (typeof data !== undefined)
         div(class="hdr-content") #{data}

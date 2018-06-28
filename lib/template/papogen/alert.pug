@@ -5,19 +5,19 @@
 mixin alert_mixin(data, attr)
     case attr.status
         when "info"
-            - var icon_obj = { data: "info circle", attr: {}, content: {} }
+            - var icon_obj = { data: "info circle", attr: {} }
             +icon(icon_obj)
         when "warning"
-            - var icon_obj = { data: "exclamation circle", attr: {}, content: {} }
+            - var icon_obj = { data: "exclamation circle", attr: {} }
             +icon(icon_obj)
         when "positive"
-            - var icon_obj = { data: "check circle", attr: {}, content: {} }
+            - var icon_obj = { data: "check circle", attr: {} }
             +icon(icon_obj)
         when "negative"
-            - var icon_obj = { data: "times circle", attr: {}, content: {} }
+            - var icon_obj = { data: "times circle", attr: {} }
             +icon(icon_obj)
     - if (typeof attr.status === undefined && typeof attr.icon !== undefined)
-        - var icon_obj = { data: attr.icon, attr: {}, content: {} }
+        - var icon_obj = { data: attr.icon, attr: {}}
         +icon(icon_obj)
     - for (var i = 0; i < data.length; ++i)
         - if (typeof data[i].header !== undefined)

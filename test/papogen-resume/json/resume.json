@@ -9,6 +9,16 @@
             ]
         }]
     }, {
+        "title": "SKILLS",
+        "content": [{
+            "type": "statistic",
+            "attr": {},
+            "data": [{
+                "value": "50%",
+                "label": "Statistic"
+            }]
+        }]
+    }, {
         "title": "AWARDS",
         "content": [{
             "type": "timeline",

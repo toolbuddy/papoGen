@@ -3,36 +3,56 @@
 include icon.pug
 include image.pug
 
-mixin statistic-mixin(data, attr, content)
-    div(class="statistic-value")
-        - if (content.icon != undefined)
-            - var icon-obj = { data: content.icon, attr: undefined, content: undefined }
-            +icon(icon-obj)
-        - if (content.img != undefined)
-            - var img-obj = { data: content.img, attr: { avatar: true, inline: true, size: "mini" } }
-            +image(img-obj)
-        - if (data.value != undefined)
-        | #{data.value}
-    div(class="statistic-label")
-        - if (data.label != undefined)
-        | #{data.label}
+mixin statistic_mixin(data, attr)
+    - if (data.length > 1)
+        - for (var i = 0; i < data.length; ++i)
+            div(class!=attributes.class)
+                div(class="statistic-value")
+                - if (attr.icon != undefined)
+                    - var icon_obj = { data: attr.icon, attr: {}, content: {} }
+                    +icon(icon_obj)
+                - if (attr.img != undefined)
+                    - var img_obj = { data: attr.img, attr: { avatar: true, inline: true, size: "mini" } }
+                    +image(img_obj)
+                - if (data.value != undefined)
+                | #{data[i].value}
+                div(class="statistic-label")
+                    - if (data.label != undefined)
+                    | #{data[i].label}
+    - else
+        div(class="statistic-value")
+            - if (attr.icon != undefined)
+                - var icon_obj = { data: attr.icon, attr: {}, content: {} }
+                +icon(icon_obj)
+            - if (attr.img != undefined)
+                - var img_obj = { data: attr.img, attr: { avatar: true, inline: true, size: "mini" } }
+                +image(img_obj)
+            - if (data.value != undefined)
+            | #{data[0].value}
+        div(class="statistic-label")
+            - if (data.label != undefined)
+            | #{data[0].label}
 
 mixin statistic(obj)
     - var className = "statistic"
-    - if (obj.attr.size != undefined)
+    - if (typeof obj.attr.size !== undefined)
         - if (obj.attr.size == "mini" || obj.attr.size == "tiny" || obj.attr.size == "small" || obj.attr.size == "big" || obj.attr.size == "large" || obj.attr.size == "huge" || obj.attr.size == "massive")
             - className = className + " statistic-" + obj.attr.size
-    - if (obj.attr.floated != undefined)
+    - if (typeof obj.attr.floated !== undefined)
         - if (obj.attr.floated == "right" || obj.attr.floated == "left")
             - className = className + " statistic-floated-" + obj.attr.floated
-    - if (obj.attr.inverted != undefined)
+    - if (typeof obj.attr.inverted !== undefined)
         - if (obj.attr.inverted)
             - className += " statistic-inverted"
-    - if (obj.attr.color != undefined)
+    - if (typeof obj.attr.color !== undefined)
         - if (obj.attr.color == "red" || obj.attr.color == "orange" || obj.attr.color == "yellow" || obj.attr.color == "green" || obj.attr.color == "blue" || obj.attr.color == "navy" || obj.attr.color == "purple" || obj.attr.color == "pink" || obj.attr.color == "brown" || obj.attr.color == "grey")
-            - className = " statistic-" + obj.attr.color
-    - if (obj.attr.horizontal != undefined)
+            - className = className + " statistic-" + obj.attr.color
+    - if (typeof obj.attr.horizontal !== undefined)
         - if (obj.attr.horizontal)
             - className += " statistic-h"
-    div(class=className)
-        +statistic-mixin(obj.data, obj.attr, obj.content)
+    - if (obj.data.length > 1)
+        div(class="statistics")
+            +statistic_mixin(obj.data, obj.attr)(class=className)
+    - else
+        div(class=className)
+            +statistic_mixin(obj.data, obj.attr)

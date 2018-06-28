@@ -15,8 +15,12 @@
                     p #{article_content[i].content[c].data[d]}
         - if (article_content[i].content[c].type == "alert")
             - for (var d = 0; d < article_content[i].content[c].data.length; ++d)
-                - var alert_obj = { data: article_content[i].content[c].data, attr: article_content[i].content[c].attr, content: {} }
+                - var alert_obj = { data: article_content[i].content[c].data, attr: article_content[i].content[c].attr }
                 +alert(alert_obj)
         - if (article_content[i].content[c].type == "timeline")
-            - var timeline_obj = { data: article_content[i].content[c].data, attr: article_content[i].content[c].attr, content: {} }
+            - var timeline_obj = { data: article_content[i].content[c].data, attr: article_content[i].content[c].attr }
             +timeline(timeline_obj)
+        - if (article_content[i].content[c].type == "statistic")
+            - for (var d = 0; d < article_content[i].content[c].data.length; ++d)
+                - var statistic_obj = { data: article_content[i].content[c].data, attr: article_content[i].content[c].attr }
+                +statistic(statistic_obj)
