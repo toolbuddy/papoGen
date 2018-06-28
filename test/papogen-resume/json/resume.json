@@ -107,9 +107,9 @@
         "content": [{
             "type": "image",
             "data": [
-                "../../test/tb.png",
-                "../../test/tb.png",
-                "../../test/tb.png"
+                "../tb.png",
+                "../tb.png",
+                "../tb.png"
             ],
             "attr": {
                 "rounded": true,
