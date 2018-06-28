@@ -9,7 +9,7 @@ include papogen/icon.pug
 include papogen/section.pug
 include papogen/alert.pug
 include papogen/statistic.pug
-// include papogen/table.pug
+include papogen/table.pug
 include papogen/timeline.pug
 
 // Main
@@ -20,11 +20,11 @@ html
     body
         div(class="container")
             div(class="grid")
-                div(class="col col-span-6")
+                div(class="col col-span-5")
                     div(class="section")
                         include body/papogen-resume-left.pug
 
-                div(class="col col-span-10")
+                div(class="col col-span-11")
                     div(class="section")
                         include body/papogen-resume-right.pug
             

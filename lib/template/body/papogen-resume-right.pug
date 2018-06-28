@@ -48,6 +48,9 @@
             - else
                 - var statistic_obj = { data: article_content[i].content[c].data, attr: article_content[i].content[c].attr }
                 +statistic(statistic_obj)
+        - if (article_content[i].content[c].type == "table")
+            - var table_obj = { data: article_content[i].content[c].data, attr: { monotonic: true, selectable: true }, content: undefined }
+            +table(table_obj)
         - if (article_content[i].content[c].type == "code")
             - for (var d = 0; d < article_content[i].content[c].data.length; ++d)
                 div(class="section" style="padding: 0rem")
