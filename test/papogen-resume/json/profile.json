@@ -25,13 +25,30 @@
             }
         }]
     }, {
-        "title": "LINKS",
+        "title": "DIVIDER",
         "content": [{
             "type": "divider",
             "data": "Links",
             "attr": {
                 "icon": "info circle"
             }
+        }]
+    }, {
+        "title": "LINKS",
+        "content": [{
+            "type": "list",
+            "attr": {},
+            "data": [{
+                    "link": "tb@imslab.org",
+                    "icon": "mail",
+                    "name": "Mail"
+                },
+                {
+                    "link": "https://toolbuddy.github.io/",
+                    "icon": "github",
+                    "name": "GitHub"
+                }
+            ]
         }]
     }]
 }

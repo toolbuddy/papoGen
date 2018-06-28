@@ -9,10 +9,23 @@ mixin list_mixin(data, attr)
                 +icon(icon_obj)
             - else
                 - if (typeof data[i].detail === undefined && typeof data[i].name !== undefined)
-                    | #{data[i].name}
+                    - if (typeof data[i].link !== undefined)
+                        - if (data[i].name === "Mail" || data[i].name == "mail")
+                            a(mailto=data[i].link) #{data[i].name}
+                        - else
+                            a(href=data[i].link) #{data[i].name}
+                    - else
+                        | #{data[i].name}
                 - else
                     div(class="item-content")
-                        div(class="item-hdr") #{data[i].name}
+                        div(class="item-hdr")
+                            - if (typeof data[i].link !== undefined)
+                                - if (data[i].name === "Mail" || data[i].name == "mail")
+                                    a(mailto=data[i].link) #{data[i].name}
+                                - else
+                                    a(href=data[i].link) #{data[i].name}
+                            - else
+                                | #{data[i].name}
                     - if (typeof data[i].detail !== undefined)
                         div(class="item-detail") #{data[i].detail}
                     - if (data[i].items !== undefined)
