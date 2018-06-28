@@ -4,34 +4,18 @@ include icon.pug
 include image.pug
 
 mixin statistic_mixin(data, attr)
-    - if (data.length > 1)
-        - for (var i = 0; i < data.length; ++i)
-            div(class!=attributes.class)
-                div(class="statistic-value")
-                - if (attr.icon != undefined)
-                    - var icon_obj = { data: attr.icon, attr: {}, content: {} }
-                    +icon(icon_obj)
-                - if (attr.img != undefined)
-                    - var img_obj = { data: attr.img, attr: { avatar: true, inline: true, size: "mini" } }
-                    +image(img_obj)
-                - if (data.value != undefined)
-                | #{data[i].value}
-                div(class="statistic-label")
-                    - if (data.label != undefined)
-                    | #{data[i].label}
-    - else
-        div(class="statistic-value")
-            - if (attr.icon != undefined)
-                - var icon_obj = { data: attr.icon, attr: {}, content: {} }
-                +icon(icon_obj)
-            - if (attr.img != undefined)
-                - var img_obj = { data: attr.img, attr: { avatar: true, inline: true, size: "mini" } }
-                +image(img_obj)
-            - if (data.value != undefined)
-            | #{data[0].value}
-        div(class="statistic-label")
-            - if (data.label != undefined)
-            | #{data[0].label}
+    div(class="statistic-value")
+        - if (attr.icon != undefined)
+            - var icon_obj = { data: attr.icon, attr: {}, content: {} }
+            +icon(icon_obj)
+        - if (attr.img != undefined)
+            - var img_obj = { data: attr.img, attr: { avatar: true, inline: true, size: "mini" } }
+            +image(img_obj)
+        - if (data.value != undefined)
+        | #{data[0].value}
+    div(class="statistic-label")
+        - if (data.label != undefined)
+        | #{data[0].label}
 
 mixin statistic(obj)
     - var className = "statistic"
@@ -50,9 +34,5 @@ mixin statistic(obj)
     - if (typeof obj.attr.horizontal !== undefined)
         - if (obj.attr.horizontal)
             - className += " statistic-h"
-    - if (obj.data.length > 1)
-        div(class="statistics")
-            +statistic_mixin(obj.data, obj.attr)(class=className)
-    - else
-        div(class=className)
-            +statistic_mixin(obj.data, obj.attr)
+    div(class=className)
+        +statistic_mixin(obj.data, obj.attr)

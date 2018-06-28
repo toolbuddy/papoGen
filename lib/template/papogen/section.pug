@@ -2,31 +2,32 @@
 
 mixin section(obj)
     - var className = "section"
-    - if (obj.attr.floated != undefined)
+    - if (typeof obj.attr.floated !== undefined)
         - if (obj.attr.floated == "right" || obj.attr.floated == "left")
             - className = className + " section-floated-" + obj.attr.floated
-    - if (obj.attr.aligned != undefined)
+    - if (typeof obj.attr.aligned !== undefined)
         - if (obj.attr.aligned == "left" || obj.attr.aligned == "center" || obj.attr.aligned == "right")
             - className = className + " section-aligned-" + obj.attr.aligned
-    - if (obj.attr.basic != undefined)
+    - if (typeof obj.attr.basic !== undefined)
         - if (obj.attr.basic)
             - className += " section-basic"
-    - if (obj.attr.cleared != undefined)
+    - if (typeof obj.attr.cleared !== undefined)
         - if (obj.attr.cleared)
             - className += " section-cleared"
-    - if (obj.attr.inverted != undefined)
+    - if (typeof obj.attr.inverted !== undefined)
         - if (obj.attr.inverted)
             - className += " section-inverted"
-    - if (obj.attr.color != undefined)
+    - if (typeof obj.attr.color !== undefined)
         - if (obj.attr.color == "red" || obj.attr.color == "orange" || obj.attr.color == "yellow" || obj.attr.color == "green" || obj.attr.color == "blue" || obj.attr.color == "navy" || obj.attr.color == "purple" || obj.attr.color == "pink" || obj.attr.color == "brown" || obj.attr.color == "grey")
             - className = className + " section-" + obj.attr.color
-    - if (obj.attr.compact != undefined)
+    - if (typeof obj.attr.compact !== undefined)
         - if (obj.attr.compact)
             - className += " section-compact"
-    - if (obj.attr.padded != undefined)
+    - if (typeof obj.attr.padded !== undefined)
         - if (obj.attr.padded)
             - className += " section-padded"
-    - if (obj.attr.raised != undefined)
+    - if (typeof obj.attr.raised !== undefined)
         - if (obj.attr.raised)
             - className += " section-raised"
-    div(class=className) #{obj.data}
+    - for (var i = 0; i < obj.data.length; ++i)
+        div(class=className) #{obj.data[i]}
