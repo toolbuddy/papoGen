@@ -1,7 +1,20 @@
 {
     "article": "Profile",
     "article_content": [{
-        "title": "Name",
+        "title": "PROFILE",
+        "content": [{
+            "type": "image",
+            "data": [
+                "../../test/tb.png"
+            ],
+            "attr": {
+                "avatar": true,
+                "centered": true,
+                "size": "big"
+            }
+        }]
+    }, {
+        "title": "NAME",
         "content": [{
             "type": "header",
             "data": "David Lu",
@@ -9,6 +22,15 @@
                 "size": "h1",
                 "sub": "Programmer",
                 "aligned": "center"
+            }
+        }]
+    }, {
+        "title": "LINKS",
+        "content": [{
+            "type": "divider",
+            "data": "Links",
+            "attr": {
+                "icon": "info circle"
             }
         }]
     }]

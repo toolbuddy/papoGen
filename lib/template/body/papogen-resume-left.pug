@@ -1,0 +1,55 @@
+- var article = namelist[0].article
+- var article_content = namelist[0].article_content
+
+- for (var i = 0; i < (article_content !== undefined ? article_content.length : 0); ++i)
+    - for (var c = 0; c < article_content[i].content.length; ++c)
+        - if (article_content[i].content[c].type == "text")
+            - for (var d = 0; d < article_content[i].content[c].data.length; ++d)
+                - if (article_content[i].content[c].data[d].toString().match(/[\u3400-\u9FBF]/))
+                    p(class="cn") #{article_content[i].content[c].data[d]}                                                    
+                - else
+                    p #{article_content[i].content[c].data[d]}
+        - if (article_content[i].content[c].type == "header")
+            - header_obj = { data: article_content[i].content[c].data, attr: article_content[i].content[c].attr }
+            +header(header_obj)
+        - if (article_content[i].content[c].type == "image")
+            - if (article_content[i].content[c].data.length > 1)
+                div(class="imgs img-" + article_content[i].content[c].attr.size) 
+                    - var image_obj = { data: article_content[i].content[c].data, attr: article_content[i].content[c].attr }
+                    +image(image_obj)
+            - else
+                - var image_obj = { data: article_content[i].content[c].data, attr: article_content[i].content[c].attr }
+                +image(image_obj)
+        - if (article_content[i].content[c].type == "divider")
+            - var divider_obj = { data: article_content[i].content[c].data, attr: article_content[i].content[c].attr }
+            +divider(divider_obj)
+        - if (article_content[i].content[c].type == "section")
+            - if (article_content[i].content[c].data.length > 1)
+                div(class="sections") 
+                    - var section_obj = { data: article_content[i].content[c].data, attr: article_content[i].content[c].attr }
+                    +section(section_obj)
+            - else
+                - var section_obj = { data: article_content[i].content[c].data, attr: article_content[i].content[c].attr }
+                +section(section_obj)
+        - if (article_content[i].content[c].type == "alert")
+            - var alert_obj = { data: article_content[i].content[c].data, attr: article_content[i].content[c].attr }
+            +alert(alert_obj)
+        - if (article_content[i].content[c].type == "timeline")
+            - var timeline_obj = { data: article_content[i].content[c].data, attr: article_content[i].content[c].attr }
+            +timeline(timeline_obj)
+        - if (article_content[i].content[c].type == "statistic")
+            - if (article_content[i].content[c].data.length > 1)
+                div(class="statistics") 
+                    - var statistic_obj = { data: article_content[i].content[c].data, attr: article_content[i].content[c].attr }
+                    +statistic(statistic_obj)
+            - else
+                - var statistic_obj = { data: article_content[i].content[c].data, attr: article_content[i].content[c].attr }
+                +statistic(statistic_obj)
+        - if (article_content[i].content[c].type == "code")
+            - for (var d = 0; d < article_content[i].content[c].data.length; ++d)
+                div(class="section" style="padding: 0rem")
+                    pre(style="margin: 0rem")
+                        code(class=article_content[i].content[c].data[d].lang) #{article_content[i].content[c].data[d].raw}
+        - if (article_content[i].content[c].type == "formula")                                          
+            - var formula_obj = { data: article_content[i].content[c].data, attr: { color: "grey" } }
+            +section(formula_obj)

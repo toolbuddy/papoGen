@@ -1,10 +1,9 @@
 - var article = namelist[1].article
 - var article_content = namelist[1].article_content
-- var header_obj = { data: namelist[1].article, attr: { size: "h2" } }
+- var header_obj = header_obj = { data: article, attr: { color: {}, size: "h2" } }
 +header(header_obj)
-
-- for (var i = 0; i < (article_content != undefined ? article_content.length : 0); ++i)
-    - header_obj = { data: article_content[i].title, attr: { color: "grey", divided: true, size: "h3" }, content: {} }
+- for (var i = 0; i < (article_content !== undefined ? article_content.length : 0); ++i)
+    - header_obj = { data: article_content[i].title, attr: { color: "grey", divided: true, size: "h3" } }
     +header(header_obj)
     - for (var c = 0; c < article_content[i].content.length; ++c)
         - if (article_content[i].content[c].type == "text")
@@ -13,6 +12,20 @@
                     p(class="cn") #{article_content[i].content[c].data[d]}                                                    
                 - else
                     p #{article_content[i].content[c].data[d]}
+        - if (article_content[i].content[c].type == "header")
+            - header_obj = { data: article_content[i].content[c].data, attr: article_content[i].content[c].attr }
+            +header(header_obj)
+        - if (article_content[i].content[c].type == "image")
+            - if (article_content[i].content[c].data.length > 1)
+                div(class="imgs img-" + article_content[i].content[c].attr.size) 
+                    - var image_obj = { data: article_content[i].content[c].data, attr: article_content[i].content[c].attr }
+                    +image(image_obj)
+            - else
+                - var image_obj = { data: article_content[i].content[c].data, attr: article_content[i].content[c].attr }
+                +image(image_obj)
+        - if (article_content[i].content[c].type == "divider")
+            - var divider_obj = { data: article_content[i].content[c].data, attr: article_content[i].content[c].attr }
+            +divider(divider_obj)
         - if (article_content[i].content[c].type == "section")
             - if (article_content[i].content[c].data.length > 1)
                 div(class="sections") 
@@ -35,3 +48,11 @@
             - else
                 - var statistic_obj = { data: article_content[i].content[c].data, attr: article_content[i].content[c].attr }
                 +statistic(statistic_obj)
+        - if (article_content[i].content[c].type == "code")
+            - for (var d = 0; d < article_content[i].content[c].data.length; ++d)
+                div(class="section" style="padding: 0rem")
+                    pre(style="margin: 0rem")
+                        code(class=article_content[i].content[c].data[d].lang) #{article_content[i].content[c].data[d].raw}
+        - if (article_content[i].content[c].type == "formula")                                          
+            - var formula_obj = { data: article_content[i].content[c].data, attr: { color: "grey" } }
+            +section(formula_obj)

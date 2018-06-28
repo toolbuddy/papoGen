@@ -1,18 +1,28 @@
 // papogen.css - Elements/Divider
 
+mixin divider_mixin(data, attr)
+    - if (typeof attr.icon !== undefined)
+        - var icon_obj = { data: attr.icon, attr: {} }
+        +icon(icon_obj)
+    - if (data !== "")
+        | #{data}
+
 mixin divider(obj)
     - var className = "divider"
-    - if (obj.attr.cleared != undefined)
+    - if (typeof obj.attr.cleared !== undefined)
         - if (obj.attr.cleared)
             - className += " divider-cleared"
-    - if (obj.attr.section != undefined)
+    - if (typeof obj.attr.section !== undefined)
         - if (obj.attr.section)
             - className += " divider-section"
-    - if (obj.attr.compact != undefined)
+    - if (typeof obj.attr.compact !== undefined)
         - if (obj.attr.compact)
             - className += " divider-compact"
-    - if (obj.attr.inverted != undefined)
+    - if (typeof obj.attr.inverted !== undefined)
         - if (obj.attr.inverted)
             - className += " divider-inverted"
+    - if (typeof obj.data !== undefined && obj.data !== "")
+        - className += " divider-h"
     div(class=className)
+        +divider_mixin(obj.data, obj.attr)
     

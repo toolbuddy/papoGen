@@ -45,14 +45,16 @@
     }, {
         "title": "VOLUNTEER WORK",
         "content": [{
-            "type": "timeline",
-            "attr": {
-                "color": "orange"
-            },
+            "type": "image",
             "data": [
-                "aaa",
-                "aaa"
-            ]
+                "../../test/tb.png",
+                "../../test/tb.png",
+                "../../test/tb.png"
+            ],
+            "attr": {
+                "rounded": true,
+                "size": "big"
+            }
         }]
     }, {
         "title": "REFERENCES",
@@ -71,6 +73,17 @@
                 "header": "NCKU Student,",
                 "content": "NCKU Student,"
             }]
+        }, {
+            "type": "code",
+            "data": [{
+                "raw": "papogen -s test/ -o docs/ -t papoGen",
+                "lang": "bash"
+            }]
+        }, {
+            "type": "formula",
+            "data": [
+                "`x = (-b +- sqrt(b^2-4ac))/(2a) .`"
+            ]
         }]
     }]
 }
