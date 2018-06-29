@@ -15,10 +15,10 @@
         - if (article_content[i].content[c].type == "image")
             - if (article_content[i].content[c].data.length > 1)
                 div(class="imgs img-" + article_content[i].content[c].attr.size) 
-                    - var image_obj = { data: article_content[i].content[c].data, attr: article_content[i].content[c].attr }
+                    - var image_obj = { data: article_content[i].content[c].data , attr: article_content[i].content[c].attr }
                     +image(image_obj)
             - else
-                - var image_obj = { data: article_content[i].content[c].data, attr: article_content[i].content[c].attr }
+                - var image_obj = { data: article_content[i].content[c].data , attr: article_content[i].content[c].attr }
                 +image(image_obj)
         - if (article_content[i].content[c].type == "divider")
             - var divider_obj = { data: article_content[i].content[c].data, attr: article_content[i].content[c].attr }
