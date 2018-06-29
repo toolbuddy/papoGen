@@ -107,9 +107,15 @@
         "content": [{
             "type": "image",
             "data": [
-                "../tb.png",
-                "../tb.png",
-                "../tb.png"
+                {
+                    "url": "../../tb.png"
+                },
+                {
+                    "url": "../../tb.png"
+                },
+                {
+                    "url": "../../tb.png"
+                }
             ],
             "attr": {
                 "rounded": true,

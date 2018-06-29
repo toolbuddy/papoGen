@@ -24,4 +24,4 @@ mixin image(obj)
         - if (obj.attr.avatar)
             - className += " img-avatar"
     - for (var i = 0; i < obj.data.length; ++i)
-        img(class=className src=obj.data[i])/
+        img(class=className src=obj.data[i].url)/
