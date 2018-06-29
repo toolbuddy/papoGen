@@ -8,19 +8,19 @@
                 "./res/avatar.png"
             ],
             "attr": {
-                "avatar": true,
+                "circular": true,
                 "centered": true,
-                "size": "small"
+                "size": "tiny"
             }
         }]
     }, {
         "title": "NAME",
         "content": [{
             "type": "header",
-            "data": "David Lu",
+            "data": "Toolbuddy",
             "attr": {
                 "size": "h1",
-                "sub": "Graduated Student",
+                "sub": "Student",
                 "aligned": "center"
             }
         }]
@@ -39,7 +39,7 @@
             "type": "list",
             "attr": {},
             "data": [{
-                    "link": "tb@imslab.org",
+                    "link": "mailto:tb@imslab.org",
                     "icon": "mail",
                     "name": "Mail"
                 },

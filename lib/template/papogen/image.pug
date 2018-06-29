@@ -14,6 +14,9 @@ mixin image(obj)
     - if (typeof obj.attr.rounded !== undefined)
         - if (obj.attr.rounded)
             - className += " img-rounded"
+    - if (typeof obj.attr.circular !== undefined)
+        - if (obj.attr.circular)
+            - className += " img-circular"
     - if (typeof obj.attr.fluid !== undefined)
         - if (obj.attr.fluid)
             - className += " img-fluid"

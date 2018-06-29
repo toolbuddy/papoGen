@@ -14,8 +14,22 @@
             "type": "statistic",
             "attr": {},
             "data": [{
-                "value": "50%",
-                "label": "Statistic"
+                "value": {
+                    "content": "70%"
+                },
+                "label": "papogen"
+            }, {
+                "value": {
+                    "content": "5",
+                    "icon": "plane"
+                },
+                "label": "FLIGHTS"
+            }, {
+                "value": {
+                    "content": "5",
+                    "img": "./res/avatar.png"
+                },
+                "label": "TEAM MEMBERS"
             }]
         }]
     }, {
@@ -45,32 +59,22 @@
                 "bulleted": true
             },
             "data": [{
-                    "icon": "marker",
-                    "name": "normal text",
-                    "detail": "Detail"
+                    "name": "國立成功大學",
+                    "detail": "National Cheng Kung University"
                 },
                 {
-                    "icon": "mail",
-                    "name": "image",
+                    "name": "資訊工程學系",
+                    "detail": "Dept. of Computer Science and Information Engineering",
                     "items": [{
-                            "name": "Just specified the image file under your computer.",
-                            "items": [{
-                                "name": "Or just specified through 'http://...', resources on internet."
-                            }]
+                            "name": "資訊工程研究所",
+                            "detail": "Inst. of Computer Science and Information Engineering"
                         },
                         {
-                            "name": "And papoGen will fetch that file and resolve into output for you!"
-                        }
-                    ]
-                },
-                {
-                    "icon": "users",
-                    "name": "formula",
-                    "items": [{
-                            "name": "MathJax format"
-                        },
-                        {
-                            "name": "As a good tool to build math tutorial!"
+                            "name": "生醫資訊研究所",
+                            "detail": "Inst. of Medical Informatics"
+                        }, {
+                            "name": "製造資訊研究所",
+                            "detail": "Inst. of Manufacturing Information and Systems"
                         }
                     ]
                 }
@@ -107,31 +111,25 @@
         "content": [{
             "type": "image",
             "data": [
-                "../tb.png",
-                "../tb.png",
-                "../tb.png"
+                "./res/tb.png",
+                "./res/tb.png",
+                "./res/tb.png"
             ],
             "attr": {
-                "rounded": true,
-                "size": "big"
+                "circular": true,
+                "size": "small"
             }
         }]
     }, {
         "title": "REFERENCES",
         "content": [{
-            "type": "text",
-            "data": [
-                "NCKU Student,",
-                "Major in Networking/SDN/P4\n"
-            ]
-        }, {
             "type": "alert",
             "attr": {
                 "status": "info"
             },
             "data": [{
-                "header": "NCKU Student,",
-                "content": "NCKU Student,"
+                "header": "NCKU Student",
+                "content": "NCKU Student"
             }]
         }, {
             "type": "code",

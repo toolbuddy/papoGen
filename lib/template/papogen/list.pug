@@ -4,33 +4,27 @@ include icon.pug
 mixin list_mixin(data, attr)
     - for (var i = 0; i < data.length; ++i)
         div(class="item")
-            - if (typeof attr.bulleted === undefined && typeof data[i].icon !== undefined)
+            - if (data[i].icon !== undefined)
                 - var icon_obj = { data: data[i].icon, attr: {} }
                 +icon(icon_obj)
+            - if (typeof data[i].detail === undefined)
+                - if (typeof data[i].name !== undefined)
+                    - if (typeof data[i].link === undefined)
+                        | #{data[i].name}
+                    - else
+                        a(href=data[i].link) #{data[i].name}
             - else
-                - if (typeof data[i].detail === undefined && typeof data[i].name !== undefined)
-                    - if (typeof data[i].link !== undefined)
-                        - if (data[i].name === "Mail" || data[i].name == "mail")
-                            a(mailto=data[i].link) #{data[i].name}
+                div(class="item-content")
+                    div(class="item-hdr")
+                        - if (typeof data[i].link === undefined)
+                            | #{data[i].name}
                         - else
                             a(href=data[i].link) #{data[i].name}
-                    - else
-                        | #{data[i].name}
-                - else
-                    div(class="item-content")
-                        div(class="item-hdr")
-                            - if (typeof data[i].link !== undefined)
-                                - if (data[i].name === "Mail" || data[i].name == "mail")
-                                    a(mailto=data[i].link) #{data[i].name}
-                                - else
-                                    a(href=data[i].link) #{data[i].name}
-                            - else
-                                | #{data[i].name}
-                    - if (typeof data[i].detail !== undefined)
-                        div(class="item-detail") #{data[i].detail}
-                    - if (data[i].items !== undefined)
-                        div(class="list")
-                            +list_mixin(data[i].items, {})
+                - if (typeof data[i].detail !== undefined)
+                    div(class="item-detail") #{data[i].detail}
+                - if (data[i].items !== undefined)
+                    div(class="list")
+                        +list_mixin(data[i].items, {})
 
 mixin list(obj)
     - var className = "list"

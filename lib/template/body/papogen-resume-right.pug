@@ -45,14 +45,15 @@
             +timeline(timeline_obj)
         - if (article_content[i].content[c].type == "statistic")
             - if (article_content[i].content[c].data.length > 1)
-                div(class="statistics") 
-                    - var statistic_obj = { data: article_content[i].content[c].data, attr: article_content[i].content[c].attr }
-                    +statistic(statistic_obj)
+                div(class="statistics")
+                    - for (var d = 0; d < article_content[i].content[c].data.length; ++d)
+                        - var statistic_obj = { data: article_content[i].content[c].data[d], attr: article_content[i].content[c].attr }
+                        +statistic(statistic_obj)
             - else
-                - var statistic_obj = { data: article_content[i].content[c].data, attr: article_content[i].content[c].attr }
+                - var statistic_obj = { data: article_content[i].content[c].data[0], attr: article_content[i].content[c].attr }
                 +statistic(statistic_obj)
         - if (article_content[i].content[c].type == "table")
-            - var table_obj = { data: article_content[i].content[c].data, attr: { monotonic: true, selectable: true }, content: undefined }
+            - var table_obj = { data: article_content[i].content[c].data, attr: { monotonic: true, selectable: true } }
             +table(table_obj)
         - if (article_content[i].content[c].type == "code")
             - for (var d = 0; d < article_content[i].content[c].data.length; ++d)

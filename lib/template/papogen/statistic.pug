@@ -5,17 +5,18 @@ include image.pug
 
 mixin statistic_mixin(data, attr)
     div(class="statistic-value")
-        - if (attr.icon != undefined)
-            - var icon_obj = { data: attr.icon, attr: {}, content: {} }
-            +icon(icon_obj)
-        - if (attr.img != undefined)
-            - var img_obj = { data: attr.img, attr: { avatar: true, inline: true, size: "mini" } }
-            +image(img_obj)
-        - if (data.value != undefined)
-        | #{data[0].value}
+        - if (typeof data.value !== undefined)
+            - if (data.value.icon !== undefined)
+                - var icon_obj = { data: data.value.icon, attr: {} }
+                +icon(icon_obj)
+            - if (data.value.img !== undefined)
+                - var img_obj = { data: [ data.value.img ], attr: { avatar: true, inline: true, size: "mini" } }
+                +image(img_obj)
+            - if (data.value.content !== undefined)
+                | #{data.value.content}
     div(class="statistic-label")
-        - if (data.label != undefined)
-        | #{data[0].label}
+        - if (typeof data.label !== undefined)
+            | #{data.label}
 
 mixin statistic(obj)
     - var className = "statistic"
