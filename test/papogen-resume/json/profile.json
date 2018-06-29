@@ -5,7 +5,9 @@
         "content": [{
             "type": "image",
             "data": [
-                "./res/avatar.png"
+                {
+                    "url": "../../avatar.png"
+                }
             ],
             "attr": {
                 "avatar": true,
