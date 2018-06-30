@@ -110,8 +110,7 @@
         "title": "VOLUNTEER WORK",
         "content": [{
             "type": "image",
-            "data": [
-                {
+            "data": [{
                     "url": "../../tb.png"
                 },
                 {

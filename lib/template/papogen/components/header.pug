@@ -1,25 +1,25 @@
 // papogen.css - Elements/Header
 
 mixin header_mixin(data, attr)
-    - if (typeof attr.icon !== undefined && typeof attr.img === undefined)
-        - if (typeof attr.icon !== undefined)
+    - if (attr.icon !== undefined && attr.img === undefined)
+        - if (attr.icon !== undefined)
             - var icon_obj = { data: attr.icon, attr: {} }
             +icon(icon_obj)
-        - if (typeof data !== undefined)
+        - if (data !== undefined)
+            div(class="hdr-content") #{data}
+                - if (attr.sub !== undefined)
+                    div(class="hdr hdr-sub") #{attr.sub}
+    - if (attr.icon === undefined && attr.img !== undefined)
+        - if (attr.img !== undefined)
+            img(src=attr.img)
+        - if (data !== undefined)
+            div(class="hdr-content") #{data}
+                - if (attr.sub !== undefined)
+                    div(class="hdr hdr-sub") #{attr.sub}
+    - if (attr.icon === undefined && attr.img === undefined)
         div(class="hdr-content") #{data}
-            - if (typeof attr.sub !== undefined)
-            div(class="hdr hdr-sub") #{attr.sub}
-    - if (typeof attr.icon === undefined && typeof attr.img !== undefined)
-        - if (typeof attr.img !== undefined)
-        img(src=attr.img)
-        - if (typeof data !== undefined)
-        div(class="hdr-content") #{data}
-            - if (typeof attr.sub !== undefined)
-            div(class="hdr hdr-sub") #{attr.sub}
-    - if (typeof attr.icon === undefined && typeof attr.img === undefined)
-    div(class="hdr-content") #{data}
-        - if (typeof attr.sub !== undefined)
-        div(class="hdr hdr-sub") #{attr.sub}
+            - if (attr.sub !== undefined)
+                div(class="hdr hdr-sub") #{attr.sub}
 
 mixin header(obj)
     - var className = "hdr"
