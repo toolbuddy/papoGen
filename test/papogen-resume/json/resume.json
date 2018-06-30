@@ -111,9 +111,15 @@
         "content": [{
             "type": "image",
             "data": [
-                "./res/tb.png",
-                "./res/tb.png",
-                "./res/tb.png"
+                {
+                    "url": "../../tb.png"
+                },
+                {
+                    "url": "../../tb.png"
+                },
+                {
+                    "url": "../../tb.png"
+                }
             ],
             "attr": {
                 "circular": true,
