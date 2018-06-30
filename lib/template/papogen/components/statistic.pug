@@ -5,7 +5,7 @@ include image.pug
 
 mixin statistic_mixin(data, attr)
     div(class="statistic-value")
-        - if (typeof data.value !== undefined)
+        - if (data.value !== undefined)
             - if (data.value.icon !== undefined)
                 - var icon_obj = { data: data.value.icon, attr: {} }
                 +icon(icon_obj)
