@@ -147,6 +147,7 @@ For more information about *papoGen*, you can refer our [wiki](https://github.co
 
 * See [here](https://github.com/toolbuddy/papoGen/wiki).
 * Screenshot
+
     | Version | Table of Vontent | Main Page |
     | ------- | ------- | ------- |
     | `v0.2.2` | ![](res/v0.2.2_toc.png) | ![](res/v0.2.2_preview.png) |  
