@@ -1,4 +1,4 @@
-# Template usage
+# Template Usage
 
 以下將說明說明如何自製模板 (template)。
 
