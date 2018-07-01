@@ -11,7 +11,7 @@ If you feel `papogen` is good, hope you can give a `star`!
 ---
 ## About
 
-*papoGen* is a static webpage's generator. To generate a webpage, you won't need to have web development experience. Only need do is know the format of Markdown, JSON and YAML. Then you can generate your own webpage by our pre-defined templates. Besides, if you want to design your own style of web page, you can also develop your own template by *papoGen* without having too much time. *papoGen* is developed by [*Toolbuddy*](https://github.com/toolbuddy). If you have like *papoGen* or our other tools, please give us a "star"! If you have any problem or suggestion, please feel free to contact us. We'd love to help you.
+*papoGen* is a static webpage generator. To generate a webpage, you won't need to have web development experience. Only need do is know the format of Markdown, JSON and YAML. Then you can generate your own webpage by our pre-defined templates. Besides, if you want to design your own style of web page, you can also develop your own template by *papoGen* without having too much time. *papoGen* is developed by [*Toolbuddy*](https://github.com/toolbuddy). If you have like *papoGen* or our other tools, please give us a "star"! If you have any problem or suggestion, please feel free to contact us. We'd love to help you.
 
 ---
 ## Usage
