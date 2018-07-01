@@ -1,0 +1,60 @@
+article: Profile,
+article_content:
+    - {
+        title: PROFILE,
+        content: [
+            {
+                type: image,
+                data: [
+                    {
+                        url: ../../avatar.png
+                    }
+                ],
+                attr: {
+                    circular: true,
+                    centered: true,
+                    size: tiny
+                }
+            }
+        ]
+    }
+    - {
+        title: NAME,
+        content: [{
+            type: header,
+            data: Toolbuddy,
+            attr: {
+                size: h1,
+                sub: Student,
+                aligned: center
+            }
+        }]
+    }
+    - {
+        title: DIVIDER,
+        content: [{
+            type: divider,
+            data: Links,
+            attr: {
+                icon: info circle
+            }
+        }]
+    }
+    - {
+        title: LINKS,
+        content: [{
+            type: list,
+            attr: {},
+            data: [{
+                    link: mailto:tb@imslab.org,
+                    icon: mail,
+                    name: Mail
+                },
+                {
+                    link: https://toolbuddy.github.io/,
+                    icon: github,
+                    name: GitHub
+                }
+            ]
+        }]
+    }
