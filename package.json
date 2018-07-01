@@ -25,6 +25,7 @@
     "commander": "^2.12.2",
     "filehound": "^1.16.2",
     "fs": "0.0.1-security",
+    "fs-extra": "^5.0.0",
     "js-yaml": "^3.10.0",
     "jsdom": "^11.11.0",
     "jsonfile": "^4.0.0",
@@ -32,23 +33,11 @@
     "markdown-it-replace-link": "^1.0.1",
     "mkdirp": "^0.5.1",
     "moment": "^2.20.0",
-    "phantom": "^6.0.0",
+    "phantomjs": "^2.1.7",
+    "phantom": "^6.0.3",
     "pug": "^2.0.0-rc.4"
   },
   "homepage": "https://github.com/toolbuddy/papoGen#readme",
-  "devDependencies": {
-    "chalk": "^2.3.0",
-    "commander": "^2.12.2",
-    "filehound": "^1.16.2",
-    "fs-extra": "^5.0.0",
-    "js-yaml": "^3.10.0",
-    "jsonfile": "^4.0.0",
-    "markdown-it": "^8.4.0",
-    "markdown-it-replace-link": "^1.0.1",
-    "mkdirp": "^0.5.1",
-    "moment": "^2.20.0",
-    "pug": "^2.0.0-rc.4"
-  },
   "bin": {
     "papogen": "main.js"
   }
