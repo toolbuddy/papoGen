@@ -11,7 +11,7 @@ If you feel *papoGen* is good, hope you can give a `star`!
 ---
 ## About
 
-*papoGen* is a static webpage generator. To generate a webpage, you won't need to have web development experience. Only need do is know the format of Markdown, JSON, and YAML. Then you can generate your own webpage by our pre-defined templates. Besides, if you want to design your own style of web page, you can also develop your own template by *papoGen* without having too much time. *papoGen* is developed by [*Toolbuddy*](https://github.com/toolbuddy). If you have like *papoGen* or our other tools, please give us a "star"! If you have any problem or suggestion, please feel free to contact us. We'd love to help you.
+*papoGen* is a simplified static webpage generator. You do not need any prior experience in web development to generate your webpage; the only prerequisite is a basic understanding of Markdown, JSON, and YAML. You can design your template or use any of our stock templates to generate pages of your own with little to no time at all. *papoGen* is developed by [*Toolbuddy*](https://github.com/toolbuddy). If you like *papoGen* or any of our other tools, please give us a star! If you have any problem or suggestion, please feel free to contact us. We'd love to help you.
 
 ---
 ## Usage
@@ -81,7 +81,7 @@ If you feel *papoGen* is good, hope you can give a `star`!
 
 * Use Markdown format as configuration
 * Different from the following format
-* Generate from the file in Markdown directly
+* Generate from Markdown files
 * Support multiple Markdown files as input
 * Supporting model: `md_doc`
 * Example command
@@ -101,7 +101,7 @@ If you feel *papoGen* is good, hope you can give a `star`!
     ```
 
 * After specifying the `src` directory, *PaperCSS* will fetch all the JSON files under `src`, and use the *filename* for each as "tag" in output.
-* *papoGen* will base on the specified format to generate your content (see more detail below)
+* *papoGen* will base on the specified format and generate your content (see more detail below)
     * Currently support: `text` (see the source directory: `test/` as input, and destination directory: `docs/` as output)
 
 ### Format: YAML
@@ -117,7 +117,7 @@ If you feel *papoGen* is good, hope you can give a `star`!
     ```
 
 * After specifying the `src/` directory, *PaperCSS* will fetch all files in JSON format under `src/`, and use the *filename* for each as "tag" in output.
-* *papoGen* will base on the specified format to generate content (see more detail below)
+* *papoGen* will base on the specified format and generate content (see more detail below)
     * Currently support: `text` (see the source directory: `test/` as input, and destination directory: `docs/` as output)
 
 ---
