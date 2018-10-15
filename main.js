@@ -104,7 +104,7 @@ if (process.argv.length > 2) {
             return;
         }
 
-        // Get all the .json with specify src
+        // Get all the .json with specific src
         switch (program.model) {
             case 'doc':
                 console.log(`Source directory: ${program.src}, Output directory: ${program.out}`)
