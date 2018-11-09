@@ -23,7 +23,7 @@ rm ERR LOG > /dev/null 2>&1
 # 1) ============================================================== Run json example
 # running json - doc format test
 TESTCASE=$((TESTCASE+1))
-${EXEC} -s ${SRC}json -o /tmp > ${TMP}
+${EXEC} -s ${SRC}json -o /tmp/json > ${TMP}
 error=$?
 if [ "${error}" == "0" ]
 then
@@ -40,7 +40,7 @@ else
 fi
 # running json - resume format test
 TESTCASE=$((TESTCASE+1))
-${EXEC} -s ${SRC}json -o /tmp -m resume > ${TMP}
+${EXEC} -s ${SRC}json -o /tmp/json-resume -m resume > ${TMP}
 error=$?
 if [ "${error}" == "0" ]
 then 
@@ -59,7 +59,7 @@ fi
 # 2) ============================================================== Run yaml example
 # running yaml - doc format test
 TESTCASE=$((TESTCASE+1))
-${EXEC} -s ${SRC}yaml -o /tmp -g yaml -m doc > ${TMP}
+${EXEC} -s ${SRC}yaml -o /tmp/yaml-doc -g yaml -m doc > ${TMP}
 error=$?
 if [ "${error}" == "0" ]
 then
@@ -77,7 +77,7 @@ fi
 
 # running yaml - resume format test
 TESTCASE=$((TESTCASE+1))
-${EXEC} -s ${SRC}yaml -o /tmp -g yaml -m resume > ${TMP}
+${EXEC} -s ${SRC}yaml -o /tmp/yaml-resume -g yaml -m resume > ${TMP}
 error=$?
 if [ "${error}" == "0" ]
 then
@@ -96,7 +96,7 @@ fi
 # 3) ============================================================== Run Markdown example
 # running markdown - md_doc format test
 TESTCASE=$((TESTCASE+1))
-${EXEC} -s ${SRC}md -o /tmp -g md -m md_doc > ${TMP}
+${EXEC} -s ${SRC}md -o /tmp/md -g md -m md_doc > ${TMP}
 error=$?
 if [ "${error}" == "0" ]
 then
