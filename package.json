@@ -29,7 +29,7 @@
     "js-yaml": "^3.12.0",
     "jsdom": "^11.12.0",
     "jsonfile": "^4.0.0",
-    "markdown-it": "^8.4.2",
+    "markdown-it": "^12.3.2",
     "markdown-it-replace-link": "^1.0.1",
     "mkdirp": "^0.5.1",
     "moment": "^2.22.2",
